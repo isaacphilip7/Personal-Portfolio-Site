@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown } from "lucide-react";
+import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 const companies = [
@@ -74,20 +74,45 @@ const companies = [
 
 export default function Home() {
   const [openCompany, setOpenCompany] = useState<string | null>("Cognizant");
+  const [isDark, setIsDark] = useState(() => {
+    const stored = localStorage.getItem("theme");
+    return stored ? stored === "dark" : true;
+  });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground dark selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
-            ISAAC<span className="text-primary">_</span>PHILIP
+            isaac<span className="text-primary">_</span>philip
           </a>
-          <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
-            <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
-            <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+          <div className="flex items-center gap-8">
+            <div className="hidden md:flex items-center gap-8 text-sm">
+              <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
+              <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+              <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+            </div>
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="w-9 h-9 flex items-center justify-center border border-border hover:bg-muted transition-colors"
+              data-testid="toggle-theme"
+              aria-label="Toggle theme"
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
           </div>
         </div>
       </nav>
@@ -103,17 +128,17 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-primary mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-8">
               <Sparkles className="w-3 h-3" />
               <span>UX Craftsman + AI Pragmatist</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
-              Designing software that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">actually works.</span>
+              Creating solutions that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">tug at your heart strings.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-              I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens make sense.
+              I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens work.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -127,7 +152,7 @@ export default function Home() {
               </a>
               <a
                 href="mailto:isaacphilip7@gmail.com"
-                className="inline-flex items-center justify-center h-12 px-8 border border-white/10 hover:bg-white/5 font-medium transition-all"
+                className="inline-flex items-center justify-center h-12 px-8 border border-border hover:bg-muted font-medium transition-all"
                 data-testid="hero-btn-contact"
               >
                 Let's Talk
@@ -138,7 +163,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 px-6 border-t border-white/5 bg-black/20">
+      <section id="about" className="py-24 px-6 border-t border-border bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -173,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section — blank, to be populated */}
-      <section id="projects" className="py-24 px-6 border-t border-white/5">
+      <section id="projects" className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -189,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 px-6 border-t border-white/5 bg-black/20">
+      <section id="experience" className="py-24 px-6 border-t border-border bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -203,7 +228,7 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="space-y-0 divide-y divide-white/5">
+          <div className="space-y-0 divide-y divide-border">
             {companies.map((job, i) => (
               <motion.div
                 key={job.company}
@@ -252,14 +277,14 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 12 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.3, delay: j * 0.07 }}
-                                className="group p-6 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors relative overflow-hidden"
+                                className="group p-6 border border-border bg-background hover:bg-muted/50 transition-colors relative overflow-hidden"
                               >
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                                 <div className="relative z-10">
-                                  <Badge variant="outline" className="mb-4 border-white/20 text-muted-foreground text-xs">{project.tag}</Badge>
+                                  <Badge variant="outline" className="mb-4 text-xs">{project.tag}</Badge>
                                   <h4 className="text-lg font-bold mb-3">{project.title}</h4>
                                   <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{project.desc}</p>
-                                  <div className="pt-4 border-t border-white/10">
+                                  <div className="pt-4 border-t border-border">
                                     <span className="text-primary font-medium text-sm">{project.stat}</span>
                                   </div>
                                 </div>
@@ -278,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 border-t border-white/5">
+      <section id="skills" className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
             <span className="text-primary">04.</span> Toolkit & Craft
@@ -286,7 +311,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12">
             <div>
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
                 <Paintbrush className="text-primary" />
                 <h3 className="text-xl font-bold">Design Tooling</h3>
               </div>
@@ -301,7 +326,7 @@ export default function Home() {
             </div>
 
             <div>
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
                 <Code2 className="text-accent" />
                 <h3 className="text-xl font-bold">AI & Dev</h3>
               </div>
@@ -316,14 +341,14 @@ export default function Home() {
             </div>
 
             <div>
-              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                <Layers className="text-white/60" />
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-border">
+                <Layers className="text-foreground/40" />
                 <h3 className="text-xl font-bold">Core Craft</h3>
               </div>
               <ul className="space-y-4">
                 {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture'].map(skill => (
                   <li key={skill} className="flex items-center gap-3 text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/20" />
                     {skill}
                   </li>
                 ))}
@@ -334,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* Awards & Certs */}
-      <section className="py-24 px-6 border-t border-white/5 bg-black/20">
+      <section className="py-24 px-6 border-t border-border bg-muted/30">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
@@ -369,7 +394,7 @@ export default function Home() {
                 { title: "Google UX Certification", desc: "Coursera / Google" }
               ].map((cert, i) => (
                 <li key={i} className="flex gap-4">
-                  <div className="w-5 h-5 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-5 h-5 rounded bg-muted border border-border flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                   </div>
                   <div>
@@ -384,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="py-24 px-6 border-t border-white/5 relative overflow-hidden">
+      <footer id="contact" className="py-24 px-6 border-t border-border relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 rounded-t-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -402,7 +427,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+          <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <p>Based in Chennai, India.</p>
             <p>Designed with intention. Built for scale.</p>
           </div>
