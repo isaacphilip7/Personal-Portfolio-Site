@@ -1,12 +1,79 @@
-import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2 } from "lucide-react";
-import { SiFigma, SiAdobexd, SiAdobeillustrator, SiAdobephotoshop, SiGithubcopilot, SiAdobe } from "react-icons/si";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+const companies = [
+  {
+    company: "Cognizant",
+    role: "Senior UX Designer",
+    time: "Oct 2022 – Present",
+    desc: "Leading UX for massive enterprise modernization efforts and AI accelerators.",
+    projects: [
+      {
+        title: "Neuro AI Multi-Agent Accelerator",
+        desc: "Designing the next-generation UI for an AI agent studio. Making agent orchestration intuitive.",
+        stat: "Next-Gen UI",
+        tag: "AI / UX"
+      },
+      {
+        title: "Commitment Management AI",
+        desc: "Re-imagined the commitment creation process from the ground up, integrating AI assistance.",
+        stat: "50% Time Reduction",
+        tag: "Enterprise"
+      },
+      {
+        title: "Contract Signature Application",
+        desc: "End-to-end digital transformation creating a single-window service for enterprise contracts.",
+        stat: "Full Transformation",
+        tag: "B2B SaaS"
+      },
+      {
+        title: "Contracts Storage System",
+        desc: "Migrated users from scattered email threads to a centralized, intuitive application.",
+        stat: "90%+ Adoption",
+        tag: "Workflow"
+      }
+    ]
+  },
+  {
+    company: "TCS",
+    role: "UX Designer / Design Lead — L&D",
+    time: "Jun 2016 – Sep 2022",
+    desc: "Bagged 10x On The Spot awards for consistently delivering high-quality enterprise interfaces.",
+    projects: [
+      {
+        title: "CXO Dashboard — Pharma",
+        desc: "Designed the landing page for a CXO analytics dashboard surfacing live business insights; primary UX advocate for the project.",
+        stat: "Executive-Level UX",
+        tag: "Analytics"
+      },
+      {
+        title: "L&D Digital Transformation",
+        desc: "Led cloud migration of learning processes; conducted user research for 30,000+ associates globally. 40,000+ associates completed a fully digital learning experience within one year.",
+        stat: "40k+ Associates",
+        tag: "Digital Learning"
+      }
+    ]
+  },
+  {
+    company: "Go4runs",
+    role: "Graphic Designer",
+    time: "May 2013 – Apr 2014",
+    desc: "Created graphic design assets for clients including NAC Jewellers, Footprints Holidays, and eAmbalam. Executed campaigns improving organic social reach.",
+    projects: []
+  },
+  {
+    company: "Ogilvy",
+    role: "Graphic Design Intern",
+    time: "May 2012 – Jun 2012",
+    desc: "Contributed to design for Vodafone, The Hindu, and MTR. Declined a full-time offer upon completion to finish my degree. A tough call that paid off.",
+    projects: []
+  }
+];
+
 export default function Home() {
-  const { scrollYProgress } = useScroll();
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const [openCompany, setOpenCompany] = useState<string | null>("Cognizant");
 
   return (
     <div className="min-h-screen bg-background text-foreground dark selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
@@ -17,9 +84,9 @@ export default function Home() {
             ISAAC<span className="text-primary">_</span>PHILIP
           </a>
           <div className="hidden md:flex items-center gap-8 text-sm">
-            <a href="#work" className="text-muted-foreground hover:text-foreground transition-colors">Work</a>
-            <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+            <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
             <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+            <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           </div>
         </div>
@@ -27,10 +94,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex items-center justify-center min-h-[90vh]">
-        {/* Glow Effects */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -41,26 +107,26 @@ export default function Home() {
               <Sparkles className="w-3 h-3" />
               <span>UX Craftsman + AI Pragmatist</span>
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
               Designing software that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">actually works.</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
               I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens make sense.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a 
-                href="#work" 
+              <a
+                href="#projects"
                 className="group relative inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-primary/90 font-medium transition-all"
-                data-testid="hero-btn-work"
+                data-testid="hero-btn-projects"
               >
-                View Selected Work
+                View Projects
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a 
-                href="mailto:isaacphilip7@gmail.com" 
+              <a
+                href="mailto:isaacphilip7@gmail.com"
                 className="inline-flex items-center justify-center h-12 px-8 border border-white/10 hover:bg-white/5 font-medium transition-all"
                 data-testid="hero-btn-contact"
               >
@@ -83,7 +149,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold mb-12 flex items-center gap-4">
               <span className="text-primary">01.</span> Who I am
             </h2>
-            
+
             <div className="grid md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
               <div className="space-y-6">
                 <p>
@@ -106,9 +172,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work Section */}
-      <section id="work" className="py-24 px-6 border-t border-white/5">
+      {/* Projects Section — blank, to be populated */}
+      <section id="projects" className="py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-bold flex items-center gap-4">
+              <span className="text-primary">02.</span> Projects
+            </h2>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-24 px-6 border-t border-white/5 bg-black/20">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -117,55 +199,78 @@ export default function Home() {
             className="mb-16"
           >
             <h2 className="text-3xl font-bold flex items-center gap-4">
-              <span className="text-primary">02.</span> Selected Impact
+              <span className="text-primary">03.</span> Experience
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Neuro AI Multi-Agent Accelerator",
-                desc: "Designing the next-generation UI for an AI agent studio. Making agent orchestration intuitive.",
-                stat: "Next-Gen UI",
-                tag: "AI / UX"
-              },
-              {
-                title: "Commitment Management AI",
-                desc: "Re-imagined the commitment creation process from the ground up, integrating AI assistance.",
-                stat: "50% Time Reduction",
-                tag: "Enterprise"
-              },
-              {
-                title: "Contract Signature Application",
-                desc: "End-to-end digital transformation creating a single-window service for enterprise contracts.",
-                stat: "Full Transformation",
-                tag: "B2B SaaS"
-              },
-              {
-                title: "Contracts Storage System",
-                desc: "Migrated users from scattered email threads to a centralized, intuitive application.",
-                stat: "90%+ Adoption",
-                tag: "Workflow"
-              }
-            ].map((project, i) => (
+          <div className="space-y-0 divide-y divide-white/5">
+            {companies.map((job, i) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
+                key={job.company}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors relative overflow-hidden"
+                transition={{ duration: 0.4, delay: i * 0.08 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="relative z-10">
-                  <Badge variant="outline" className="mb-6 border-white/20 text-muted-foreground">{project.tag}</Badge>
-                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
-                  <p className="text-muted-foreground mb-8">{project.desc}</p>
-                  <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-primary font-medium">{project.stat}</span>
-                    <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-primary transition-colors" />
+                <button
+                  onClick={() => setOpenCompany(openCompany === job.company ? null : job.company)}
+                  className="w-full text-left py-8 flex items-start justify-between gap-4 group cursor-pointer"
+                  data-testid={`experience-toggle-${job.company.toLowerCase()}`}
+                >
+                  <div className="flex-1">
+                    <div className="flex flex-col md:flex-row md:items-baseline gap-1 md:gap-4 mb-1">
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                        {job.company}
+                      </h3>
+                      <span className="text-sm text-muted-foreground">{job.time}</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">{job.role}</p>
                   </div>
-                </div>
+                  <ChevronDown
+                    className={`w-5 h-5 text-muted-foreground shrink-0 mt-1 transition-transform duration-300 ${openCompany === job.company ? "rotate-180 text-primary" : ""}`}
+                  />
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {openCompany === job.company && (
+                    <motion.div
+                      key="content"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-8">
+                        <p className="text-muted-foreground mb-8 text-sm leading-relaxed">{job.desc}</p>
+
+                        {job.projects.length > 0 && (
+                          <div className="grid md:grid-cols-2 gap-4">
+                            {job.projects.map((project, j) => (
+                              <motion.div
+                                key={j}
+                                initial={{ opacity: 0, y: 12 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.3, delay: j * 0.07 }}
+                                className="group p-6 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors relative overflow-hidden"
+                              >
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                                <div className="relative z-10">
+                                  <Badge variant="outline" className="mb-4 border-white/20 text-muted-foreground text-xs">{project.tag}</Badge>
+                                  <h4 className="text-lg font-bold mb-3">{project.title}</h4>
+                                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{project.desc}</p>
+                                  <div className="pt-4 border-t border-white/10">
+                                    <span className="text-primary font-medium text-sm">{project.stat}</span>
+                                  </div>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             ))}
           </div>
@@ -173,10 +278,10 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 border-t border-white/5 bg-black/20">
+      <section id="skills" className="py-24 px-6 border-t border-white/5">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-primary">03.</span> Toolkit & Craft
+            <span className="text-primary">04.</span> Toolkit & Craft
           </h2>
 
           <div className="grid md:grid-cols-3 gap-12">
@@ -224,53 +329,6 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Experience Timeline */}
-      <section id="experience" className="py-24 px-6 border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-primary">04.</span> The Journey
-          </h2>
-
-          <div className="space-y-12">
-            {[
-              {
-                role: "Senior UX Designer",
-                company: "Cognizant",
-                time: "Oct 2022 – Present",
-                desc: "Leading UX for massive enterprise modernization efforts and AI accelerators."
-              },
-              {
-                role: "UX Designer",
-                company: "TCS",
-                time: "Jun 2016 – Sep 2022",
-                desc: "Bagged 10x On The Spot awards for consistently delivering high-quality enterprise interfaces."
-              },
-              {
-                role: "Designer",
-                company: "Go4runs",
-                time: "2013 – 2014",
-                desc: "Early stage design work that laid the foundation for my visual craft."
-              },
-              {
-                role: "Intern",
-                company: "Ogilvy",
-                time: "2012",
-                desc: "Declined a full-time offer to complete my degree. A tough call that paid off."
-              }
-            ].map((job, i) => (
-              <div key={i} className="relative pl-8 border-l border-white/10">
-                <div className="absolute w-3 h-3 bg-background border border-primary rounded-full -left-[6.5px] top-2" />
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
-                  <h3 className="text-xl font-bold">{job.role} <span className="text-primary">@ {job.company}</span></h3>
-                  <span className="text-sm text-muted-foreground font-mono">{job.time}</span>
-                </div>
-                <p className="text-muted-foreground">{job.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -328,22 +386,22 @@ export default function Home() {
       {/* Footer */}
       <footer id="contact" className="py-24 px-6 border-t border-white/5 relative overflow-hidden">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 rounded-t-full blur-[100px] pointer-events-none" />
-        
+
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-12">Let's build something <span className="text-primary">better.</span></h2>
-          
+
           <div className="flex flex-wrap justify-center gap-6 mb-16">
-            <a href="mailto:isaacphilip7@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="mailto:isaacphilip7@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-email">
               <Mail className="w-4 h-4" /> isaacphilip7@gmail.com
             </a>
-            <a href="https://linkedin.com/in/isaacphilip" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="https://linkedin.com/in/isaacphilip" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-linkedin">
               <ExternalLink className="w-4 h-4" /> LinkedIn
             </a>
-            <a href="https://behance.net/isaacp" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="https://behance.net/isaacp" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-behance">
               <ExternalLink className="w-4 h-4" /> Behance
             </a>
           </div>
-          
+
           <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
             <p>Based in Chennai, India.</p>
             <p>Designed with intention. Built for scale.</p>
