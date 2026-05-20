@@ -1,0 +1,355 @@
+import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2 } from "lucide-react";
+import { SiFigma, SiAdobexd, SiAdobeillustrator, SiAdobephotoshop, SiGithubcopilot, SiAdobe } from "react-icons/si";
+import { Badge } from "@/components/ui/badge";
+
+export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+
+  return (
+    <div className="min-h-screen bg-background text-foreground dark selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
+      {/* Fixed Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+          <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
+            ISAAC<span className="text-primary">_</span>PHILIP
+          </a>
+          <div className="hidden md:flex items-center gap-8 text-sm">
+            <a href="#work" className="text-muted-foreground hover:text-foreground transition-colors">Work</a>
+            <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+            <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex items-center justify-center min-h-[90vh]">
+        {/* Glow Effects */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-primary mb-8">
+              <Sparkles className="w-3 h-3" />
+              <span>UX Craftsman + AI Pragmatist</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
+              Designing software that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">actually works.</span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+              I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens make sense.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="#work" 
+                className="group relative inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-primary/90 font-medium transition-all"
+                data-testid="hero-btn-work"
+              >
+                View Selected Work
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a 
+                href="mailto:isaacphilip7@gmail.com" 
+                className="inline-flex items-center justify-center h-12 px-8 border border-white/10 hover:bg-white/5 font-medium transition-all"
+                data-testid="hero-btn-contact"
+              >
+                Let's Talk
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-24 px-6 border-t border-white/5 bg-black/20">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-3xl font-bold mb-12 flex items-center gap-4">
+              <span className="text-primary">01.</span> Who I am
+            </h2>
+            
+            <div className="grid md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
+              <div className="space-y-6">
+                <p>
+                  I've been making enterprise software less miserable since 2016. Based in Chennai, currently leading UX at Cognizant.
+                </p>
+                <p>
+                  My background isn't typical. I hold a BSc in Visual Communication and an MA in English. That means I don't just draw rectangles—I write copy that people actually read, and I build narratives that drive adoption.
+                </p>
+              </div>
+              <div className="space-y-6">
+                <p>
+                  I specialize in the messy, complicated stuff. The kind of B2B applications that run multi-national operations. If your users need a 40-page manual to use your tool, we need to talk.
+                </p>
+                <p>
+                  Lately, I've been deep in the trenches of GenAI, designing agentic workflows and AI-native interfaces that make "50% faster workflows" a reality, not just a marketing claim.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Work Section */}
+      <section id="work" className="py-24 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold flex items-center gap-4">
+              <span className="text-primary">02.</span> Selected Impact
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Neuro AI Multi-Agent Accelerator",
+                desc: "Designing the next-generation UI for an AI agent studio. Making agent orchestration intuitive.",
+                stat: "Next-Gen UI",
+                tag: "AI / UX"
+              },
+              {
+                title: "Commitment Management AI",
+                desc: "Re-imagined the commitment creation process from the ground up, integrating AI assistance.",
+                stat: "50% Time Reduction",
+                tag: "Enterprise"
+              },
+              {
+                title: "Contract Signature Application",
+                desc: "End-to-end digital transformation creating a single-window service for enterprise contracts.",
+                stat: "Full Transformation",
+                tag: "B2B SaaS"
+              },
+              {
+                title: "Contracts Storage System",
+                desc: "Migrated users from scattered email threads to a centralized, intuitive application.",
+                stat: "90%+ Adoption",
+                tag: "Workflow"
+              }
+            ].map((project, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group p-8 border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="relative z-10">
+                  <Badge variant="outline" className="mb-6 border-white/20 text-muted-foreground">{project.tag}</Badge>
+                  <h3 className="text-2xl font-bold mb-4">{project.title}</h3>
+                  <p className="text-muted-foreground mb-8">{project.desc}</p>
+                  <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-primary font-medium">{project.stat}</span>
+                    <ArrowRight className="w-5 h-5 text-white/30 group-hover:text-primary transition-colors" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="py-24 px-6 border-t border-white/5 bg-black/20">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
+            <span className="text-primary">03.</span> Toolkit & Craft
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                <Paintbrush className="text-primary" />
+                <h3 className="text-xl font-bold">Design Tooling</h3>
+              </div>
+              <ul className="space-y-4">
+                {['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'Procreate', 'Affinity Designer'].map(skill => (
+                  <li key={skill} className="flex items-center gap-3 text-muted-foreground">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/50" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                <Code2 className="text-accent" />
+                <h3 className="text-xl font-bold">AI & Dev</h3>
+              </div>
+              <ul className="space-y-4">
+                {['GitHub Copilot', 'Claude AI', 'Anima', 'Adobe Firefly', 'Lovable'].map(skill => (
+                  <li key={skill} className="flex items-center gap-3 text-muted-foreground">
+                    <div className="w-1.5 h-1.5 rounded-full bg-accent/50" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                <Layers className="text-white/60" />
+                <h3 className="text-xl font-bold">Core Craft</h3>
+              </div>
+              <ul className="space-y-4">
+                {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture'].map(skill => (
+                  <li key={skill} className="flex items-center gap-3 text-muted-foreground">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Timeline */}
+      <section id="experience" className="py-24 px-6 border-t border-white/5">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
+            <span className="text-primary">04.</span> The Journey
+          </h2>
+
+          <div className="space-y-12">
+            {[
+              {
+                role: "Senior UX Designer",
+                company: "Cognizant",
+                time: "Oct 2022 – Present",
+                desc: "Leading UX for massive enterprise modernization efforts and AI accelerators."
+              },
+              {
+                role: "UX Designer",
+                company: "TCS",
+                time: "Jun 2016 – Sep 2022",
+                desc: "Bagged 10x On The Spot awards for consistently delivering high-quality enterprise interfaces."
+              },
+              {
+                role: "Designer",
+                company: "Go4runs",
+                time: "2013 – 2014",
+                desc: "Early stage design work that laid the foundation for my visual craft."
+              },
+              {
+                role: "Intern",
+                company: "Ogilvy",
+                time: "2012",
+                desc: "Declined a full-time offer to complete my degree. A tough call that paid off."
+              }
+            ].map((job, i) => (
+              <div key={i} className="relative pl-8 border-l border-white/10">
+                <div className="absolute w-3 h-3 bg-background border border-primary rounded-full -left-[6.5px] top-2" />
+                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-2">
+                  <h3 className="text-xl font-bold">{job.role} <span className="text-primary">@ {job.company}</span></h3>
+                  <span className="text-sm text-muted-foreground font-mono">{job.time}</span>
+                </div>
+                <p className="text-muted-foreground">{job.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards & Certs */}
+      <section className="py-24 px-6 border-t border-white/5 bg-black/20">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+          <div>
+            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+              <Trophy className="text-primary" /> Recognition
+            </h2>
+            <ul className="space-y-6">
+              {[
+                { title: "Guinness World Record", desc: "GenAI Hackathon (Aug 2025)" },
+                { title: "Raising the Bar Award", desc: "Cognizant (Sep 2025)" },
+                { title: "Rising Star", desc: "2024" },
+                { title: "Q2 Best Performer", desc: "2024" }
+              ].map((award, i) => (
+                <li key={i} className="flex gap-4">
+                  <Star className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <div>
+                    <h4 className="font-bold">{award.title}</h4>
+                    <p className="text-sm text-muted-foreground">{award.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+              <CheckCircle2 className="text-primary" /> Certifications
+            </h2>
+            <ul className="space-y-6">
+              {[
+                { title: "Google Cloud Certified Generative AI Leader", desc: "Nov 2025" },
+                { title: "GitHub Copilot Certified", desc: "Microsoft" },
+                { title: "Google UX Certification", desc: "Coursera / Google" }
+              ].map((cert, i) => (
+                <li key={i} className="flex gap-4">
+                  <div className="w-5 h-5 rounded bg-white/5 border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold">{cert.title}</h4>
+                    <p className="text-sm text-muted-foreground">{cert.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="contact" className="py-24 px-6 border-t border-white/5 relative overflow-hidden">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 rounded-t-full blur-[100px] pointer-events-none" />
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-12">Let's build something <span className="text-primary">better.</span></h2>
+          
+          <div className="flex flex-wrap justify-center gap-6 mb-16">
+            <a href="mailto:isaacphilip7@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <Mail className="w-4 h-4" /> isaacphilip7@gmail.com
+            </a>
+            <a href="https://linkedin.com/in/isaacphilip" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <ExternalLink className="w-4 h-4" /> LinkedIn
+            </a>
+            <a href="https://behance.net/isaacp" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <ExternalLink className="w-4 h-4" /> Behance
+            </a>
+          </div>
+          
+          <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+            <p>Based in Chennai, India.</p>
+            <p>Designed with intention. Built for scale.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
