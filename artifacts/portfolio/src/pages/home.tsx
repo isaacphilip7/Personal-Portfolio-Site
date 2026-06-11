@@ -142,21 +142,60 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
+              <motion.a
                 href="#projects"
-                className="group relative inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground hover:bg-primary/90 font-medium transition-all"
+                className="group relative inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground font-medium overflow-hidden"
                 data-testid="hero-btn-projects"
+                whileHover="hovered"
+                whileTap={{ scale: 0.97 }}
+                initial="idle"
               >
-                View Projects
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a
+                {/* shimmer sweep */}
+                <motion.span
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full"
+                  variants={{
+                    idle: { x: "-100%" },
+                    hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } }
+                  }}
+                />
+                {/* glow border pulse */}
+                <motion.span
+                  className="absolute inset-0 border border-white/0"
+                  variants={{
+                    idle: { boxShadow: "0 0 0px 0px rgba(255,255,255,0)" },
+                    hovered: { boxShadow: "0 0 18px 2px hsl(var(--primary) / 0.6)", transition: { duration: 0.3 } }
+                  }}
+                />
+                <span className="relative z-10 flex items-center">
+                  View Projects
+                  <motion.span
+                    variants={{
+                      idle: { x: 0 },
+                      hovered: { x: 5, transition: { type: "spring", stiffness: 400, damping: 20 } }
+                    }}
+                    className="ml-2 flex items-center"
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </motion.span>
+                </span>
+              </motion.a>
+              <motion.a
                 href="mailto:isaacphilip7@gmail.com"
-                className="inline-flex items-center justify-center h-12 px-8 border border-border hover:bg-muted font-medium transition-all"
+                className="relative inline-flex items-center justify-center h-12 px-8 border border-border font-medium overflow-hidden"
                 data-testid="hero-btn-contact"
+                whileHover="hovered"
+                whileTap={{ scale: 0.97 }}
+                initial="idle"
               >
-                Let's Talk
-              </a>
+                <motion.span
+                  className="absolute inset-0 bg-muted"
+                  variants={{
+                    idle: { scaleY: 0, originY: 1 },
+                    hovered: { scaleY: 1, originY: 1, transition: { duration: 0.25, ease: "easeOut" } }
+                  }}
+                />
+                <span className="relative z-10">Let's Talk</span>
+              </motion.a>
             </div>
           </motion.div>
         </div>
