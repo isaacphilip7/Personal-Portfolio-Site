@@ -5,24 +5,38 @@ import { Badge } from "@/components/ui/badge";
 
 function GlowWord({ children }: { children: string }) {
   const [hovered, setHovered] = useState(false);
+  const letters = children.split("");
+
   return (
-    <motion.span
+    <span
       className="inline-block cursor-default"
-      animate={{ y: hovered ? -6 : 0 }}
-      transition={{ type: "spring", stiffness: 400, damping: 18 }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      style={{
-        backgroundImage: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))",
-        backgroundSize: "200% auto",
-        backgroundClip: "text",
-        WebkitBackgroundClip: "text",
-        color: "transparent",
-        animation: hovered ? "gradientShift 1.2s linear infinite" : "none",
-      }}
+      style={{ overflow: "visible" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      {children}
-    </motion.span>
+      {letters.map((letter, i) => (
+        <motion.span
+          key={i}
+          className="inline-block"
+          style={{
+            backgroundImage: "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)))",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            color: "transparent",
+            overflow: "visible",
+          }}
+          animate={hovered ? { y: -8 } : { y: 0 }}
+          transition={{
+            type: "spring",
+            stiffness: 500,
+            damping: 18,
+            delay: hovered ? i * 0.035 : Math.max(0, (letters.length - 1 - i) * 0.02),
+          }}
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </motion.span>
+      ))}
+    </span>
   );
 }
 
@@ -174,7 +188,12 @@ export default function Home() {
   }, [isDark]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden">
+    <div
+      className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
+      style={!isDark ? {
+        backgroundImage: "linear-gradient(135deg, hsl(270 55% 90%) 0%, hsl(248 45% 92%) 25%, hsl(200 50% 91%) 55%, hsl(320 40% 91%) 85%, hsl(270 55% 90%) 100%)",
+      } : undefined}
+    >
       {/* Fixed Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -227,7 +246,7 @@ export default function Home() {
               <span>Multi-disciplinary Designer</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.15]">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.25] pb-2 overflow-visible">
               Creating <GlowWord>solutions</GlowWord> that tug at your <GlowWord>heart strings.</GlowWord>
             </h1>
 
