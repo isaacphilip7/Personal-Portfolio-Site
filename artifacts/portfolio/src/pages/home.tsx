@@ -3,6 +3,29 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+function GlowWord({ children }: { children: string }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <motion.span
+      className="inline-block cursor-default"
+      animate={{ y: hovered ? -6 : 0 }}
+      transition={{ type: "spring", stiffness: 400, damping: 18 }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      style={{
+        backgroundImage: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))",
+        backgroundSize: "200% auto",
+        backgroundClip: "text",
+        WebkitBackgroundClip: "text",
+        color: "transparent",
+        animation: hovered ? "gradientShift 1.2s linear infinite" : "none",
+      }}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
 function ShimmerButton({
   href,
   children,
@@ -204,8 +227,8 @@ export default function Home() {
               <span>Multi-disciplinary Designer</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-tight">
-              Creating solutions that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">tug at your heart strings.</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.15]">
+              Creating <GlowWord>solutions</GlowWord> that tug at your <GlowWord>heart strings.</GlowWord>
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
