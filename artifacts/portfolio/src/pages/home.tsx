@@ -178,30 +178,31 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-40 pb-20 md:pt-52 md:pb-32 px-6 flex items-center justify-center min-h-[90vh]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
+      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-6 min-h-[80vh] flex items-center">
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-accent/15 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="max-w-6xl mx-auto w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          {/* Left — text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-6">
               <Sparkles className="w-3 h-3" />
               <span>Multi-disciplinary Designer</span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-tight">
               Creating solutions that <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">tug at your heart strings.</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
               I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens work.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4">
               <ShimmerButton
                 href="#projects"
                 className="bg-primary text-primary-foreground"
@@ -217,6 +218,18 @@ export default function Home() {
               >
                 Let's Talk
               </ShimmerButton>
+            </div>
+          </motion.div>
+
+          {/* Right — illustration placeholder */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+            className="hidden md:flex items-center justify-center"
+          >
+            <div className="w-full aspect-square max-w-sm rounded-sm border border-dashed border-border/50 flex items-center justify-center text-muted-foreground/30 text-xs tracking-widest select-none">
+              illustration
             </div>
           </motion.div>
         </div>
