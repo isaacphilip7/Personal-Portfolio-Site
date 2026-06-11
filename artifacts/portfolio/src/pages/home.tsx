@@ -130,7 +130,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-8">
               <Sparkles className="w-3 h-3" />
-              <span>UX Craftsman + AI Pragmatist</span>
+              <span>Multi-disciplinary Designer</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-tight">
