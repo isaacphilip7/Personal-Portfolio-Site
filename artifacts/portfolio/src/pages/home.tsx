@@ -3,6 +3,66 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+function ShimmerButton({
+  href,
+  children,
+  className = "",
+  testId,
+  showArrow = false,
+  target,
+  rel,
+}: {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  testId?: string;
+  showArrow?: boolean;
+  target?: string;
+  rel?: string;
+}) {
+  return (
+    <motion.a
+      href={href}
+      target={target}
+      rel={rel}
+      className={`group relative inline-flex items-center justify-center h-12 px-8 font-medium overflow-hidden ${className}`}
+      data-testid={testId}
+      whileHover="hovered"
+      whileTap={{ scale: 0.97 }}
+      initial="idle"
+    >
+      <motion.span
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+        variants={{
+          idle: { x: "-100%" },
+          hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } }
+        }}
+      />
+      <motion.span
+        className="absolute inset-0"
+        variants={{
+          idle: { boxShadow: "0 0 0px 0px rgba(255,255,255,0)" },
+          hovered: { boxShadow: "0 0 18px 2px hsl(var(--primary) / 0.6)", transition: { duration: 0.3 } }
+        }}
+      />
+      <span className="relative z-10 flex items-center">
+        {children}
+        {showArrow && (
+          <motion.span
+            variants={{
+              idle: { x: 0 },
+              hovered: { x: 5, transition: { type: "spring", stiffness: 400, damping: 20 } }
+            }}
+            className="ml-2 flex items-center"
+          >
+            <ArrowRight className="w-4 h-4" />
+          </motion.span>
+        )}
+      </span>
+    </motion.a>
+  );
+}
+
 const companies = [
   {
     company: "Cognizant",
@@ -142,60 +202,21 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.a
+              <ShimmerButton
                 href="#projects"
-                className="group relative inline-flex items-center justify-center h-12 px-8 bg-primary text-primary-foreground font-medium overflow-hidden"
-                data-testid="hero-btn-projects"
-                whileHover="hovered"
-                whileTap={{ scale: 0.97 }}
-                initial="idle"
+                className="bg-primary text-primary-foreground"
+                testId="hero-btn-projects"
+                showArrow
               >
-                {/* shimmer sweep */}
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full"
-                  variants={{
-                    idle: { x: "-100%" },
-                    hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } }
-                  }}
-                />
-                {/* glow border pulse */}
-                <motion.span
-                  className="absolute inset-0 border border-white/0"
-                  variants={{
-                    idle: { boxShadow: "0 0 0px 0px rgba(255,255,255,0)" },
-                    hovered: { boxShadow: "0 0 18px 2px hsl(var(--primary) / 0.6)", transition: { duration: 0.3 } }
-                  }}
-                />
-                <span className="relative z-10 flex items-center">
-                  View Projects
-                  <motion.span
-                    variants={{
-                      idle: { x: 0 },
-                      hovered: { x: 5, transition: { type: "spring", stiffness: 400, damping: 20 } }
-                    }}
-                    className="ml-2 flex items-center"
-                  >
-                    <ArrowRight className="w-4 h-4" />
-                  </motion.span>
-                </span>
-              </motion.a>
-              <motion.a
+                View Projects
+              </ShimmerButton>
+              <ShimmerButton
                 href="mailto:isaacphilip7@gmail.com"
-                className="relative inline-flex items-center justify-center h-12 px-8 border border-border font-medium overflow-hidden"
-                data-testid="hero-btn-contact"
-                whileHover="hovered"
-                whileTap={{ scale: 0.97 }}
-                initial="idle"
+                className="border border-border"
+                testId="hero-btn-contact"
               >
-                <motion.span
-                  className="absolute inset-0 bg-muted"
-                  variants={{
-                    idle: { scaleY: 0, originY: 1 },
-                    hovered: { scaleY: 1, originY: 1, transition: { duration: 0.25, ease: "easeOut" } }
-                  }}
-                />
-                <span className="relative z-10">Let's Talk</span>
-              </motion.a>
+                Let's Talk
+              </ShimmerButton>
             </div>
           </motion.div>
         </div>
@@ -454,16 +475,32 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-12">Let's build something <span className="text-primary">better.</span></h2>
 
-          <div className="flex flex-wrap justify-center gap-6 mb-16">
-            <a href="mailto:isaacphilip7@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-email">
-              <Mail className="w-4 h-4" /> isaacphilip7@gmail.com
-            </a>
-            <a href="https://linkedin.com/in/isaacphilip" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-linkedin">
-              <ExternalLink className="w-4 h-4" /> LinkedIn
-            </a>
-            <a href="https://behance.net/isaacp" target="_blank" rel="noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors" data-testid="link-behance">
-              <ExternalLink className="w-4 h-4" /> Behance
-            </a>
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            <ShimmerButton
+              href="mailto:isaacphilip7@gmail.com"
+              className="border border-border text-sm"
+              testId="link-email"
+            >
+              <Mail className="w-4 h-4 mr-2" /> isaacphilip7@gmail.com
+            </ShimmerButton>
+            <ShimmerButton
+              href="https://linkedin.com/in/isaacphilip"
+              target="_blank"
+              rel="noreferrer"
+              className="border border-border text-sm"
+              testId="link-linkedin"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" /> LinkedIn
+            </ShimmerButton>
+            <ShimmerButton
+              href="https://behance.net/isaacp"
+              target="_blank"
+              rel="noreferrer"
+              className="border border-border text-sm"
+              testId="link-behance"
+            >
+              <ExternalLink className="w-4 h-4 mr-2" /> Behance
+            </ShimmerButton>
           </div>
 
           <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
