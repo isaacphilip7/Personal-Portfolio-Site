@@ -20,46 +20,55 @@ function ShimmerButton({
   target?: string;
   rel?: string;
 }) {
+  const [pressed, setPressed] = useState(false);
+  const DEPTH = 4;
+  const isPrimary = className.includes("bg-primary");
+
   return (
-    <motion.a
+    <a
       href={href}
       target={target}
       rel={rel}
-      className={`group relative inline-flex items-center justify-center h-12 px-8 font-medium overflow-hidden ${className}`}
       data-testid={testId}
-      whileHover="hovered"
-      whileTap={{ scale: 0.97 }}
-      initial="idle"
+      className="group relative inline-block select-none focus-visible:outline-none"
+      style={{ paddingBottom: DEPTH }}
+      onMouseDown={() => setPressed(true)}
+      onMouseUp={() => setPressed(false)}
+      onMouseLeave={() => setPressed(false)}
+      onTouchStart={() => setPressed(true)}
+      onTouchEnd={() => setPressed(false)}
     >
-      <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-        variants={{
-          idle: { x: "-100%" },
-          hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } }
-        }}
+      {/* Keycap depth / base layer */}
+      <span
+        aria-hidden
+        className={`absolute inset-x-0 bottom-0 rounded-sm ${isPrimary ? "bg-primary brightness-50" : "bg-border"}`}
+        style={{ top: DEPTH }}
       />
+      {/* Keycap face */}
       <motion.span
-        className="absolute inset-0"
-        variants={{
-          idle: { boxShadow: "0 0 0px 0px rgba(255,255,255,0)" },
-          hovered: { boxShadow: "0 0 18px 2px hsl(var(--primary) / 0.6)", transition: { duration: 0.3 } }
+        className={`relative z-10 flex items-center justify-center h-12 px-8 font-medium rounded-sm ${className}`}
+        animate={{ y: pressed ? DEPTH : 0 }}
+        transition={{ type: "spring", stiffness: 600, damping: 30, mass: 0.4 }}
+        style={{
+          boxShadow: pressed
+            ? "none"
+            : isPrimary
+              ? "inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -1px 0 rgba(0,0,0,0.2)"
+              : "inset 0 1px 0 rgba(255,255,255,0.06), inset 0 -1px 0 rgba(0,0,0,0.15)"
         }}
-      />
-      <span className="relative z-10 flex items-center">
+      >
         {children}
         {showArrow && (
           <motion.span
-            variants={{
-              idle: { x: 0 },
-              hovered: { x: 5, transition: { type: "spring", stiffness: 400, damping: 20 } }
-            }}
             className="ml-2 flex items-center"
+            animate={{ x: pressed ? 1 : 0 }}
+            transition={{ type: "spring", stiffness: 600, damping: 30 }}
           >
             <ArrowRight className="w-4 h-4" />
           </motion.span>
         )}
-      </span>
-    </motion.a>
+      </motion.span>
+    </a>
   );
 }
 
