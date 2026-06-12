@@ -100,73 +100,156 @@ function ShimmerButton({
   );
 }
 
-const companies = [
+type Project = {
+  title: string;
+  desc: string;
+  bullets: string[];
+  stat: string;
+  tag: string;
+  link?: string;
+};
+
+type Company = {
+  company: string;
+  role: string;
+  time: string;
+  location: string;
+  desc: string;
+  projects: Project[];
+};
+
+const companies: Company[] = [
   {
     company: "Cognizant",
     role: "Senior UX Designer",
     time: "Oct 2022 – Present",
-    desc: "Leading UX for massive enterprise modernization efforts and AI accelerators.",
+    location: "Chennai, India",
+    desc: "Leading UX for large-scale enterprise modernization and AI accelerator initiatives. Designing across the full product lifecycle — from research and IA to component libraries and AI-native workflows.",
     projects: [
       {
         title: "Neuro AI Multi-Agent Accelerator",
-        desc: "Designing the next-generation UI for an AI agent studio. Making agent orchestration intuitive.",
-        stat: "Next-Gen UI",
-        tag: "AI / UX"
-      },
-      {
-        title: "Commitment Management AI",
-        desc: "Re-imagined the commitment creation process from the ground up, integrating AI assistance.",
-        stat: "50% Time Reduction",
-        tag: "Enterprise"
+        tag: "AI / UX",
+        desc: "Designing next-generation UI for an AI agent studio to enhance user experience and workflow efficiency.",
+        bullets: [
+          "Designing next-gen UI for an AI agent studio to enhance UX and workflow efficiency.",
+          "Leveraging Figma-to-code tools (Anima, GitHub Copilot, Microsoft Copilot) to accelerate design-to-development handoff.",
+        ],
+        stat: "In Progress",
+        link: "github.com/isaacphilip7/Neuro-UI-Sky-Blue",
       },
       {
         title: "Contract Signature Application",
-        desc: "End-to-end digital transformation creating a single-window service for enterprise contracts.",
-        stat: "Full Transformation",
-        tag: "B2B SaaS"
+        tag: "B2B SaaS",
+        desc: "Transformed a manual Excel and email-based workflow into a fully digital application, significantly improving usability and adoption.",
+        bullets: [
+          "Designed end-to-end UX and UI, including a reusable component library aligned to the design system.",
+          "Single-window service streamlined the entire contract lifecycle management process.",
+        ],
+        stat: "Faster turnaround across all business units",
+      },
+      {
+        title: "Commitment Management AI",
+        tag: "Enterprise AI",
+        desc: "Architected UX, information architecture, and user workflows from scratch for an AI-powered contract commitment management application.",
+        bullets: [
+          "Designed AI-assisted workflows and created a full icon and component library for developer handoff.",
+          "Delivered greater control for FinOps teams through smarter, AI-driven commitment flows.",
+        ],
+        stat: "50% reduction in time to create commitments",
       },
       {
         title: "Contracts Storage System",
-        desc: "Migrated users from scattered email threads to a centralized, intuitive application.",
-        stat: "90%+ Adoption",
-        tag: "Workflow"
-      }
-    ]
+        tag: "Workflow",
+        desc: "Led end-to-end redesign to increase automation and align with evolving business needs.",
+        bullets: [
+          "Conducted user interviews and stakeholder reviews to identify gaps.",
+          "Migrated UI components to an updated, unified design system.",
+          "Merged disparate processes into a streamlined contract lifecycle flow.",
+        ],
+        stat: "90%+ of contracts now created in-app vs. via email",
+      },
+      {
+        title: "Contracts Authoring",
+        tag: "AI / UX",
+        desc: "Redesigned application to enable seamless cross-application workflows, replacing siloed processes with integrated UX.",
+        bullets: [
+          "Reworked user flows across multiple personas to reduce redundancy and improve task completion.",
+          "Integrated AI workflows to complete the full AI transformation of the application.",
+        ],
+        stat: "Increased efficiency, usability, and user adoption",
+      },
+      {
+        title: "Other Contributions",
+        tag: "Design Systems & Strategy",
+        desc: "Beyond individual products — a range of strategic, client-facing, and operational contributions.",
+        bullets: [
+          "Designed components for the Cognizant Design System to improve scalability across products.",
+          "Designed and deployed animated microsites for client visits; redesigned GCC presented in Hyderabad — deal was secured.",
+          "Developed a POC for a drone management application that won a new client deal.",
+          "Delivered a full space design overhaul of an experience center for a leading US bank.",
+          "Managed delivery governance across three concurrent projects.",
+        ],
+        stat: "Multiple deals won through design",
+      },
+    ],
   },
   {
     company: "TCS",
     role: "UX Designer / Design Lead — L&D",
     time: "Jun 2016 – Sep 2022",
-    desc: "Bagged 10x On The Spot awards for consistently delivering high-quality enterprise interfaces.",
+    location: "Chennai, India",
+    desc: "Delivered high-quality enterprise UX across analytics, pharma, and learning & development. Received 10× On The Spot awards for outstanding contributions to key organizational initiatives.",
     projects: [
       {
-        title: "CXO Dashboard — Pharma",
-        desc: "Designed the landing page for a CXO analytics dashboard surfacing live business insights; primary UX advocate for the project.",
-        stat: "Executive-Level UX",
-        tag: "Analytics"
+        title: "CXO Dashboard — Pharma Client",
+        tag: "Analytics",
+        desc: "Designed the landing page for a CXO analytics dashboard surfacing live business insights.",
+        bullets: [
+          "Served as the primary UX advocate for the project.",
+          "Delivered a user-centric design that enhanced executive-level decision-making capabilities.",
+        ],
+        stat: "Executive-level UX impact",
       },
       {
         title: "L&D Digital Transformation",
-        desc: "Led cloud migration of learning processes; conducted user research for 30,000+ associates globally. 40,000+ associates completed a fully digital learning experience within one year.",
-        stat: "40k+ Associates",
-        tag: "Digital Learning"
-      }
-    ]
+        tag: "Digital Learning",
+        desc: "Created a unified design language across all learning materials to elevate learnability and enable a digital-first associate experience.",
+        bullets: [
+          "Led cloud migration of learning processes using Microsoft 365 tools across international regions.",
+          "Conducted user research surveys for 30,000+ associates globally, generating actionable insights.",
+          "As Design Lead, spearheaded a full overhaul of learning resources aligned to new business demands.",
+        ],
+        stat: "40,000+ associates completed a fully digital learning experience in one year",
+      },
+      {
+        title: "Other Contributions",
+        tag: "Facilitation & Training",
+        desc: "Broader organizational contributions beyond product design.",
+        bullets: [
+          "Facilitated training and surveys for international associates; researched L&D tools and presented findings to leadership.",
+          "Delivered creativity and design workshops for non-design team members.",
+          "Served as Business Skills Faculty, conducting workshops and surveys across the organization.",
+        ],
+        stat: "Organisation-wide capability building",
+      },
+    ],
   },
   {
     company: "Go4runs",
     role: "Graphic Designer",
     time: "May 2013 – Apr 2014",
+    location: "Chennai, India",
     desc: "Created graphic design assets for clients including NAC Jewellers, Footprints Holidays, and eAmbalam. Executed campaigns improving organic social reach.",
-    projects: []
+    projects: [],
   },
   {
     company: "Ogilvy",
     role: "Graphic Design Intern",
     time: "May 2012 – Jun 2012",
+    location: "Chennai, India",
     desc: "Contributed to design for Vodafone, The Hindu, and MTR. Declined a full-time offer upon completion to finish my degree. A tough call that paid off.",
-    projects: []
-  }
+    projects: [],
+  },
 ];
 
 const ISSUER_COLORS: Record<string, string> = {
@@ -571,6 +654,7 @@ export default function Home() {
                       <span className="text-sm text-muted-foreground">{job.time}</span>
                     </div>
                     <p className="text-sm text-muted-foreground">{job.role}</p>
+                    <p className="text-xs text-muted-foreground/60 mt-0.5">{job.location}</p>
                   </div>
                   <ChevronDown
                     className={`w-5 h-5 text-muted-foreground shrink-0 mt-1 transition-transform duration-300 ${openCompany === job.company ? "rotate-180 text-primary" : ""}`}
@@ -598,15 +682,36 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 12 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.3, delay: j * 0.07 }}
-                                className="group p-6 border border-border bg-background hover:bg-muted/50 transition-colors relative overflow-hidden"
+                                className="group p-6 border border-border bg-background hover:bg-muted/50 transition-colors relative overflow-hidden flex flex-col"
                               >
                                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <div className="relative z-10">
-                                  <Badge variant="outline" className="mb-4 text-xs">{project.tag}</Badge>
-                                  <h4 className="text-lg font-bold mb-3">{project.title}</h4>
-                                  <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{project.desc}</p>
-                                  <div className="pt-4 border-t border-border">
-                                    <span className="text-primary font-medium text-sm">{project.stat}</span>
+                                <div className="relative z-10 flex flex-col flex-1">
+                                  <Badge variant="outline" className="mb-4 text-xs self-start">{project.tag}</Badge>
+                                  <h4 className="text-base font-bold mb-2 leading-snug">{project.title}</h4>
+                                  <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{project.desc}</p>
+                                  {project.bullets.length > 0 && (
+                                    <ul className="space-y-1.5 mb-4">
+                                      {project.bullets.map((b, k) => (
+                                        <li key={k} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
+                                          <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                                          {b}
+                                        </li>
+                                      ))}
+                                    </ul>
+                                  )}
+                                  <div className="mt-auto pt-4 border-t border-border flex items-center justify-between gap-3 flex-wrap">
+                                    <span className="text-primary font-medium text-xs">{project.stat}</span>
+                                    {project.link && (
+                                      <a
+                                        href={`https://${project.link}`}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                                      >
+                                        <ExternalLink className="w-3 h-3" />
+                                        {project.link}
+                                      </a>
+                                    )}
                                   </div>
                                 </div>
                               </motion.div>

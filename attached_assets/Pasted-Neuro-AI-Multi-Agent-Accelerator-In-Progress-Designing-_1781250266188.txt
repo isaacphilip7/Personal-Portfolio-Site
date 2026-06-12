@@ -1,0 +1,42 @@
+Neuro AI Multi-Agent Accelerator  (In Progress)
+•	Designing next-generation UI for an AI agent studio to enhance user experience and workflow efficiency.
+•	Leveraging Figma-to-code tools (Anima, GitHub Copilot, Microsoft Copilot) to accelerate design-to-development handoff.
+•	Project repository: github.com/isaacphilip7/Neuro-UI-Sky-Blue
+Contract Signature Application
+•	Transformed a manual Excel and email-based workflow into a fully digital application, significantly improving usability and adoption.
+•	Designed end-to-end UX and UI, including a reusable component library aligned to the design system.
+Impact: Faster turnaround for business units; single-window service streamlined the entire contract lifecycle management process.
+Commitment Management AI
+•	Architected UX, information architecture, and user workflows from scratch for an AI-powered contract commitment management application.
+•	Designed AI-assisted workflows and created a full icon and component library for developer handoff.
+Impact: 50% reduction in time to create commitments due to AI implementation; delivered greater control for FinOps teams.
+Contracts Storage System
+•	Led end-to-end redesign to increase automation and align with evolving business needs; conducted user interviews and stakeholder reviews to identify gaps.
+•	Migrated UI components to an updated, unified design system.
+Impact: Merged disparate processes into a streamlined contract lifecycle flow; over 90% of contracts are now created in-application vs. via email.
+Contracts Authoring
+•	Redesigned application to enable seamless cross-application workflows, replacing siloed processes with integrated UX.
+•	Reworked user flows across multiple personas to reduce redundancy and improve task completion; integrated AI workflows.
+Impact: Completed AI transformation of the application, increasing efficiency, usability, and overall user adoption.
+Other Contributions
+•	Designed components for the Cognizant Design System to improve scalability and reusability across products.
+•	Designed and deployed animated microsites for client visits; presented redesigned GCC to clients in Hyderabad—deal was secured.
+•	Developed a proof-of-concept for a drone management application that won a new client deal.
+•	Delivered a full space design overhaul of an experience center for a leading US bank.
+•	Managed delivery governance across three concurrent projects.
+
+Tata Consultancy Services (TCS)
+UI/UX Designer / Design Lead – Learning & Development  |  Jun 2016 – Sep 2022 | Chennai, India
+CXO Dashboard – Pharma Client
+•	Designed the landing page for a CXO analytics dashboard surfacing live business insights; served as the primary UX advocate for the project.
+Impact: Delivered a user-centric design that enhanced executive-level decision-making capabilities.
+Learning & Development – Digital Transformation
+•	Created a unified design language across all learning materials to elevate learnability and enable a digital-first associate experience.
+•	Led cloud migration of learning processes using Microsoft 365 tools; coordinated design efforts across international regions.
+•	Conducted user research surveys for 30,000+ associates globally, generating actionable insights for product improvement.
+•	As Design Lead, spearheaded a full overhaul of learning resources to align with new business demands.
+Impact: 40,000+ associates completed a fully digital learning experience within one year; improved engagement and established a strategic framework for digital learning at scale.
+Other Contributions
+•	Facilitated training and surveys for international associates; researched L&D tools and presented findings to leadership.
+•	Delivered creativity and design workshops for non-design team members; conducted faculty sessions as part of outreach initiatives.
+●	Served as Business Skills Faculty, conducting workshops and surveys for associates across the organization to strengthen professional capabilities.
