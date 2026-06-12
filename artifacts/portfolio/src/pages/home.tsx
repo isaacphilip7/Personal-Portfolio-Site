@@ -234,14 +234,11 @@ function CertBadge({
           ))}
         </svg>
 
-        {/* Centre: logo + short title */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-6">
-          <div style={{ color }} className="opacity-75 scale-90">
-            <IssuerLogo issuer={issuer} />
-          </div>
+        {/* Centre: title only */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
           <p
-            className="text-center font-bold leading-tight uppercase tracking-wide mt-0.5"
-            style={{ color, fontSize: "9px" }}
+            className="text-center leading-snug uppercase tracking-wide"
+            style={{ color, fontSize: "11px", fontWeight: 400 }}
           >
             {abbrev(title)}
           </p>
