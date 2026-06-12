@@ -169,6 +169,88 @@ const companies = [
   }
 ];
 
+const ISSUER_COLORS: Record<string, string> = {
+  Google:     "217 88% 68%",
+  Cognizant:  "214 75% 65%",
+  Miro:       "45 88% 56%",
+  Domestika:  "0 68% 60%",
+  Udemy:      "262 62% 68%",
+  PMI:        "183 52% 54%",
+  LinkedIn:   "201 85% 58%",
+};
+
+function abbrev(title: string): string {
+  if (title.length <= 26) return title;
+  const segs = title.split(/\s*[–:]\s*/);
+  if (segs[0].length <= 26) return segs[0];
+  return title.split(" ").slice(0, 4).join(" ");
+}
+
+function CertBadge({
+  title, issuer, date, idx,
+}: { title: string; issuer: string; date: string; idx: number }) {
+  const hsl   = ISSUER_COLORS[issuer] ?? "var(--primary)";
+  const color = `hsl(${hsl})`;
+  const uid   = `cb-${idx}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.45, delay: idx * 0.045 }}
+      className="flex flex-col items-center gap-2"
+    >
+      <div className="relative w-36 h-36 cursor-default select-none">
+        {/* SVG rings + arc text */}
+        <svg viewBox="0 0 160 160" className="absolute inset-0 w-full h-full" aria-hidden="true">
+          {/* Subtle fill */}
+          <circle cx="80" cy="80" r="63" fill={color} fillOpacity="0.07" />
+          {/* Outer solid ring */}
+          <circle cx="80" cy="80" r="76" fill="none" stroke={color} strokeWidth="2.5" strokeOpacity="0.45" />
+          {/* Inner dashed ring */}
+          <circle cx="80" cy="80" r="66" fill="none" stroke={color} strokeWidth="1" strokeOpacity="0.3" strokeDasharray="3 5" />
+          <defs>
+            {/* Top arc — text runs left → over top → right */}
+            <path id={`${uid}-top`} d="M 14,80 A 66,66 0 1,1 146,80" />
+            {/* Bottom arc — text runs right → under bottom → left (reads correctly upright) */}
+            <path id={`${uid}-bot`} d="M 146,80 A 66,66 0 1,1 14,80" />
+          </defs>
+          {/* Issuer + CERTIFIED around top */}
+          <text fontSize="7.5" fill={color} fillOpacity="0.85" letterSpacing="2.2" fontWeight="700">
+            <textPath href={`#${uid}-top`} startOffset="50%" textAnchor="middle">
+              {issuer.toUpperCase()} · CERTIFIED
+            </textPath>
+          </text>
+          {/* Date around bottom */}
+          <text fontSize="7" fill={color} fillOpacity="0.6" letterSpacing="2" fontWeight="500">
+            <textPath href={`#${uid}-bot`} startOffset="50%" textAnchor="middle">
+              {date.toUpperCase()}
+            </textPath>
+          </text>
+          {/* Dot row near bottom */}
+          {[0, 1, 2].map(s => (
+            <circle key={s} cx={72 + s * 8} cy={125} r="1.8" fill={color} fillOpacity="0.5" />
+          ))}
+        </svg>
+
+        {/* Centre: logo + short title */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-1 px-6">
+          <div style={{ color }} className="opacity-75 scale-90">
+            <IssuerLogo issuer={issuer} />
+          </div>
+          <p
+            className="text-center font-bold leading-tight uppercase tracking-wide mt-0.5"
+            style={{ color, fontSize: "9px" }}
+          >
+            {abbrev(title)}
+          </p>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function IssuerLogo({ issuer }: { issuer: string }) {
   const svg = {
     className: "w-6 h-6",
@@ -645,46 +727,24 @@ export default function Home() {
             <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
               <CheckCircle2 className="text-primary" /> Certifications
             </h2>
-            <div className="grid md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
               {[
-                { title: "Generative AI Fundamentals", issuer: "Google", date: "May 2026", credential: "24255344" },
-                { title: "Google Cloud Certified Generative AI Leader", issuer: "Cognizant", date: "Nov 2025" },
-                { title: "Frontline Leaders Client Leadership Program", issuer: "Cognizant", date: "Oct 2024" },
-                { title: "GitHub Copilot Certified", issuer: "Cognizant", date: "Aug 2024" },
-                { title: "Client Collaboration", issuer: "Miro", date: "May 2023" },
-                { title: "Mapping & Diagramming", issuer: "Miro", date: "May 2023" },
-                { title: "Miro Essentials", issuer: "Miro", date: "Apr 2023" },
-                { title: "App Design: Prototyping for Beginners", issuer: "Domestika", date: "Feb 2022", credential: "9673fd9cf002b3b55d3a4cdea774ba46" },
-                { title: "Figma UI UX Design Essentials", issuer: "Udemy", date: "Apr 2022", credential: "UC-8c35e055-c76b-4d97-98c9-4e1b4a871f05" },
-                { title: "Google UX Certification – Foundations of UX Design", issuer: "Google", date: "May 2022" },
-                { title: "WCAG 2.2 – How to Design for Accessibility", issuer: "Udemy", date: "Jul 2022", credential: "UC-354dcdd8-2fc4-4b18-941f-5465dc5539b5" },
-                { title: "Giving and Receiving Feedback", issuer: "PMI", date: "Apr 2020", credential: "ATZhq1b-p-0iGUAUWmJNiHjeEksh" },
-                { title: "Digital Body Language", issuer: "LinkedIn", date: "Jul 2021", credential: "ATfBoeCtF0MC6_vPFmnxjVuyvrcJ" },
-                { title: "Communicating with Confidence", issuer: "LinkedIn", date: "May 2021", credential: "AUc4mvUPzVZ9_OCNkwzSfr03mDie" },
+                { title: "Generative AI Fundamentals",                      issuer: "Google",     date: "May 2026" },
+                { title: "Google Cloud Certified Generative AI Leader",      issuer: "Cognizant",  date: "Nov 2025" },
+                { title: "Frontline Leaders Client Leadership Program",       issuer: "Cognizant",  date: "Oct 2024" },
+                { title: "GitHub Copilot Certified",                          issuer: "Cognizant",  date: "Aug 2024" },
+                { title: "Client Collaboration",                              issuer: "Miro",       date: "May 2023" },
+                { title: "Mapping & Diagramming",                             issuer: "Miro",       date: "May 2023" },
+                { title: "Miro Essentials",                                   issuer: "Miro",       date: "Apr 2023" },
+                { title: "App Design: Prototyping for Beginners",             issuer: "Domestika",  date: "Feb 2022" },
+                { title: "Figma UI UX Design Essentials",                     issuer: "Udemy",      date: "Apr 2022" },
+                { title: "Google UX Certification – Foundations of UX Design",issuer: "Google",     date: "May 2022" },
+                { title: "WCAG 2.2 – How to Design for Accessibility",        issuer: "Udemy",      date: "Jul 2022" },
+                { title: "Giving and Receiving Feedback",                      issuer: "PMI",        date: "Apr 2020" },
+                { title: "Digital Body Language",                              issuer: "LinkedIn",   date: "Jul 2021" },
+                { title: "Communicating with Confidence",                      issuer: "LinkedIn",   date: "May 2021" },
               ].map((cert, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 8 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.04 }}
-                  className="flex gap-3 py-4 px-4 border border-border bg-background/40 hover:bg-background/70 transition-colors"
-                >
-                  <div className="w-8 h-8 shrink-0 flex items-center justify-center text-foreground/40 mt-0.5">
-                    <IssuerLogo issuer={cert.issuer} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className="font-semibold text-sm leading-snug">{cert.title}</h4>
-                    <p className="text-xs text-muted-foreground mt-0.5">
-                      {cert.issuer} · {cert.date}
-                    </p>
-                    {cert.credential && (
-                      <p className="text-xs text-primary/60 mt-0.5 font-mono truncate">
-                        {cert.credential}
-                      </p>
-                    )}
-                  </div>
-                </motion.div>
+                <CertBadge key={i} idx={i} title={cert.title} issuer={cert.issuer} date={cert.date} />
               ))}
             </div>
           </div>
