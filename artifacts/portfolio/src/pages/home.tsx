@@ -402,7 +402,7 @@ export default function Home() {
             </div>
             <button
               onClick={() => setIsDark(!isDark)}
-              className="w-9 h-9 flex items-center justify-center border border-border hover:bg-muted transition-colors"
+              className="w-9 h-9 flex items-center justify-center border border-border hover:bg-muted transition-colors rounded-full"
               data-testid="toggle-theme"
               aria-label="Toggle theme"
             >
