@@ -169,6 +169,83 @@ const companies = [
   }
 ];
 
+function IssuerLogo({ issuer }: { issuer: string }) {
+  const svg = {
+    className: "w-6 h-6",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.5,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+  };
+  switch (issuer) {
+    case "Google":
+      return (
+        <svg {...svg} aria-label="Google">
+          {/* G: arc around left + crossbar at midline */}
+          <path d="M20.5 12.5H13V10h8" />
+          <path d="M19.1 7.9A8 8 0 1 0 20 12.5" />
+        </svg>
+      );
+    case "Cognizant":
+      return (
+        <svg {...svg} aria-label="Cognizant">
+          {/* C: large open arc */}
+          <path d="M18 6.3A8 8 0 1 0 18 17.7" />
+        </svg>
+      );
+    case "Miro":
+      return (
+        <svg {...svg} aria-label="Miro">
+          {/* M letterform */}
+          <path d="M4 18V6l8 7 8-7v12" />
+        </svg>
+      );
+    case "Domestika":
+      return (
+        <svg {...svg} aria-label="Domestika">
+          {/* D in a circle */}
+          <circle cx="12" cy="12" r="9" />
+          <path d="M10 8h2A4 4 0 0 1 16 12 4 4 0 0 1 12 16h-2V8z" />
+        </svg>
+      );
+    case "Udemy":
+      return (
+        <svg {...svg} aria-label="Udemy">
+          {/* U with underline */}
+          <path d="M7 5v8a5 5 0 0 0 10 0V5" />
+          <line x1="4" y1="21" x2="20" y2="21" />
+        </svg>
+      );
+    case "PMI":
+      return (
+        <svg {...svg} aria-label="PMI">
+          {/* Diamond with centre dot */}
+          <path d="M12 3l9 9-9 9-9-9z" />
+          <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "LinkedIn":
+      return (
+        <svg {...svg} aria-label="LinkedIn">
+          {/* Rounded square with "in" marks */}
+          <rect x="2" y="2" width="20" height="20" rx="4" />
+          <line x1="7.5" y1="10" x2="7.5" y2="17" />
+          <circle cx="7.5" cy="7" r="0.75" fill="currentColor" stroke="none" />
+          <path d="M12 10v7m0-4a3.5 3.5 0 0 1 7 0v4" />
+        </svg>
+      );
+    default:
+      return (
+        <svg {...svg} aria-label={issuer}>
+          <circle cx="12" cy="10" r="4" />
+          <path d="M9.5 14.5l-2.5 7 5-2.5 5 2.5-2.5-7" />
+        </svg>
+      );
+  }
+}
+
 export default function Home() {
   const [openCompany, setOpenCompany] = useState<string | null>("Cognizant");
   const [isDark, setIsDark] = useState(() => {
@@ -593,8 +670,8 @@ export default function Home() {
                   transition={{ duration: 0.3, delay: i * 0.04 }}
                   className="flex gap-3 py-4 px-4 border border-border bg-background/40 hover:bg-background/70 transition-colors"
                 >
-                  <div className="w-5 h-5 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                  <div className="w-8 h-8 shrink-0 flex items-center justify-center text-foreground/40 mt-0.5">
+                    <IssuerLogo issuer={cert.issuer} />
                   </div>
                   <div className="min-w-0 flex-1">
                     <h4 className="font-semibold text-sm leading-snug">{cert.title}</h4>
