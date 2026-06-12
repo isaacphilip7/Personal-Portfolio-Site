@@ -525,51 +525,93 @@ export default function Home() {
 
       {/* Awards & Certs */}
       <section className="py-24 px-6 border-t border-border bg-muted/30">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
+        <div className="max-w-6xl mx-auto space-y-20">
+
+          {/* Achievements */}
           <div>
-            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <Trophy className="text-primary" /> Recognition
+            <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
+              <Trophy className="text-primary" /> Achievements & Awards
             </h2>
-            <ul className="space-y-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { title: "Guinness World Record", desc: "GenAI Hackathon (Aug 2025)" },
-                { title: "Raising the Bar Award", desc: "Cognizant (Sep 2025)" },
-                { title: "Rising Star", desc: "2024" },
-                { title: "Q2 Best Performer", desc: "2024" }
+                { title: "Raising the Bar", meta: "Cognizant · Sep 2025", desc: "Exceptional support during the critical rollout of the Contract Signature application." },
+                { title: "Guinness World Record", meta: "Cognizant · Aug 2025", desc: "Most participants in an online Generative AI Hackathon." },
+                { title: "Q2 Best Performer", meta: "Cognizant · Oct 2024", desc: "Exceptional efforts across projects and initiatives in the quarter." },
+                { title: "Rising Star 2024", meta: "Cognizant · May 2024", desc: "Recognized for career growth and outstanding contributions." },
+                { title: "Versatile Design Pioneer", meta: "Cognizant · Oct 2023", desc: "Delivered microsite creation under challenging timelines." },
+                { title: "On The Spot ×10", meta: "TCS · 2016–2022", desc: "Received 10 awards for contributions to key organizational initiatives." },
               ].map((award, i) => (
-                <li key={i} className="flex gap-4">
-                  <Star className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-bold">{award.title}</h4>
-                    <p className="text-sm text-muted-foreground">{award.desc}</p>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.06 }}
+                  className="p-5 border border-border bg-background/60 space-y-2 relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent" />
+                  <div className="pl-3">
+                    <div className="flex items-start gap-2 mb-1">
+                      <Star className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                      <h4 className="font-bold text-sm leading-snug">{award.title}</h4>
+                    </div>
+                    <p className="text-xs text-primary/80 font-medium mb-2">{award.meta}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{award.desc}</p>
                   </div>
-                </li>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </div>
 
+          {/* Certifications */}
           <div>
-            <h2 className="text-2xl font-bold mb-8 flex items-center gap-3">
+            <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
               <CheckCircle2 className="text-primary" /> Certifications
             </h2>
-            <ul className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-3">
               {[
-                { title: "Google Cloud Certified Generative AI Leader", desc: "Nov 2025" },
-                { title: "GitHub Copilot Certified", desc: "Microsoft" },
-                { title: "Google UX Certification", desc: "Coursera / Google" }
+                { title: "Generative AI Fundamentals", issuer: "Google", date: "May 2026", credential: "24255344" },
+                { title: "Google Cloud Certified Generative AI Leader", issuer: "Cognizant", date: "Nov 2025" },
+                { title: "Frontline Leaders Client Leadership Program", issuer: "Cognizant", date: "Oct 2024" },
+                { title: "GitHub Copilot Certified", issuer: "Cognizant", date: "Aug 2024" },
+                { title: "Client Collaboration", issuer: "Miro", date: "May 2023" },
+                { title: "Mapping & Diagramming", issuer: "Miro", date: "May 2023" },
+                { title: "Miro Essentials", issuer: "Miro", date: "Apr 2023" },
+                { title: "App Design: Prototyping for Beginners", issuer: "Domestika", date: "Feb 2022", credential: "9673fd9cf002b3b55d3a4cdea774ba46" },
+                { title: "Figma UI UX Design Essentials", issuer: "Udemy", date: "Apr 2022", credential: "UC-8c35e055-c76b-4d97-98c9-4e1b4a871f05" },
+                { title: "Google UX Certification – Foundations of UX Design", issuer: "Google", date: "May 2022" },
+                { title: "WCAG 2.2 – How to Design for Accessibility", issuer: "Udemy", date: "Jul 2022", credential: "UC-354dcdd8-2fc4-4b18-941f-5465dc5539b5" },
+                { title: "Giving and Receiving Feedback", issuer: "PMI", date: "Apr 2020", credential: "ATZhq1b-p-0iGUAUWmJNiHjeEksh" },
+                { title: "Digital Body Language", issuer: "LinkedIn", date: "Jul 2021", credential: "ATfBoeCtF0MC6_vPFmnxjVuyvrcJ" },
+                { title: "Communicating with Confidence", issuer: "LinkedIn", date: "May 2021", credential: "AUc4mvUPzVZ9_OCNkwzSfr03mDie" },
               ].map((cert, i) => (
-                <li key={i} className="flex gap-4">
-                  <div className="w-5 h-5 rounded bg-muted border border-border flex items-center justify-center shrink-0 mt-0.5">
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 8 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: i * 0.04 }}
+                  className="flex gap-3 py-4 px-4 border border-border bg-background/40 hover:bg-background/70 transition-colors"
+                >
+                  <div className="w-5 h-5 rounded-sm bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                     <div className="w-1.5 h-1.5 bg-primary rounded-full" />
                   </div>
-                  <div>
-                    <h4 className="font-bold">{cert.title}</h4>
-                    <p className="text-sm text-muted-foreground">{cert.desc}</p>
+                  <div className="min-w-0 flex-1">
+                    <h4 className="font-semibold text-sm leading-snug">{cert.title}</h4>
+                    <p className="text-xs text-muted-foreground mt-0.5">
+                      {cert.issuer} · {cert.date}
+                    </p>
+                    {cert.credential && (
+                      <p className="text-xs text-primary/60 mt-0.5 font-mono truncate">
+                        {cert.credential}
+                      </p>
+                    )}
                   </div>
-                </li>
+                </motion.div>
               ))}
-            </ul>
+            </div>
           </div>
+
         </div>
       </section>
 
