@@ -175,6 +175,7 @@ export default function Home() {
     const stored = localStorage.getItem("theme");
     return stored ? stored === "dark" : true;
   });
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -187,6 +188,12 @@ export default function Home() {
     }
   }, [isDark]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 72);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
@@ -195,8 +202,38 @@ export default function Home() {
       } : undefined}
     >
       {/* Fixed Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav
+        aria-label="Main navigation"
+        className="fixed z-50 left-0 right-0 flex justify-center"
+        style={{
+          top: scrolled ? 10 : 0,
+          padding: scrolled ? "0 16px" : "0",
+          transition: "top 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.35s cubic-bezier(0.4,0,0.2,1)",
+        }}
+      >
+        <div
+          style={{
+            width: "100%",
+            maxWidth: scrolled ? 660 : "100vw",
+            height: scrolled ? 48 : 64,
+            borderRadius: scrolled ? 9999 : 0,
+            paddingLeft: scrolled ? 20 : 24,
+            paddingRight: scrolled ? 20 : 24,
+            background: `hsl(var(--background) / ${scrolled ? "0.72" : "0.82"})`,
+            backdropFilter: "blur(20px) saturate(160%)",
+            WebkitBackdropFilter: "blur(20px) saturate(160%)",
+            border: "1px solid transparent",
+            borderColor: scrolled ? "hsl(var(--border) / 0.55)" : "transparent",
+            borderBottomColor: "hsl(var(--border))",
+            boxShadow: scrolled
+              ? "0 8px 32px hsl(0 0% 0% / 0.10), 0 2px 8px hsl(0 0% 0% / 0.06)"
+              : "none",
+            transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
           <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
             isaac<span className="text-primary">_</span>philip
           </a>
