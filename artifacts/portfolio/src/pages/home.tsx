@@ -257,7 +257,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-6 min-h-[80vh] flex items-center">
+      <section
+        className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-6 min-h-[80vh] flex items-center"
+        style={!isDark ? { backgroundColor: "hsl(0 0% 100% / 0.38)" } : undefined}
+      >
         {/* Dot grid */}
         <div
           className="absolute inset-0 pointer-events-none"
