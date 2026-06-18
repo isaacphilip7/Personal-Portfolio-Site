@@ -913,6 +913,116 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Personal Illustrations 2023 */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.18 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              <div className="h-40 relative overflow-hidden flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg, hsl(var(--accent) / 0.12), hsl(var(--primary) / 0.08))" }}>
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
+                  {/* Abstract ink strokes */}
+                  <path d="M40 80 Q55 40 80 60 Q105 80 130 35" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round" />
+                  <path d="M50 90 Q70 55 90 70 Q110 85 140 50" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7" />
+                  {/* Brush dot accents */}
+                  <circle cx="40" cy="80" r="3" fill="hsl(var(--accent))" fillOpacity="0.8" />
+                  <circle cx="130" cy="35" r="3" fill="hsl(var(--accent))" fillOpacity="0.6" />
+                  <circle cx="90" cy="70" r="2" fill="hsl(var(--primary))" fillOpacity="0.6" />
+                  {/* Frame suggestion */}
+                  <rect x="62" y="28" width="34" height="40" rx="2" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.15" />
+                  <rect x="100" y="35" width="26" height="30" rx="2" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.1" />
+                </svg>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">Illustration</Badge>
+                  <span className="text-xs text-muted-foreground font-medium">Personal</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Personal Illustrations — 2023</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Conceptual series grounded in personal storytelling.",
+                    "Demonstrates the visual communication foundation behind the UX work.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a href="https://www.behance.net/gallery/187300823/Personal-Illustrations-2023" target="_blank" rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                    <ExternalLink className="w-3 h-3" />
+                    behance.net/gallery/187300823
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Notes App */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.22 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              <div className="h-40 relative overflow-hidden flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg, hsl(140 40% 30% / 0.15), hsl(var(--background)))" }}>
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
+                  {/* Notebook */}
+                  <rect x="68" y="22" width="44" height="58" rx="3" fill="hsl(var(--foreground))" fillOpacity="0.12" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.3" />
+                  {/* Bookmark */}
+                  <path d="M84 80 L84 92 L90 88 L96 92 L96 80" fill="hsl(140 60% 55%)" fillOpacity="0.7" />
+                  {/* Yellow plus badge */}
+                  <rect x="58" y="34" width="18" height="18" rx="3" fill="hsl(52 95% 55%)" fillOpacity="0.9" />
+                  <line x1="67" y1="38" x2="67" y2="48" stroke="hsl(var(--background))" strokeWidth="2" strokeLinecap="round" />
+                  <line x1="62" y1="43" x2="72" y2="43" stroke="hsl(var(--background))" strokeWidth="2" strokeLinecap="round" />
+                  {/* Leaf silhouette */}
+                  <path d="M120 30 Q145 18 150 45 Q140 55 120 30Z" fill="hsl(140 50% 45%)" fillOpacity="0.4" />
+                  <path d="M115 50 Q135 38 145 60 Q132 68 115 50Z" fill="hsl(140 50% 45%)" fillOpacity="0.25" />
+                </svg>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">Mobile App</Badge>
+                  <span className="text-xs text-muted-foreground font-medium">UI/UX</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Notes App — Capture life beautifully</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  A notes app UI/UX project that pairs dark, tactile aesthetics with botanical illustration — making the mundane act of note-taking feel considered.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Dark notebook-inspired UI contrasted with organic botanical elements.",
+                    "Yellow accent system for quick-capture actions and hierarchy.",
+                    "Balances personality with functional clarity.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a href="https://www.behance.net/gallery/155834013/Notes-App" target="_blank" rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                    <ExternalLink className="w-3 h-3" />
+                    behance.net/gallery/155834013
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
