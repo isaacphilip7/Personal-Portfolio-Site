@@ -642,18 +642,15 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
               <div className="space-y-6">
                 <p>
-                  My core strength is end-to-end enterprise UX — research, information architecture, interaction design, design systems, and increasingly AI-powered workflows.
+                  My core strength is end-to-end enterprise UX — research, information architecture, interaction design, design systems, and increasingly, AI-powered workflows.
                 </p>
                 <p>
-                  At Cognizant, I've led design for several contract lifecycle management applications: Contract Signature, Commitment Management AI, Contracts Storage, and Contracts Authoring. I'm currently working on a Claude Code led greenfield project using Spec Driven Development.
+                  At Cognizant, I've led design for several contract lifecycle management applications, including Contract Signature, Commitment Management AI, Contracts Storage, and Contracts Authoring. I'm currently driving a greenfield project using Claude Code and Spec-Driven Development.
                 </p>
               </div>
               <div className="space-y-6">
                 <p>
-                  I also bring a strong visual design foundation spanning branding, illustration, motion design, and even space and experience design.
-                </p>
-                <p>
-                  Most recently, I led a full design overhaul for an experience center for a leading US bank — a reminder that good UX doesn't stop at the screen.
+                  I also bring a strong visual design foundation spanning branding, illustration, and motion design, extending into space and experience design — I led a full design overhaul of an experience center for a leading US bank.
                 </p>
               </div>
             </div>
