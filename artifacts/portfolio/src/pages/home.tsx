@@ -804,6 +804,115 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+            {/* Homesense */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.12 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              <div className="h-40 relative overflow-hidden bg-gradient-to-br from-foreground/5 via-background to-background flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                <svg viewBox="0 0 180 120" className="w-44 opacity-60" fill="none" stroke="hsl(var(--foreground))" strokeWidth="1">
+                  {/* Room perspective */}
+                  <path d="M30 20 L150 20 L150 100 L30 100 Z" strokeOpacity="0.3" />
+                  <path d="M30 20 L60 40 L60 100" strokeOpacity="0.2" />
+                  <path d="M150 20 L120 40 L120 100" strokeOpacity="0.2" />
+                  <path d="M60 40 L120 40" strokeOpacity="0.15" />
+                  {/* Smart home icon — house outline */}
+                  <path d="M80 55 L90 47 L100 55 L100 72 L80 72 Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeOpacity="0.8" />
+                  <rect x="86" y="62" width="8" height="10" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.6" />
+                  {/* Wifi arcs */}
+                  <path d="M90 52 Q96 46 102 52" stroke="hsl(var(--accent))" strokeWidth="1" strokeLinecap="round" strokeOpacity="0.7" />
+                  <path d="M90 52 Q99 42 108 52" stroke="hsl(var(--accent))" strokeWidth="1" strokeLinecap="round" strokeOpacity="0.4" />
+                </svg>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">Mobile App</Badge>
+                  <span className="text-xs text-muted-foreground font-medium">UI/UX</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Homesense App</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  A smart home app designed around calm, minimal aesthetics — making home automation feel effortless rather than technical.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Line-art illustration style creates warmth without visual noise.",
+                    "Focused on intuitive control flows for non-technical users.",
+                    "Consistent design language across room, device, and scene views.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a href="https://www.behance.net/gallery/141252151/Homesense-App" target="_blank" rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                    <ExternalLink className="w-3 h-3" />
+                    behance.net/gallery/141252151
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Goodweather */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.16 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              <div className="h-40 relative overflow-hidden flex items-center justify-center shrink-0"
+                style={{ background: "linear-gradient(135deg, hsl(45 80% 60% / 0.2), hsl(var(--accent) / 0.15), hsl(160 50% 50% / 0.1))" }}>
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
+                  {/* Sun */}
+                  <circle cx="130" cy="35" r="14" fill="hsl(45 88% 62%)" fillOpacity="0.5" />
+                  {/* Cloud */}
+                  <ellipse cx="80" cy="62" rx="28" ry="16" fill="white" fillOpacity="0.25" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
+                  <ellipse cx="94" cy="55" rx="18" ry="14" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="1" strokeOpacity="0.35" />
+                  {/* Wind lines */}
+                  <path d="M40 55 Q55 50 70 55" stroke="hsl(var(--accent))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7" />
+                  <path d="M35 65 Q55 58 75 65" stroke="hsl(var(--accent))" strokeWidth="1"   strokeLinecap="round" strokeOpacity="0.5" />
+                  {/* Temp text */}
+                  <text x="52" y="90" fontSize="18" fontWeight="700" fill="hsl(var(--accent))" fillOpacity="0.8" fontFamily="serif">23°</text>
+                </svg>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">Mobile App</Badge>
+                  <span className="text-xs text-muted-foreground font-medium">UI/UX Case Study</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Goodweather</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  My first UI/UX project — a weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Warm pastel palette adapts to weather conditions for emotional resonance.",
+                    "Pollen, wind, and UV data surfaced alongside temperature for fuller context.",
+                    "Full Figma prototype — from wireframes through polished UI.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a href="https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study" target="_blank" rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1">
+                    <ExternalLink className="w-3 h-3" />
+                    behance.net/gallery/139904507
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
