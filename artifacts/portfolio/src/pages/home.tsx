@@ -187,17 +187,6 @@ const companies: Company[] = [
     desc: "Leading UX for large-scale enterprise modernization and AI accelerator initiatives. Designing across the full product lifecycle — from research and IA to component libraries and AI-native workflows.",
     projects: [
       {
-        title: "Neuro AI Multi-Agent Accelerator",
-        tag: "AI / UX",
-        desc: "Designing next-generation UI for an AI agent studio to enhance user experience and workflow efficiency.",
-        bullets: [
-          "Designing next-gen UI for an AI agent studio to enhance UX and workflow efficiency.",
-          "Leveraging Figma-to-code tools (Anima, GitHub Copilot, Microsoft Copilot) to accelerate design-to-development handoff.",
-        ],
-        stat: "In Progress",
-        link: "github.com/isaacphilip7/Neuro-UI-Sky-Blue",
-      },
-      {
         title: "Contract Signature Application",
         tag: "B2B SaaS",
         desc: "Transformed a manual Excel and email-based workflow into a fully digital application, significantly improving usability and adoption.",
@@ -658,7 +647,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Projects Section — blank, to be populated */}
+      {/* Projects Section */}
       <section id="projects" className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -666,11 +655,73 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
+            className="mb-16"
           >
-            <h2 className="text-3xl font-bold flex items-center gap-4">
-              Projects
-            </h2>
+            <h2 className="text-3xl font-bold">Projects</h2>
           </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Neuro AI */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              {/* Abstract visual */}
+              <div className="h-40 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                {/* Node / agent graph decoration */}
+                <svg viewBox="0 0 160 120" className="w-40 opacity-60" fill="none">
+                  <circle cx="80" cy="60" r="14" stroke="hsl(var(--primary))" strokeWidth="1.5" />
+                  <circle cx="30" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
+                  <circle cx="130" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
+                  <circle cx="30" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
+                  <circle cx="130" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
+                  <line x1="80" y1="46" x2="30"  y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
+                  <line x1="80" y1="46" x2="130" y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
+                  <line x1="80" y1="74" x2="30"  y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
+                  <line x1="80" y1="74" x2="130" y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
+                  <text x="80" y="64" textAnchor="middle" fontSize="9" fill="hsl(var(--primary))" fontFamily="monospace">AI</text>
+                </svg>
+              </div>
+
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">AI / UX</Badge>
+                  <span className="text-xs text-primary font-medium">In Progress</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Neuro AI Multi-Agent Accelerator</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Next-generation UI for an AI agent studio — making multi-agent orchestration intuitive for enterprise teams.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Designing the UX for an AI agent studio from the ground up.",
+                    "Leveraging Anima, GitHub Copilot & Microsoft Copilot to accelerate design-to-dev handoff.",
+                    "Built using Claude Code and Spec-Driven Development.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a
+                    href="https://github.com/isaacphilip7/Neuro-UI-Sky-Blue"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    github.com/isaacphilip7/Neuro-UI-Sky-Blue
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
