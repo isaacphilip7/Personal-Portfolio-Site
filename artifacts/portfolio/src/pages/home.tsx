@@ -636,7 +636,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl font-bold mb-12 flex items-center gap-4">
-              <span className="text-primary">01.</span> Who I am
+              Who I am
             </h2>
 
             <div className="grid md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
@@ -671,7 +671,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl font-bold flex items-center gap-4">
-              <span className="text-primary">02.</span> Projects
+              Projects
             </h2>
           </motion.div>
         </div>
@@ -688,7 +688,7 @@ export default function Home() {
             className="mb-16"
           >
             <h2 className="text-3xl font-bold flex items-center gap-4">
-              <span className="text-primary">03.</span> Experience
+              Experience
             </h2>
           </motion.div>
 
@@ -755,7 +755,7 @@ export default function Home() {
       <section id="skills" className="py-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
-            <span className="text-primary">04.</span> Toolkit & Craft
+            Toolkit & Craft
           </h2>
 
           <div className="grid md:grid-cols-3 gap-12">
