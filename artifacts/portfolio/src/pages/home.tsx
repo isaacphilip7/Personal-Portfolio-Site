@@ -742,6 +742,68 @@ export default function Home() {
                 </div>
               </div>
             </motion.div>
+
+            {/* Logis */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.08 }}
+              className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
+            >
+              {/* Abstract visual — shipping / route theme */}
+              <div className="h-40 relative overflow-hidden bg-gradient-to-br from-amber-500/15 via-background to-background flex items-center justify-center shrink-0">
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                <svg viewBox="0 0 180 120" className="w-44 opacity-70" fill="none">
+                  {/* Route line */}
+                  <path d="M20 90 Q60 20 90 60 Q120 95 160 40" stroke="hsl(45 90% 55%)" strokeWidth="2" strokeDasharray="5 4" />
+                  {/* Origin dot */}
+                  <circle cx="20" cy="90" r="5" fill="hsl(45 90% 55%)" />
+                  {/* Destination dot */}
+                  <circle cx="160" cy="40" r="5" fill="hsl(var(--primary))" />
+                  {/* Box icon */}
+                  <rect x="78" y="48" width="24" height="24" rx="2" stroke="hsl(45 90% 55%)" strokeWidth="1.5" />
+                  <line x1="78" y1="56" x2="102" y2="56" stroke="hsl(45 90% 55%)" strokeWidth="1" strokeOpacity="0.6" />
+                  <line x1="90" y1="48" x2="90" y2="72" stroke="hsl(45 90% 55%)" strokeWidth="1" strokeOpacity="0.6" />
+                  {/* Arrow head at destination */}
+                  <path d="M154 38 L160 40 L155 44" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              <div className="p-6 flex flex-col flex-1">
+                <div className="flex items-start justify-between gap-2 mb-3">
+                  <Badge variant="outline" className="text-xs">Web Design</Badge>
+                  <span className="text-xs text-muted-foreground font-medium">Concept</span>
+                </div>
+                <h3 className="text-lg font-bold mb-2 leading-snug">Logis — Website Design</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  "Global operations made personal." A logistics platform designed around clarity, trust, and real-time shipment tracking.
+                </p>
+                <ul className="space-y-1.5 mb-6">
+                  {[
+                    "Clean, conversion-focused landing page with a bold hero and inline tracking CTA.",
+                    "Warm, human illustration style to offset the industrial logistics context.",
+                    "Navigation structured around core user tasks: Send, Services, Pricing.",
+                  ].map((b, i) => (
+                    <li key={i} className="flex gap-2 text-xs text-muted-foreground">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-auto pt-4 border-t border-border">
+                  <a
+                    href="https://www.behance.net/gallery/247694847/Logis-Website-Design"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    behance.net/gallery/247694847
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
