@@ -600,7 +600,7 @@ export default function Home() {
             </h1>
 
             <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              I'm Isaac Philip. I transform complex enterprise pain into intuitive digital products. 10+ years of making screens work.
+              I'm Isaac Philip. I transform complex enterprise challenges into intuitive digital products. 10+ years of making screens work.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
