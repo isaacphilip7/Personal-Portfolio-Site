@@ -3,6 +3,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
+import illEllipse10 from "@assets/Ellipse_10_1781761113416.svg";
+import illEllipse8 from "@assets/Ellipse_8_1781761113416.svg";
+import illEllipse9 from "@assets/Ellipse_9_1781761113416.svg";
+import illVector14 from "@assets/Vector_14_1781761113416.svg";
+import illVector10 from "@assets/Vector_10_1781761113416.svg";
+import illVectorRays from "@assets/Vector_1781761113416.svg";
+import illGroup1074 from "@assets/Group_1074_1781761113416.svg";
+import illGroup14 from "@assets/Group_14_1781761113416.svg";
+import illUnion from "@assets/Union_1781761113417.svg";
+import illUnion1 from "@assets/Union-1_1781761113416.svg";
+
 function GlowWord({ children }: { children: string }) {
   const [hovered, setHovered] = useState(false);
   const letters = children.split("");
@@ -622,15 +633,47 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Right — illustration placeholder */}
+          {/* Right — illustration */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
-            className="hidden md:flex items-center justify-center"
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="hidden md:flex items-center justify-end overflow-visible"
           >
-            <div className="w-full aspect-square max-w-sm rounded-sm border border-dashed border-border/50 flex items-center justify-center text-muted-foreground/30 text-xs tracking-widest select-none">
-              illustration
+            <div
+              className="relative select-none dark:invert"
+              style={{ width: 520, height: 540, flexShrink: 0 }}
+            >
+              {/* Body / cloud — upper right, partially peeking off edge */}
+              <img src={illVector10} alt="" className="absolute pointer-events-none"
+                style={{ width: 330, top: 72, left: 188 }} />
+              {/* Flame — top right, partially off */}
+              <img src={illGroup14} alt="" className="absolute pointer-events-none"
+                style={{ width: 32, top: 38, left: 468 }} />
+              {/* × cross accent */}
+              <img src={illUnion} alt="" className="absolute pointer-events-none"
+                style={{ width: 16, top: 48, left: 448 }} />
+              {/* Radial rays — far left */}
+              <img src={illVectorRays} alt="" className="absolute pointer-events-none"
+                style={{ width: 64, top: 158, left: 10 }} />
+              {/* Speech bubble */}
+              <img src={illGroup1074} alt="" className="absolute pointer-events-none"
+                style={{ width: 110, top: 232, left: 78 }} />
+              {/* Eye — outer circle */}
+              <img src={illEllipse10} alt="" className="absolute pointer-events-none"
+                style={{ width: 200, top: 168, left: 160 }} />
+              {/* Eye — horizontal oval */}
+              <img src={illEllipse8} alt="" className="absolute pointer-events-none"
+                style={{ width: 200, top: 224, left: 160 }} />
+              {/* Eye — pupil */}
+              <img src={illEllipse9} alt="" className="absolute pointer-events-none"
+                style={{ width: 58, top: 201, left: 231 }} />
+              {/* Lightning bolt */}
+              <img src={illVector14} alt="" className="absolute pointer-events-none"
+                style={{ width: 148, top: 368, left: 186 }} />
+              {/* + plus accent */}
+              <img src={illUnion1} alt="" className="absolute pointer-events-none"
+                style={{ width: 16, top: 490, left: 348 }} />
             </div>
           </motion.div>
         </div>
