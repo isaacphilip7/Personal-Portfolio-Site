@@ -185,7 +185,7 @@ function ProjectCard({
 function ProjectGrid({ projects }: { projects: Project[] }) {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
   return (
-    <div className="grid md:grid-cols-2 gap-4">
+    <div className="grid md:grid-cols-2 gap-4 items-start">
       {projects.map((project, j) => (
         <ProjectCard
           key={j}
