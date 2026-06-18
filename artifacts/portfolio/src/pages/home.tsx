@@ -118,27 +118,29 @@ type Company = {
   projects: Project[];
 };
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const [open, setOpen] = useState(false);
+function ProjectCard({
+  project, index, open, onToggle,
+}: { project: Project; index: number; open: boolean; onToggle: () => void }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.07 }}
-      className="group border border-border bg-background relative overflow-hidden flex flex-col cursor-pointer"
-      onClick={() => setOpen(o => !o)}
+      transition={{ duration: 0.3, delay: index * 0.06 }}
+      className="group border border-border bg-background relative overflow-hidden flex flex-col cursor-pointer hover:border-primary/30 transition-colors"
+      onClick={onToggle}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-      <div className="relative z-10 flex flex-col flex-1 p-6">
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <Badge variant="outline" className="text-xs self-start shrink-0">{project.tag}</Badge>
-          <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 mt-0.5 ${open ? "rotate-180 text-primary" : ""}`} />
+      <div className="relative z-10 flex flex-col flex-1 p-5">
+        {/* Always visible: tag + title */}
+        <div className="flex items-center justify-between gap-3">
+          <Badge variant="outline" className="text-xs shrink-0">{project.tag}</Badge>
+          <ChevronDown className={`w-4 h-4 text-muted-foreground shrink-0 transition-transform duration-300 ${open ? "rotate-180 text-primary" : ""}`} />
         </div>
-        <h4 className="text-base font-bold mb-2 leading-snug">{project.title}</h4>
-        <p className="text-muted-foreground text-sm leading-relaxed">{project.desc}</p>
+        <h4 className="text-sm font-semibold mt-2 leading-snug">{project.title}</h4>
 
+        {/* Expanded: desc + bullets + stat */}
         <AnimatePresence initial={false}>
-          {open && project.bullets.length > 0 && (
+          {open && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
@@ -146,35 +148,54 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <ul className="space-y-1.5 mt-4">
-                {project.bullets.map((b, k) => (
-                  <li key={k} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
-                    <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
-                    {b}
-                  </li>
-                ))}
-              </ul>
+              <p className="text-muted-foreground text-sm leading-relaxed mt-3">{project.desc}</p>
+              {project.bullets.length > 0 && (
+                <ul className="space-y-1.5 mt-3">
+                  {project.bullets.map((b, k) => (
+                    <li key={k} className="flex gap-2 text-xs text-muted-foreground leading-relaxed">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <div className="pt-4 border-t border-border flex items-center justify-between gap-3 flex-wrap mt-4">
+                <span className="text-primary font-medium text-xs">{project.stat}</span>
+                {project.link && (
+                  <a
+                    href={`https://${project.link}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={e => e.stopPropagation()}
+                    className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    {project.link}
+                  </a>
+                )}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-
-        <div className="mt-auto pt-4 border-t border-border flex items-center justify-between gap-3 flex-wrap mt-4">
-          <span className="text-primary font-medium text-xs">{project.stat}</span>
-          {open && project.link && (
-            <a
-              href={`https://${project.link}`}
-              target="_blank"
-              rel="noreferrer"
-              onClick={e => e.stopPropagation()}
-              className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
-            >
-              <ExternalLink className="w-3 h-3" />
-              {project.link}
-            </a>
-          )}
-        </div>
       </div>
     </motion.div>
+  );
+}
+
+function ProjectGrid({ projects }: { projects: Project[] }) {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+  return (
+    <div className="grid md:grid-cols-2 gap-4">
+      {projects.map((project, j) => (
+        <ProjectCard
+          key={j}
+          project={project}
+          index={j}
+          open={openIdx === j}
+          onToggle={() => setOpenIdx(openIdx === j ? null : j)}
+        />
+      ))}
+    </div>
   );
 }
 
@@ -783,11 +804,7 @@ export default function Home() {
                         <p className="text-muted-foreground mb-8 text-sm leading-relaxed">{job.desc}</p>
 
                         {job.projects.length > 0 && (
-                          <div className="grid md:grid-cols-2 gap-4">
-                            {job.projects.map((project, j) => (
-                              <ProjectCard key={j} project={project} index={j} />
-                            ))}
-                          </div>
+                          <ProjectGrid projects={job.projects} />
                         )}
                       </div>
                     </motion.div>
