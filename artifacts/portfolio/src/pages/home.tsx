@@ -642,18 +642,18 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 text-muted-foreground leading-relaxed">
               <div className="space-y-6">
                 <p>
-                  I've been making enterprise software less miserable since 2016. Based in Chennai, currently leading UX at Cognizant.
+                  My core strength is end-to-end enterprise UX — research, information architecture, interaction design, design systems, and increasingly AI-powered workflows.
                 </p>
                 <p>
-                  My background isn't typical. I hold a BSc in Visual Communication and an MA in English. That means I don't just draw rectangles—I write copy that people actually read, and I build narratives that drive adoption.
+                  At Cognizant, I've led design for several contract lifecycle management applications: Contract Signature, Commitment Management AI, Contracts Storage, and Contracts Authoring. I'm currently working on a Claude Code led greenfield project using Spec Driven Development.
                 </p>
               </div>
               <div className="space-y-6">
                 <p>
-                  I specialize in the messy, complicated stuff. The kind of B2B applications that run multi-national operations. If your users need a 40-page manual to use your tool, we need to talk.
+                  I also bring a strong visual design foundation spanning branding, illustration, motion design, and even space and experience design.
                 </p>
                 <p>
-                  Lately, I've been deep in the trenches of GenAI, designing agentic workflows and AI-native interfaces that make "50% faster workflows" a reality, not just a marketing claim.
+                  Most recently, I led a full design overhaul for an experience center for a leading US bank — a reminder that good UX doesn't stop at the screen.
                 </p>
               </div>
             </div>
