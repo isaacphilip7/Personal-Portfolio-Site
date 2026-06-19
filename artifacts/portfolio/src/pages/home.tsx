@@ -3,16 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
-import illEllipse10 from "@assets/Ellipse_10_1781761113416.svg";
-import illEllipse8 from "@assets/Ellipse_8_1781761113416.svg";
-import illEllipse9 from "@assets/Ellipse_9_1781761113416.svg";
-import illVector14 from "@assets/Vector_14_1781761113416.svg";
-import illVector10 from "@assets/Vector_10_1781761113416.svg";
-import illVectorRays from "@assets/Vector_1781761113416.svg";
-import illGroup1074 from "@assets/Group_1074_1781761113416.svg";
-import illGroup14 from "@assets/Group_14_1781761113416.svg";
-import illUnion from "@assets/Union_1781761113417.svg";
-import illUnion1 from "@assets/Union-1_1781761113416.svg";
 
 function GlowWord({ children }: { children: string }) {
   const [hovered, setHovered] = useState(false);
@@ -717,43 +707,53 @@ export default function Home() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hidden md:flex items-center justify-end overflow-visible"
+            className="hidden md:flex items-center justify-center overflow-visible"
           >
-            <div
-              className="relative select-none dark:invert"
-              style={{ width: 520, height: 540, flexShrink: 0 }}
+            <svg
+              viewBox="0 0 560 450"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-full max-w-lg select-none pointer-events-none"
+              style={{ color: "hsl(var(--primary))" }}
             >
-              {/* Body / cloud — upper right, partially peeking off edge */}
-              <img src={illVector10} alt="" className="absolute pointer-events-none"
-                style={{ width: 330, top: 72, left: 188 }} />
-              {/* Flame — top right, partially off */}
-              <img src={illGroup14} alt="" className="absolute pointer-events-none"
-                style={{ width: 32, top: 38, left: 468 }} />
-              {/* × cross accent */}
-              <img src={illUnion} alt="" className="absolute pointer-events-none"
-                style={{ width: 16, top: 48, left: 448 }} />
-              {/* Radial rays — far left */}
-              <img src={illVectorRays} alt="" className="absolute pointer-events-none"
-                style={{ width: 64, top: 158, left: 10 }} />
-              {/* Speech bubble */}
-              <img src={illGroup1074} alt="" className="absolute pointer-events-none"
-                style={{ width: 110, top: 232, left: 78 }} />
-              {/* Eye — outer circle */}
-              <img src={illEllipse10} alt="" className="absolute pointer-events-none"
-                style={{ width: 200, top: 168, left: 160 }} />
-              {/* Eye — horizontal oval */}
-              <img src={illEllipse8} alt="" className="absolute pointer-events-none"
-                style={{ width: 200, top: 224, left: 160 }} />
-              {/* Eye — pupil */}
-              <img src={illEllipse9} alt="" className="absolute pointer-events-none"
-                style={{ width: 58, top: 201, left: 231 }} />
-              {/* Lightning bolt */}
-              <img src={illVector14} alt="" className="absolute pointer-events-none"
-                style={{ width: 148, top: 368, left: 186 }} />
-              {/* + plus accent */}
-              <img src={illUnion1} alt="" className="absolute pointer-events-none"
-                style={{ width: 16, top: 490, left: 348 }} />
-            </div>
+              {/* Pyramid / triangle */}
+              <path d="M228 14 L -28 449 L 488 449 Z" stroke="currentColor" strokeWidth="1.2" />
+
+              {/* Inner X lines — rect bottom corners to triangle base */}
+              <line x1="131" y1="346" x2="488" y2="449" stroke="currentColor" strokeWidth="0.9" strokeOpacity="0.65" />
+              <line x1="-28" y1="449" x2="325" y2="346" stroke="currentColor" strokeWidth="0.9" strokeOpacity="0.65" />
+
+              {/* Rectangle frame */}
+              <rect x="131" y="192" width="194" height="154" stroke="currentColor" strokeWidth="1" />
+
+              {/* Corner squares (selection-handle style) */}
+              <rect x="127" y="188" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
+              <rect x="321" y="188" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
+              <rect x="127" y="342" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
+              <rect x="321" y="342" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
+
+              {/* Eye — outer circle (sclera) */}
+              <circle cx="228" cy="269" r="55" stroke="currentColor" strokeWidth="1" />
+
+              {/* Eye — horizontal oval (iris boundary) */}
+              <ellipse cx="228" cy="269" rx="68" ry="36" stroke="currentColor" strokeWidth="1" />
+
+              {/* Pupil — solid filled vertical oval */}
+              <ellipse cx="228" cy="269" rx="16" ry="54" fill="currentColor" />
+
+              {/* 4-pointed star above eye (inside rectangle) */}
+              <path
+                d="M228 202 C229 210,233 214,237 215 C241 216,243 218,243 219 C243 220,241 222,237 223 C233 224,229 228,228 236 C227 228,223 224,219 223 C215 222,213 220,213 219 C213 218,215 216,219 215 C223 214,227 210,228 202 Z"
+                stroke="currentColor" strokeWidth="1.1"
+              />
+
+              {/* Fan of rays from right tangent of eye — clipped at viewBox edge */}
+              <path d="M296 269 C358 228,442 214,560 200" stroke="currentColor" strokeWidth="0.9" />
+              <path d="M296 269 C364 247,452 244,560 238" stroke="currentColor" strokeWidth="0.9" />
+              <path d="M296 269 C380 269,460 269,560 269" stroke="currentColor" strokeWidth="0.9" />
+              <path d="M296 269 C364 291,452 294,560 300" stroke="currentColor" strokeWidth="0.9" />
+              <path d="M296 269 C358 310,442 324,560 338" stroke="currentColor" strokeWidth="0.9" />
+            </svg>
           </motion.div>
         </div>
       </section>
