@@ -840,8 +840,8 @@ export default function Home() {
             {/* 4 — Personal Illustrations 2023 */}
             <PortfolioCard
               isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
-              badge="Illustration" type="Personal"
-              title="Personal Illustrations — 2023"
+              badge="Illustration" type="Creative"
+              title="Illustrations"
               desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
               bullets={[
                 "Conceptual series grounded in personal storytelling.",
