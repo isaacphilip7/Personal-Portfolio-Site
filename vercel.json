@@ -1,0 +1,5 @@
+{
+  "buildCommand": "pnpm --filter portfolio run build",
+  "outputDirectory": "artifacts/portfolio/dist/public",
+  "framework": null
+}
