@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter portfolio run build",
-  "outputDirectory": "artifacts/portfolio/dist/public",
+  "buildCommand": "cd artifacts/portfolio && pnpm install && pnpm run build",
+  "outputDirectory": "artifacts/portfolio/dist",
   "framework": null
 }
