@@ -683,49 +683,259 @@ export default function Home() {
             className="hidden md:flex items-center justify-center overflow-visible"
           >
             <svg
-              viewBox="0 0 560 450"
+              viewBox="0 0 800 640"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-full max-w-lg select-none pointer-events-none"
+              className="w-full h-auto select-none pointer-events-none"
               style={{ color: "hsl(var(--primary))" }}
             >
-              {/* Pyramid / triangle */}
-              <path d="M228 14 L -28 449 L 488 449 Z" stroke="currentColor" strokeWidth="1.2" />
+              {/* ── BACKGROUND GRID PANEL ── */}
+              <rect x="353" y="20" width="418" height="352" rx="22" stroke="currentColor" strokeWidth="2.5"/>
+              <line x1="458" y1="20" x2="458" y2="372" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="563" y1="20" x2="563" y2="372" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="668" y1="20" x2="668" y2="372" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="353" y1="137" x2="771" y2="137" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="353" y1="254" x2="771" y2="254" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Row 1 */}
+              <rect x="366" y="33" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="471" y="33" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="576" y="33" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="681" y="33" width="79" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Row 2 */}
+              <rect x="366" y="150" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="471" y="150" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="576" y="150" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="681" y="150" width="79" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Row 3 */}
+              <rect x="366" y="267" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="471" y="267" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="576" y="267" width="81" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
+              <rect x="681" y="267" width="79" height="93" rx="11" stroke="currentColor" strokeWidth="1.5"/>
 
-              {/* Inner X lines — rect bottom corners to triangle base */}
-              <line x1="131" y1="346" x2="488" y2="449" stroke="currentColor" strokeWidth="0.9" strokeOpacity="0.65" />
-              <line x1="-28" y1="449" x2="325" y2="346" stroke="currentColor" strokeWidth="0.9" strokeOpacity="0.65" />
+              {/* ── MONITOR BODY ── */}
+              <rect x="236" y="86" width="470" height="422" rx="20" stroke="currentColor" strokeWidth="2.5"/>
+              <rect x="266" y="116" width="410" height="362" rx="10" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Stand neck */}
+              <rect x="446" y="508" width="38" height="32" rx="5" stroke="currentColor" strokeWidth="2"/>
+              {/* Stand base */}
+              <path d="M392 542 L418 539 L462 539 L516 539 L538 542 L528 557 L404 557 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
 
-              {/* Rectangle frame */}
-              <rect x="131" y="192" width="194" height="154" stroke="currentColor" strokeWidth="1" />
+              {/* ── SCREEN CONTENTS ── */}
+              {/* Hamburger */}
+              <line x1="276" y1="131" x2="300" y2="131" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+              <line x1="276" y1="139" x2="300" y2="139" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+              <line x1="276" y1="147" x2="300" y2="147" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
 
-              {/* Corner squares (selection-handle style) */}
-              <rect x="127" y="188" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
-              <rect x="321" y="188" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
-              <rect x="127" y="342" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
-              <rect x="321" y="342" width="8" height="8" stroke="currentColor" strokeWidth="0.9" fill="hsl(var(--background))" />
+              {/* Toolbar pill */}
+              <rect x="307" y="122" width="302" height="40" rx="20" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Up arrow */}
+              <path d="M330 148 L330 134" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+              <path d="M326 139 L330 134 L334 139" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Circle icon */}
+              <circle cx="358" cy="142" r="8" stroke="currentColor" strokeWidth="1.4"/>
+              {/* Square icon */}
+              <rect x="374" y="134" width="16" height="16" rx="2" stroke="currentColor" strokeWidth="1.4"/>
+              {/* Triangle icon */}
+              <path d="M412 150 L403 134 L421 134 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/>
+              {/* Bullseye */}
+              <circle cx="448" cy="142" r="9" stroke="currentColor" strokeWidth="1.4"/>
+              <circle cx="448" cy="142" r="4" stroke="currentColor" strokeWidth="1.4"/>
+              <circle cx="448" cy="142" r="1.5" fill="currentColor"/>
+              {/* Search icon */}
+              <circle cx="638" cy="142" r="9" stroke="currentColor" strokeWidth="1.8"/>
+              <line x1="644" y1="148" x2="653" y2="157" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
 
-              {/* Eye — outer circle (sclera) */}
-              <circle cx="228" cy="269" r="55" stroke="currentColor" strokeWidth="1" />
+              {/* Small square below toolbar */}
+              <rect x="447" y="172" width="30" height="30" rx="5" stroke="currentColor" strokeWidth="1.3"/>
 
-              {/* Eye — horizontal oval (iris boundary) */}
-              <ellipse cx="228" cy="269" rx="68" ry="36" stroke="currentColor" strokeWidth="1" />
+              {/* Lorem ipsum text lines */}
+              <rect x="276" y="218" width="172" height="6" rx="3" fill="currentColor" fillOpacity="0.35"/>
+              <rect x="276" y="230" width="178" height="6" rx="3" fill="currentColor" fillOpacity="0.35"/>
+              <rect x="276" y="242" width="152" height="6" rx="3" fill="currentColor" fillOpacity="0.35"/>
+              <rect x="276" y="254" width="160" height="6" rx="3" fill="currentColor" fillOpacity="0.2"/>
 
-              {/* Pupil — solid filled vertical oval */}
-              <ellipse cx="228" cy="269" rx="16" ry="54" fill="currentColor" />
+              {/* UI/UX badge */}
+              <rect x="276" y="270" width="64" height="26" rx="13" stroke="currentColor" strokeWidth="1.5"/>
+              <text x="308" y="288" textAnchor="middle" fontSize="10" fill="currentColor" fontFamily="monospace" fontWeight="bold">UI/UX</text>
 
-              {/* 4-pointed star above eye (inside rectangle) */}
-              <path
-                d="M228 202 C229 210,233 214,237 215 C241 216,243 218,243 219 C243 220,241 222,237 223 C233 224,229 228,228 236 C227 228,223 224,219 223 C215 222,213 220,213 219 C213 218,215 216,219 215 C223 214,227 210,228 202 Z"
-                stroke="currentColor" strokeWidth="1.1"
-              />
+              {/* Large circle */}
+              <circle cx="558" cy="302" r="75" stroke="currentColor" strokeWidth="1.8"/>
+              {/* Code icon rectangle */}
+              <rect x="515" y="271" width="86" height="58" rx="9" stroke="currentColor" strokeWidth="1.5"/>
+              {/* </> */}
+              <path d="M535 301 L528 294 L535 287" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M556 301 L563 294 L556 287" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <line x1="541" y1="308" x2="550" y2="280" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              {/* Small pill inside circle (top) */}
+              <rect x="532" y="256" width="52" height="16" rx="8" stroke="currentColor" strokeWidth="1.2"/>
 
-              {/* Fan of rays from right tangent of eye — clipped at viewBox edge */}
-              <path d="M296 269 C358 228,442 214,560 200" stroke="currentColor" strokeWidth="0.9" />
-              <path d="M296 269 C364 247,452 244,560 238" stroke="currentColor" strokeWidth="0.9" />
-              <path d="M296 269 C380 269,460 269,560 269" stroke="currentColor" strokeWidth="0.9" />
-              <path d="M296 269 C364 291,452 294,560 300" stroke="currentColor" strokeWidth="0.9" />
-              <path d="M296 269 C358 310,442 324,560 338" stroke="currentColor" strokeWidth="0.9" />
+              {/* Top-right gear */}
+              <circle cx="614" cy="248" r="22" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="614" cy="248" r="11" stroke="currentColor" strokeWidth="1.2"/>
+              <line x1="614" y1="223" x2="614" y2="215" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="628" y1="227" x2="634" y2="221" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="636" y1="241" x2="644" y2="239" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="634" y1="257" x2="642" y2="261" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="624" y1="269" x2="629" y2="277" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="614" y1="273" x2="614" y2="281" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="604" y1="269" x2="599" y2="277" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="592" y1="257" x2="584" y2="261" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="592" y1="241" x2="584" y2="239" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+              <line x1="600" y1="227" x2="594" y2="221" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round"/>
+
+              {/* Small lower gear */}
+              <circle cx="580" cy="358" r="18" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="580" cy="358" r="9" stroke="currentColor" strokeWidth="1.2"/>
+              <line x1="580" y1="337" x2="580" y2="330" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="593" y1="341" x2="598" y2="336" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="599" y1="354" x2="606" y2="354" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="593" y1="367" x2="598" y2="372" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="580" y1="379" x2="580" y2="386" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="567" y1="375" x2="562" y2="380" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="561" y1="362" x2="554" y2="362" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+              <line x1="567" y1="349" x2="562" y2="344" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round"/>
+
+              {/* Decorative circles on screen */}
+              <circle cx="506" cy="196" r="14" stroke="currentColor" strokeWidth="1.3"/>
+              <circle cx="484" cy="358" r="18" stroke="currentColor" strokeWidth="1.3"/>
+              <circle cx="648" cy="382" r="22" stroke="currentColor" strokeWidth="1.3" strokeOpacity="0.5"/>
+              <circle cx="648" cy="200" r="11" stroke="currentColor" strokeWidth="1.2" strokeOpacity="0.4"/>
+
+              {/* ── DESK LAMP ── */}
+              {/* Base */}
+              <ellipse cx="110" cy="572" rx="76" ry="14" stroke="currentColor" strokeWidth="2"/>
+              {/* Post */}
+              <rect x="97" y="534" width="26" height="40" rx="5" stroke="currentColor" strokeWidth="1.8"/>
+              {/* Bottom pivot */}
+              <circle cx="110" cy="533" r="10" stroke="currentColor" strokeWidth="1.8"/>
+              {/* Lower arm (front strut) */}
+              <line x1="110" y1="523" x2="162" y2="414" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              {/* Lower arm (back strut) */}
+              <line x1="121" y1="527" x2="173" y2="417" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5"/>
+              {/* Middle pivot */}
+              <circle cx="164" cy="412" r="10" stroke="currentColor" strokeWidth="1.8"/>
+              {/* Upper arm (front strut) */}
+              <line x1="164" y1="402" x2="226" y2="304" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              {/* Upper arm (back strut) */}
+              <line x1="175" y1="406" x2="235" y2="307" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.5"/>
+              {/* Top pivot */}
+              <circle cx="227" cy="302" r="9" stroke="currentColor" strokeWidth="1.8"/>
+              {/* Shade arm */}
+              <line x1="227" y1="293" x2="242" y2="273" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+              {/* Shade (trapezoid) */}
+              <path d="M214 252 L267 266 L273 300 L208 300 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+              {/* Bulb cylinder top ellipse */}
+              <ellipse cx="240" cy="304" rx="36" ry="14" stroke="currentColor" strokeWidth="1.5"/>
+              {/* Bulb cylinder bottom ellipse */}
+              <ellipse cx="240" cy="317" rx="33" ry="12" stroke="currentColor" strokeWidth="1.2"/>
+              {/* Ribs */}
+              <line x1="212" y1="297" x2="212" y2="323" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="220" y1="293" x2="220" y2="325" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="228" y1="291" x2="228" y2="327" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="236" y1="290" x2="236" y2="328" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="244" y1="291" x2="244" y2="327" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="252" y1="293" x2="252" y2="325" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="260" y1="297" x2="260" y2="322" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+              <line x1="268" y1="302" x2="268" y2="320" stroke="currentColor" strokeWidth="1" strokeOpacity="0.5"/>
+
+              {/* ── SMARTPHONE ── */}
+              <rect x="284" y="362" width="122" height="220" rx="16" stroke="currentColor" strokeWidth="2.2"/>
+              <rect x="296" y="375" width="98" height="194" rx="7" stroke="currentColor" strokeWidth="1.2"/>
+              {/* Notch */}
+              <rect x="328" y="369" width="38" height="10" rx="5" stroke="currentColor" strokeWidth="1.2"/>
+              {/* Donut chart – track */}
+              <circle cx="345" cy="413" r="25" stroke="currentColor" strokeWidth="6" strokeOpacity="0.2"/>
+              {/* Donut chart – fill */}
+              <circle cx="345" cy="413" r="25" stroke="currentColor" strokeWidth="6" strokeDasharray="110 47" strokeDashoffset="39"/>
+              {/* List row 1 */}
+              <rect x="304" y="450" width="46" height="7" rx="3.5" fill="currentColor" fillOpacity="0.4"/>
+              <rect x="354" y="450" width="22" height="7" rx="3.5" fill="currentColor" fillOpacity="0.4"/>
+              <rect x="380" y="448" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1"/>
+              <path d="M383 454 L386 457 L391 452" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* List row 2 */}
+              <rect x="304" y="464" width="40" height="7" rx="3.5" fill="currentColor" fillOpacity="0.3"/>
+              <rect x="348" y="464" width="28" height="7" rx="3.5" fill="currentColor" fillOpacity="0.3"/>
+              <rect x="380" y="462" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1"/>
+              <path d="M383 468 L386 471 L391 466" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* List row 3 */}
+              <rect x="304" y="478" width="52" height="7" rx="3.5" fill="currentColor" fillOpacity="0.3"/>
+              <rect x="360" y="478" width="16" height="7" rx="3.5" fill="currentColor" fillOpacity="0.3"/>
+              <rect x="380" y="476" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1"/>
+              <path d="M383 482 L386 485 L391 480" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* List row 4 */}
+              <rect x="304" y="492" width="44" height="7" rx="3.5" fill="currentColor" fillOpacity="0.2"/>
+              <rect x="352" y="492" width="24" height="7" rx="3.5" fill="currentColor" fillOpacity="0.2"/>
+              <rect x="380" y="490" width="14" height="11" rx="2" stroke="currentColor" strokeWidth="1"/>
+              <path d="M383 496 L386 499 L391 494" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Wave */}
+              <path d="M303 532 Q312 523 321 532 Q330 541 339 532 Q348 523 357 532 Q366 541 375 532 Q384 523 393 532" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              {/* Dots */}
+              <circle cx="332" cy="552" r="3.5" fill="currentColor"/>
+              <circle cx="342" cy="552" r="2.5" stroke="currentColor" strokeWidth="1"/>
+              <circle cx="351" cy="552" r="2.5" stroke="currentColor" strokeWidth="1"/>
+              <circle cx="360" cy="552" r="2.5" stroke="currentColor" strokeWidth="1"/>
+
+              {/* ── KEYBOARD ── */}
+              <rect x="301" y="556" width="224" height="54" rx="7" stroke="currentColor" strokeWidth="1.8"/>
+              <line x1="311" y1="570" x2="514" y2="570" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.4"/>
+              <line x1="311" y1="581" x2="514" y2="581" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.4"/>
+              <line x1="311" y1="592" x2="514" y2="592" stroke="currentColor" strokeWidth="0.8" strokeOpacity="0.4"/>
+              <line x1="324" y1="562" x2="324" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="337" y1="562" x2="337" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="350" y1="562" x2="350" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="363" y1="562" x2="363" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="376" y1="562" x2="376" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="389" y1="562" x2="389" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="402" y1="562" x2="402" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="415" y1="562" x2="415" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="428" y1="562" x2="428" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="441" y1="562" x2="441" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="454" y1="562" x2="454" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="467" y1="562" x2="467" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="480" y1="562" x2="480" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="493" y1="562" x2="493" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+              <line x1="506" y1="562" x2="506" y2="603" stroke="currentColor" strokeWidth="0.7" strokeOpacity="0.3"/>
+
+              {/* ── BUILDING BLOCKS ── */}
+              <rect x="168" y="496" width="32" height="82" rx="4" stroke="currentColor" strokeWidth="1.8"/>
+              <rect x="202" y="518" width="32" height="60" rx="4" stroke="currentColor" strokeWidth="1.8"/>
+              <rect x="236" y="535" width="32" height="43" rx="4" stroke="currentColor" strokeWidth="1.8"/>
+              <ellipse cx="202" cy="580" rx="58" ry="10" stroke="currentColor" strokeWidth="1.5"/>
+
+              {/* ── GEARS (bottom right) ── */}
+              {/* Large gear */}
+              <circle cx="646" cy="568" r="30" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="646" cy="568" r="15" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="646" y1="535" x2="646" y2="527" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="663" y1="539" x2="669" y2="532" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="673" y1="553" x2="681" y2="551" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="671" y1="570" x2="679" y2="573" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="663" y1="584" x2="669" y2="591" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="646" y1="598" x2="646" y2="606" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="629" y1="594" x2="623" y2="601" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="619" y1="580" x2="611" y2="583" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="619" y1="563" x2="611" y2="560" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              <line x1="629" y1="549" x2="623" y2="542" stroke="currentColor" strokeWidth="5.5" strokeLinecap="round"/>
+              {/* Small gear */}
+              <circle cx="694" cy="546" r="20" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="694" cy="546" r="10" stroke="currentColor" strokeWidth="1.2"/>
+              <line x1="694" y1="523" x2="694" y2="516" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="708" y1="527" x2="713" y2="521" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="715" y1="539" x2="722" y2="537" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="715" y1="554" x2="722" y2="557" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="708" y1="566" x2="713" y2="572" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="694" y1="569" x2="694" y2="576" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="680" y1="566" x2="675" y2="572" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="673" y1="553" x2="666" y2="555" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="673" y1="539" x2="666" y2="537" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+              <line x1="680" y1="527" x2="675" y2="521" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
+
+              {/* ── MOUSE ── */}
+              <ellipse cx="748" cy="574" rx="24" ry="30" stroke="currentColor" strokeWidth="1.5"/>
+              <line x1="748" y1="549" x2="748" y2="567" stroke="currentColor" strokeWidth="1.2"/>
+
+              {/* ── DESK LINE ── */}
+              <line x1="28" y1="585" x2="790" y2="585" stroke="currentColor" strokeWidth="1.5" strokeOpacity="0.2"/>
             </svg>
           </motion.div>
         </div>
