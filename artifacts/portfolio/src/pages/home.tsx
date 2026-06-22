@@ -752,7 +752,7 @@ export default function Home() {
             {/* 0 — Neuro AI */}
             <PortfolioCard
               isOpen={openProjectIdx === 0} onToggle={() => toggleProject(0)} delay={0}
-              badge="AI / UX" type="" status="In Progress"
+              badge="AI / UX" type="" status="Agent Design"
               title="Neuro AI Multi-Agent Accelerator"
               desc="Next-generation UI for an AI agent studio — making multi-agent orchestration intuitive for enterprise teams."
               bullets={[
