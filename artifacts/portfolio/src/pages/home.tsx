@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown, Sun, Moon } from "lucide-react";
+import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 
@@ -560,22 +560,7 @@ export default function Home() {
   const [openCompany, setOpenCompany] = useState<string | null>("Cognizant");
   const [openProjectIdx, setOpenProjectIdx] = useState<number | null>(null);
   const toggleProject = (i: number) => setOpenProjectIdx(prev => prev === i ? null : i);
-  const [isDark, setIsDark] = useState(() => {
-    const stored = localStorage.getItem("theme");
-    return stored ? stored === "dark" : true;
-  });
   const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 72);
@@ -586,9 +571,6 @@ export default function Home() {
   return (
     <div
       className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
-      style={!isDark ? {
-        backgroundImage: "linear-gradient(135deg, hsl(270 55% 90%) 0%, hsl(248 45% 92%) 25%, hsl(200 50% 91%) 55%, hsl(320 40% 91%) 85%, hsl(270 55% 90%) 100%)",
-      } : undefined}
     >
       {/* Fixed Navigation */}
       <nav
@@ -633,14 +615,6 @@ export default function Home() {
               <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
               <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
             </div>
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="w-9 h-9 flex items-center justify-center border border-border hover:bg-muted transition-colors rounded-full"
-              data-testid="toggle-theme"
-              aria-label="Toggle theme"
-            >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
           </div>
         </div>
       </nav>
@@ -648,7 +622,6 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-6 min-h-[80vh] flex items-center"
-        style={!isDark ? { backgroundColor: "hsl(0 0% 100% / 0.38)" } : undefined}
       >
         {/* Dot grid */}
         <div
