@@ -793,17 +793,8 @@ export default function Home() {
               ]}
               link={{ href: "https://www.behance.net/gallery/247694847/Logis-Website-Design", label: "behance.net/gallery/247694847" }}
               thumbnail={
-                <div className="h-40 relative overflow-hidden bg-gradient-to-br from-amber-500/15 via-background to-background flex items-center justify-center">
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 180 120" className="w-44 opacity-70" fill="none">
-                    <path d="M20 90 Q60 20 90 60 Q120 95 160 40" stroke="hsl(45 90% 55%)" strokeWidth="2" strokeDasharray="5 4" />
-                    <circle cx="20" cy="90" r="5" fill="hsl(45 90% 55%)" />
-                    <circle cx="160" cy="40" r="5" fill="hsl(var(--primary))" />
-                    <rect x="78" y="48" width="24" height="24" rx="2" stroke="hsl(45 90% 55%)" strokeWidth="1.5" />
-                    <line x1="78" y1="56" x2="102" y2="56" stroke="hsl(45 90% 55%)" strokeWidth="1" strokeOpacity="0.6" />
-                    <line x1="90" y1="48" x2="90" y2="72" stroke="hsl(45 90% 55%)" strokeWidth="1" strokeOpacity="0.6" />
-                    <path d="M154 38 L160 40 L155 44" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                <div className="h-40 overflow-hidden">
+                  <img src="/thumb-logis.png" alt="Logis" className="w-full h-full object-cover object-top" />
                 </div>
               }
             />
@@ -821,18 +812,8 @@ export default function Home() {
               ]}
               link={{ href: "https://www.behance.net/gallery/141252151/Homesense-App", label: "behance.net/gallery/141252151" }}
               thumbnail={
-                <div className="h-40 relative overflow-hidden bg-gradient-to-br from-foreground/5 via-background to-background flex items-center justify-center">
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 180 120" className="w-44 opacity-60" fill="none" stroke="hsl(var(--foreground))" strokeWidth="1">
-                    <path d="M30 20 L150 20 L150 100 L30 100 Z" strokeOpacity="0.3" />
-                    <path d="M30 20 L60 40 L60 100" strokeOpacity="0.2" />
-                    <path d="M150 20 L120 40 L120 100" strokeOpacity="0.2" />
-                    <path d="M60 40 L120 40" strokeOpacity="0.15" />
-                    <path d="M80 55 L90 47 L100 55 L100 72 L80 72 Z" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeOpacity="0.8" />
-                    <rect x="86" y="62" width="8" height="10" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.6" />
-                    <path d="M90 52 Q96 46 102 52" stroke="hsl(var(--accent))" strokeWidth="1" strokeLinecap="round" strokeOpacity="0.7" />
-                    <path d="M90 52 Q99 42 108 52" stroke="hsl(var(--accent))" strokeWidth="1" strokeLinecap="round" strokeOpacity="0.4" />
-                  </svg>
+                <div className="h-40 overflow-hidden">
+                  <img src="/thumb-homesense.png" alt="Homesense" className="w-full h-full object-cover object-center" />
                 </div>
               }
             />
@@ -850,17 +831,8 @@ export default function Home() {
               ]}
               link={{ href: "https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study", label: "behance.net/gallery/139904507" }}
               thumbnail={
-                <div className="h-40 relative overflow-hidden flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, hsl(45 80% 60% / 0.2), hsl(var(--accent) / 0.15), hsl(160 50% 50% / 0.1))" }}>
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
-                    <circle cx="130" cy="35" r="14" fill="hsl(45 88% 62%)" fillOpacity="0.5" />
-                    <ellipse cx="80" cy="62" rx="28" ry="16" fill="white" fillOpacity="0.25" stroke="white" strokeWidth="1" strokeOpacity="0.4" />
-                    <ellipse cx="94" cy="55" rx="18" ry="14" fill="white" fillOpacity="0.2" stroke="white" strokeWidth="1" strokeOpacity="0.35" />
-                    <path d="M40 55 Q55 50 70 55" stroke="hsl(var(--accent))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7" />
-                    <path d="M35 65 Q55 58 75 65" stroke="hsl(var(--accent))" strokeWidth="1" strokeLinecap="round" strokeOpacity="0.5" />
-                    <text x="52" y="90" fontSize="18" fontWeight="700" fill="hsl(var(--accent))" fillOpacity="0.8" fontFamily="serif">23°</text>
-                  </svg>
+                <div className="h-40 overflow-hidden">
+                  <img src="/thumb-goodweather.png" alt="Goodweather" className="w-full h-full object-cover object-top" />
                 </div>
               }
             />
@@ -877,18 +849,8 @@ export default function Home() {
               ]}
               link={{ href: "https://www.behance.net/gallery/187300823/Personal-Illustrations-2023", label: "behance.net/gallery/187300823" }}
               thumbnail={
-                <div className="h-40 relative overflow-hidden flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, hsl(var(--accent) / 0.12), hsl(var(--primary) / 0.08))" }}>
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
-                    <path d="M40 80 Q55 40 80 60 Q105 80 130 35" stroke="hsl(var(--accent))" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M50 90 Q70 55 90 70 Q110 85 140 50" stroke="hsl(var(--primary))" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7" />
-                    <circle cx="40" cy="80" r="3" fill="hsl(var(--accent))" fillOpacity="0.8" />
-                    <circle cx="130" cy="35" r="3" fill="hsl(var(--accent))" fillOpacity="0.6" />
-                    <circle cx="90" cy="70" r="2" fill="hsl(var(--primary))" fillOpacity="0.6" />
-                    <rect x="62" y="28" width="34" height="40" rx="2" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.15" />
-                    <rect x="100" y="35" width="26" height="30" rx="2" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.1" />
-                  </svg>
+                <div className="h-40 overflow-hidden">
+                  <img src="/thumb-illustrations.png" alt="Personal Illustrations" className="w-full h-full object-cover object-center" />
                 </div>
               }
             />
@@ -906,18 +868,8 @@ export default function Home() {
               ]}
               link={{ href: "https://www.behance.net/gallery/155834013/Notes-App", label: "behance.net/gallery/155834013" }}
               thumbnail={
-                <div className="h-40 relative overflow-hidden flex items-center justify-center"
-                  style={{ background: "linear-gradient(135deg, hsl(140 40% 30% / 0.15), hsl(var(--background)))" }}>
-                  <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--foreground)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 180 120" className="w-44 opacity-75" fill="none">
-                    <rect x="68" y="22" width="44" height="58" rx="3" fill="hsl(var(--foreground))" fillOpacity="0.12" stroke="hsl(var(--foreground))" strokeWidth="1" strokeOpacity="0.3" />
-                    <path d="M84 80 L84 92 L90 88 L96 92 L96 80" fill="hsl(140 60% 55%)" fillOpacity="0.7" />
-                    <rect x="58" y="34" width="18" height="18" rx="3" fill="hsl(52 95% 55%)" fillOpacity="0.9" />
-                    <line x1="67" y1="38" x2="67" y2="48" stroke="hsl(var(--background))" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="62" y1="43" x2="72" y2="43" stroke="hsl(var(--background))" strokeWidth="2" strokeLinecap="round" />
-                    <path d="M120 30 Q145 18 150 45 Q140 55 120 30Z" fill="hsl(140 50% 45%)" fillOpacity="0.4" />
-                    <path d="M115 50 Q135 38 145 60 Q132 68 115 50Z" fill="hsl(140 50% 45%)" fillOpacity="0.25" />
-                  </svg>
+                <div className="h-40 overflow-hidden">
+                  <img src="/thumb-notes.png" alt="Notes App" className="w-full h-full object-cover object-center" />
                 </div>
               }
             />
