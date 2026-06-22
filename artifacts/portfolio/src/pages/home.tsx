@@ -841,7 +841,7 @@ export default function Home() {
             <PortfolioCard
               isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
               badge="Illustration" type="Creative"
-              title="Illustrations"
+              title="Concepts"
               desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
               bullets={[
                 "Conceptual series grounded in personal storytelling.",
