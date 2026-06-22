@@ -286,6 +286,17 @@ const companies: Company[] = [
     desc: "Leading UX for large-scale enterprise modernization and AI accelerator initiatives. Designing across the full product lifecycle — from research and IA to component libraries and AI-native workflows.",
     projects: [
       {
+        title: "Advocacy Platform",
+        tag: "Greenfield · AI-Native",
+        desc: "Leading UX and design integration for a greenfield enterprise application built using Spec-Driven Development (SDD) with Claude Code as the AI development engine.",
+        bullets: [
+          "Integrated design workflows into the AI development pipeline using Figma MCP, enabling seamless design-to-code handoff within the SDD model.",
+          "Made 27+ commits to the repository; built custom web components with WCAG compliance and design system adherence natively enforced through AI.",
+          "Designed and created 15+ custom icons to ensure visual consistency and scalability across the design system.",
+        ],
+        stat: "WCAG compliance and UI consistency enforced natively across all screens",
+      },
+      {
         title: "Contract Signature Application",
         tag: "B2B SaaS",
         desc: "Transformed a manual Excel and email-based workflow into a fully digital application, significantly improving usability and adoption.",
