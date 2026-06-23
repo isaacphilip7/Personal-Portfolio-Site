@@ -776,6 +776,22 @@ export default function Home() {
                 </a>
               </div>
             </div>
+
+            {/* Profile photo */}
+            <motion.div
+              className="mt-16 flex justify-center"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+            >
+              <img
+                src="/profile.png"
+                alt="Isaac Philip"
+                className="w-56 h-56 object-cover object-top"
+                style={{ mixBlendMode: "screen" }}
+              />
+            </motion.div>
           </motion.div>
         </div>
       </section>
