@@ -1159,6 +1159,17 @@ export default function Home() {
             <p>Based in Chennai, India.</p>
             <p>Designed with intention. Built for scale.</p>
           </div>
+
+          <div className="mt-6 flex justify-center">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background/40 text-xs text-muted-foreground tracking-wide">
+              {["Figma", "Replit", "Github", "Vercel"].map((tool, i, arr) => (
+                <span key={tool} className="flex items-center gap-2">
+                  <span>{tool}</span>
+                  {i < arr.length - 1 && <span className="text-primary/50">›</span>}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </footer>
     </div>
