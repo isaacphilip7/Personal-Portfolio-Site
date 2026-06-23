@@ -887,7 +887,7 @@ export default function Home() {
             <PortfolioCard
               isOpen={openProjectIdx === 5} onToggle={() => toggleProject(5)} delay={0.22}
               badge="Mobile App" type="UI/UX"
-              title="Notes App — Capture life beautifully"
+              title="Notes App"
               desc="A notes app UI/UX project that pairs dark, tactile aesthetics with botanical illustration — making the mundane act of note-taking feel considered."
               bullets={[
                 "Dark notebook-inspired UI contrasted with organic botanical elements.",
