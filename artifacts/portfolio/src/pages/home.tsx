@@ -656,7 +656,7 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-6">
               <Sparkles className="w-3 h-3" />
-              <span>Multi-disciplinary Designer</span>
+              <span>Design Builder</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.25] pb-2 overflow-visible">
