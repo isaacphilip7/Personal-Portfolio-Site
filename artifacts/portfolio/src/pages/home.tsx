@@ -4,9 +4,15 @@ import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbru
 import { Badge } from "@/components/ui/badge";
 
 
-function GlowWord({ children }: { children: string }) {
+function GlowWord({ children, autoPlayDelay = 0 }: { children: string; autoPlayDelay?: number }) {
   const [hovered, setHovered] = useState(false);
   const letters = children.split("");
+
+  useEffect(() => {
+    const t1 = setTimeout(() => setHovered(true), autoPlayDelay * 1000);
+    const t2 = setTimeout(() => setHovered(false), (autoPlayDelay + 0.65) * 1000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
 
   return (
     <span
@@ -648,42 +654,60 @@ export default function Home() {
         <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-accent/15 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-3xl mx-auto w-full relative z-10">
-          {/* Left — text */}
+          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0 }}
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-xs text-primary mb-6">
               <Sparkles className="w-3 h-3" />
               <span>Design Builder</span>
             </div>
+          </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.25] pb-2 overflow-visible">
-              Creating <GlowWord>solutions</GlowWord> that tug at your <GlowWord>heart strings.</GlowWord>
-            </h1>
+          {/* Heading */}
+          <motion.h1
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 leading-[1.25] pb-2 overflow-visible"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            Creating <GlowWord autoPlayDelay={0.85}>solutions</GlowWord> that tug at your <GlowWord autoPlayDelay={1.05}>heart strings.</GlowWord>
+          </motion.h1>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed">
-              I'm Isaac Philip. I transform complex enterprise challenges into intuitive digital products. 10+ years of making screens work.
-            </p>
+          {/* Subtext */}
+          <motion.p
+            className="text-base md:text-lg text-muted-foreground max-w-lg mb-8 leading-relaxed"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.42 }}
+          >
+            I'm Isaac Philip. I transform complex enterprise challenges into intuitive digital products. 10+ years of making screens work.
+          </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <ShimmerButton
-                href="#projects"
-                className="bg-primary text-primary-foreground"
-                testId="hero-btn-projects"
-                showArrow
-              >
-                View Projects
-              </ShimmerButton>
-              <ShimmerButton
-                href="mailto:isaacphilip7@gmail.com"
-                className="border border-border"
-                testId="hero-btn-contact"
-              >
-                Let's Talk
-              </ShimmerButton>
-            </div>
+          {/* Buttons */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
+          >
+            <ShimmerButton
+              href="#projects"
+              className="bg-primary text-primary-foreground"
+              testId="hero-btn-projects"
+              showArrow
+            >
+              View Projects
+            </ShimmerButton>
+            <ShimmerButton
+              href="mailto:isaacphilip7@gmail.com"
+              className="border border-border"
+              testId="hero-btn-contact"
+            >
+              Let's Talk
+            </ShimmerButton>
           </motion.div>
 
         </div>
