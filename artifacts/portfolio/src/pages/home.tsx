@@ -1155,19 +1155,18 @@ export default function Home() {
             </ShimmerButton>
           </div>
 
-          <div className="pt-12 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-            <p>Based in Chennai, India.</p>
-            <p>Designed with intention. Built for scale.</p>
-          </div>
-
-          <div className="mt-6 flex justify-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-border bg-background/40 text-xs text-muted-foreground tracking-wide">
-              {["Figma", "Replit", "Github", "Vercel"].map((tool, i, arr) => (
-                <span key={tool} className="flex items-center gap-2">
-                  <span>{tool}</span>
-                  {i < arr.length - 1 && <span className="text-primary/50">›</span>}
-                </span>
-              ))}
+          <div className="pt-12 border-t border-border flex flex-col md:flex-row items-start justify-between gap-4 text-sm text-muted-foreground">
+            <p className="self-center">Based in Chennai, India.</p>
+            <div className="flex flex-col items-end gap-2">
+              <p>Designed with intention. Built for scale.</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-background/40 text-xs text-muted-foreground tracking-wide">
+                {["Figma", "Replit", "Github", "Vercel"].map((tool, i, arr) => (
+                  <span key={tool} className="flex items-center gap-2">
+                    <span>{tool}</span>
+                    {i < arr.length - 1 && <span className="text-primary/50">›</span>}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
