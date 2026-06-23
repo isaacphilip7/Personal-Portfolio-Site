@@ -1125,7 +1125,15 @@ export default function Home() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 rounded-t-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-12">Let's build something <span className="text-primary">better.</span></h2>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-12 leading-[1.25] pb-2 overflow-visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            Let's build something <GlowWord autoPlayDelay={0.6}>better.</GlowWord>
+          </motion.h2>
 
           <div className="flex flex-wrap justify-center gap-4 mb-16">
             <ShimmerButton
@@ -1160,9 +1168,18 @@ export default function Home() {
             <div className="flex flex-col items-end gap-2">
               <p>Designed with intention. Built for scale.</p>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-background/40 text-xs text-muted-foreground tracking-wide">
-                {["Figma", "Replit", "Github", "Vercel"].map((tool, i, arr) => (
-                  <span key={tool} className="flex items-center gap-2">
-                    <span>{tool}</span>
+                {[
+                  { label: "Figma", href: null },
+                  { label: "Replit", href: null },
+                  { label: "Github", href: "https://github.com/isaacphilip7/Personal-Portfolio-Site" },
+                  { label: "Vercel", href: null },
+                ].map(({ label, href }, i, arr) => (
+                  <span key={label} className="flex items-center gap-2">
+                    {href ? (
+                      <a href={href} target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">{label}</a>
+                    ) : (
+                      <span>{label}</span>
+                    )}
                     {i < arr.length - 1 && <span className="text-primary/50">›</span>}
                   </span>
                 ))}
