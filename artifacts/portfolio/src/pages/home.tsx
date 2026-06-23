@@ -1038,7 +1038,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold">Core Craft</h3>
               </div>
               <ul className="space-y-4">
-                {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture'].map(skill => (
+                {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture', 'Visual Design', 'Wire Framing', 'Illustrations', 'Icon Design'].map(skill => (
                   <li key={skill} className="flex items-center gap-3 text-muted-foreground">
                     <div className="w-1.5 h-1.5 rounded-full bg-foreground/20" />
                     {skill}
