@@ -1015,7 +1015,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 px-6 border-t border-border">
+      <section id="skills" className="pt-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
             Toolkit & Craft
@@ -1074,7 +1074,7 @@ export default function Home() {
       </section>
 
       {/* Awards & Certs */}
-      <section className="py-24 px-6 border-t border-border bg-muted/30">
+      <section className="pt-0 pb-24 px-6 border-t border-border bg-muted/30">
         <div className="max-w-6xl mx-auto space-y-20">
 
           {/* Achievements */}
