@@ -838,7 +838,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://www.behance.net/gallery/247694847/Logis-Website-Design", label: "behance.net/gallery/247694847" }}
                 thumbnail={
-                  <div className="h-40 overflow-hidden">
+                  <div className="h-56 overflow-hidden">
                     <img src="/thumb-logis.png" alt="Logis" className="w-full h-full object-cover object-top" />
                   </div>
                 }
@@ -857,7 +857,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://www.behance.net/gallery/141252151/Homesense-App", label: "behance.net/gallery/141252151" }}
                 thumbnail={
-                  <div className="h-40 overflow-hidden">
+                  <div className="h-56 overflow-hidden">
                     <img src="/thumb-homesense.png" alt="Homesense" className="w-full h-full object-cover object-center" />
                   </div>
                 }
@@ -876,7 +876,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study", label: "behance.net/gallery/139904507" }}
                 thumbnail={
-                  <div className="h-40 overflow-hidden">
+                  <div className="h-56 overflow-hidden">
                     <img src="/thumb-goodweather.png" alt="Goodweather" className="w-full h-full object-cover object-top" />
                   </div>
                 }
@@ -894,7 +894,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://www.behance.net/gallery/187300823/Personal-Illustrations-2023", label: "behance.net/gallery/187300823" }}
                 thumbnail={
-                  <div className="h-40 overflow-hidden">
+                  <div className="h-56 overflow-hidden">
                     <img src="/thumb-illustrations.png" alt="Personal Illustrations" className="w-full h-full object-cover object-center" />
                   </div>
                 }
@@ -913,7 +913,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://www.behance.net/gallery/155834013/Notes-App", label: "behance.net/gallery/155834013" }}
                 thumbnail={
-                  <div className="h-40 overflow-hidden">
+                  <div className="h-56 overflow-hidden">
                     <img src="/thumb-notes.png" alt="Notes App" className="w-full h-full object-cover object-center" />
                   </div>
                 }
