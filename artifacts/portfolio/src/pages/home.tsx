@@ -793,133 +793,153 @@ export default function Home() {
             <h2 className="text-3xl font-bold">Projects</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+          <div className="grid lg:grid-cols-[minmax(0,200px)_1fr] gap-10 items-start">
+            {/* Left — illustration (hidden below lg) */}
+            <motion.div
+              className="hidden lg:flex flex-col items-center justify-start pt-2"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            >
+              <img
+                src="/project-illustration.png"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
+              />
+            </motion.div>
 
-            {/* 0 — Neuro AI */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 0} onToggle={() => toggleProject(0)} delay={0}
-              badge="AI / UX" type="" status="Agent Design"
-              title="Neuro AI Multi-Agent Accelerator"
-              desc="Next-generation UI for an AI agent studio — making multi-agent orchestration intuitive for enterprise teams."
-              bullets={[
-                "Designing the UX for an AI agent studio from the ground up.",
-                "Leveraging Anima, GitHub Copilot & Microsoft Copilot to accelerate design-to-dev handoff.",
-                "Built using Claude Code and Spec-Driven Development.",
-              ]}
-              link={{ href: "https://github.com/isaacphilip7/Neuro-UI-Sky-Blue", label: "github.com/isaacphilip7/Neuro-UI-Sky-Blue" }}
-              thumbnail={
-                <div className="h-40 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
-                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
-                  <svg viewBox="0 0 160 120" className="w-40 opacity-60" fill="none">
-                    <circle cx="80" cy="60" r="14" stroke="hsl(var(--primary))" strokeWidth="1.5" />
-                    <circle cx="30" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
-                    <circle cx="130" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
-                    <circle cx="30" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
-                    <circle cx="130" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
-                    <line x1="80" y1="46" x2="30"  y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
-                    <line x1="80" y1="46" x2="130" y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
-                    <line x1="80" y1="74" x2="30"  y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
-                    <line x1="80" y1="74" x2="130" y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
-                    <text x="80" y="64" textAnchor="middle" fontSize="9" fill="hsl(var(--primary))" fontFamily="monospace">AI</text>
-                  </svg>
-                </div>
-              }
-            />
+            {/* Right — cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
 
-            {/* 1 — Logis */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 1} onToggle={() => toggleProject(1)} delay={0.06}
-              badge="Web Design" type="Concept"
-              title="Logis — Website Design"
-              desc='"Global operations made personal." A logistics platform designed around clarity, trust, and real-time shipment tracking.'
-              bullets={[
-                "Clean, conversion-focused landing page with a bold hero and inline tracking CTA.",
-                "Warm, human illustration style to offset the industrial logistics context.",
-                "Navigation structured around core user tasks: Send, Services, Pricing.",
-              ]}
-              link={{ href: "https://www.behance.net/gallery/247694847/Logis-Website-Design", label: "behance.net/gallery/247694847" }}
-              thumbnail={
-                <div className="h-40 overflow-hidden">
-                  <img src="/thumb-logis.png" alt="Logis" className="w-full h-full object-cover object-top" />
-                </div>
-              }
-            />
+              {/* 0 — Neuro AI */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 0} onToggle={() => toggleProject(0)} delay={0}
+                badge="AI / UX" type="" status="Agent Design"
+                title="Neuro AI Multi-Agent Accelerator"
+                desc="Next-generation UI for an AI agent studio — making multi-agent orchestration intuitive for enterprise teams."
+                bullets={[
+                  "Designing the UX for an AI agent studio from the ground up.",
+                  "Leveraging Anima, GitHub Copilot & Microsoft Copilot to accelerate design-to-dev handoff.",
+                  "Built using Claude Code and Spec-Driven Development.",
+                ]}
+                link={{ href: "https://github.com/isaacphilip7/Neuro-UI-Sky-Blue", label: "github.com/isaacphilip7/Neuro-UI-Sky-Blue" }}
+                thumbnail={
+                  <div className="h-40 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
+                    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
+                    <svg viewBox="0 0 160 120" className="w-40 opacity-60" fill="none">
+                      <circle cx="80" cy="60" r="14" stroke="hsl(var(--primary))" strokeWidth="1.5" />
+                      <circle cx="30" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
+                      <circle cx="130" cy="30" r="8"  stroke="hsl(var(--accent))"   strokeWidth="1.5" />
+                      <circle cx="30" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
+                      <circle cx="130" cy="90" r="8"  stroke="hsl(var(--primary))"  strokeWidth="1.5" strokeDasharray="3 3" />
+                      <line x1="80" y1="46" x2="30"  y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
+                      <line x1="80" y1="46" x2="130" y2="38" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.5" />
+                      <line x1="80" y1="74" x2="30"  y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
+                      <line x1="80" y1="74" x2="130" y2="82" stroke="hsl(var(--primary))" strokeWidth="1" strokeOpacity="0.4" strokeDasharray="3 3" />
+                      <text x="80" y="64" textAnchor="middle" fontSize="9" fill="hsl(var(--primary))" fontFamily="monospace">AI</text>
+                    </svg>
+                  </div>
+                }
+              />
 
-            {/* 2 — Homesense */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 2} onToggle={() => toggleProject(2)} delay={0.1}
-              badge="Mobile App" type="UI/UX"
-              title="Homesense App"
-              desc="A smart home app designed around calm, minimal aesthetics — making home automation feel effortless rather than technical."
-              bullets={[
-                "Line-art illustration style creates warmth without visual noise.",
-                "Focused on intuitive control flows for non-technical users.",
-                "Consistent design language across room, device, and scene views.",
-              ]}
-              link={{ href: "https://www.behance.net/gallery/141252151/Homesense-App", label: "behance.net/gallery/141252151" }}
-              thumbnail={
-                <div className="h-40 overflow-hidden">
-                  <img src="/thumb-homesense.png" alt="Homesense" className="w-full h-full object-cover object-center" />
-                </div>
-              }
-            />
+              {/* 1 — Logis */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 1} onToggle={() => toggleProject(1)} delay={0.06}
+                badge="Web Design" type="Concept"
+                title="Logis — Website Design"
+                desc='"Global operations made personal." A logistics platform designed around clarity, trust, and real-time shipment tracking.'
+                bullets={[
+                  "Clean, conversion-focused landing page with a bold hero and inline tracking CTA.",
+                  "Warm, human illustration style to offset the industrial logistics context.",
+                  "Navigation structured around core user tasks: Send, Services, Pricing.",
+                ]}
+                link={{ href: "https://www.behance.net/gallery/247694847/Logis-Website-Design", label: "behance.net/gallery/247694847" }}
+                thumbnail={
+                  <div className="h-40 overflow-hidden">
+                    <img src="/thumb-logis.png" alt="Logis" className="w-full h-full object-cover object-top" />
+                  </div>
+                }
+              />
 
-            {/* 3 — Goodweather */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 3} onToggle={() => toggleProject(3)} delay={0.14}
-              badge="Mobile App" type="UI/UX Case Study"
-              title="Goodweather"
-              desc="A weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
-              bullets={[
-                "Warm pastel palette adapts to weather conditions for emotional resonance.",
-                "Pollen, wind, and UV data surfaced alongside temperature for fuller context.",
-                "Full Figma prototype — from wireframes through polished UI.",
-              ]}
-              link={{ href: "https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study", label: "behance.net/gallery/139904507" }}
-              thumbnail={
-                <div className="h-40 overflow-hidden">
-                  <img src="/thumb-goodweather.png" alt="Goodweather" className="w-full h-full object-cover object-top" />
-                </div>
-              }
-            />
+              {/* 2 — Homesense */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 2} onToggle={() => toggleProject(2)} delay={0.1}
+                badge="Mobile App" type="UI/UX"
+                title="Homesense App"
+                desc="A smart home app designed around calm, minimal aesthetics — making home automation feel effortless rather than technical."
+                bullets={[
+                  "Line-art illustration style creates warmth without visual noise.",
+                  "Focused on intuitive control flows for non-technical users.",
+                  "Consistent design language across room, device, and scene views.",
+                ]}
+                link={{ href: "https://www.behance.net/gallery/141252151/Homesense-App", label: "behance.net/gallery/141252151" }}
+                thumbnail={
+                  <div className="h-40 overflow-hidden">
+                    <img src="/thumb-homesense.png" alt="Homesense" className="w-full h-full object-cover object-center" />
+                  </div>
+                }
+              />
 
-            {/* 4 — Personal Illustrations 2023 */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
-              badge="Procreate" type="Creative"
-              title="Illustrations"
-              desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
-              bullets={[
-                "Conceptual series grounded in personal storytelling.",
-                "Demonstrates the visual communication foundation behind the UX work.",
-              ]}
-              link={{ href: "https://www.behance.net/gallery/187300823/Personal-Illustrations-2023", label: "behance.net/gallery/187300823" }}
-              thumbnail={
-                <div className="h-40 overflow-hidden">
-                  <img src="/thumb-illustrations.png" alt="Personal Illustrations" className="w-full h-full object-cover object-center" />
-                </div>
-              }
-            />
+              {/* 3 — Goodweather */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 3} onToggle={() => toggleProject(3)} delay={0.14}
+                badge="Mobile App" type="UI/UX Case Study"
+                title="Goodweather"
+                desc="A weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
+                bullets={[
+                  "Warm pastel palette adapts to weather conditions for emotional resonance.",
+                  "Pollen, wind, and UV data surfaced alongside temperature for fuller context.",
+                  "Full Figma prototype — from wireframes through polished UI.",
+                ]}
+                link={{ href: "https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study", label: "behance.net/gallery/139904507" }}
+                thumbnail={
+                  <div className="h-40 overflow-hidden">
+                    <img src="/thumb-goodweather.png" alt="Goodweather" className="w-full h-full object-cover object-top" />
+                  </div>
+                }
+              />
 
-            {/* 5 — Notes App */}
-            <PortfolioCard
-              isOpen={openProjectIdx === 5} onToggle={() => toggleProject(5)} delay={0.22}
-              badge="Mobile App" type="UI/UX"
-              title="Notes App"
-              desc="A notes app UI/UX project that pairs dark, tactile aesthetics with botanical illustration — making the mundane act of note-taking feel considered."
-              bullets={[
-                "Dark notebook-inspired UI contrasted with organic botanical elements.",
-                "Yellow accent system for quick-capture actions and hierarchy.",
-                "Balances personality with functional clarity.",
-              ]}
-              link={{ href: "https://www.behance.net/gallery/155834013/Notes-App", label: "behance.net/gallery/155834013" }}
-              thumbnail={
-                <div className="h-40 overflow-hidden">
-                  <img src="/thumb-notes.png" alt="Notes App" className="w-full h-full object-cover object-center" />
-                </div>
-              }
-            />
+              {/* 4 — Personal Illustrations 2023 */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
+                badge="Procreate" type="Creative"
+                title="Illustrations"
+                desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
+                bullets={[
+                  "Conceptual series grounded in personal storytelling.",
+                  "Demonstrates the visual communication foundation behind the UX work.",
+                ]}
+                link={{ href: "https://www.behance.net/gallery/187300823/Personal-Illustrations-2023", label: "behance.net/gallery/187300823" }}
+                thumbnail={
+                  <div className="h-40 overflow-hidden">
+                    <img src="/thumb-illustrations.png" alt="Personal Illustrations" className="w-full h-full object-cover object-center" />
+                  </div>
+                }
+              />
 
+              {/* 5 — Notes App */}
+              <PortfolioCard
+                isOpen={openProjectIdx === 5} onToggle={() => toggleProject(5)} delay={0.22}
+                badge="Mobile App" type="UI/UX"
+                title="Notes App"
+                desc="A notes app UI/UX project that pairs dark, tactile aesthetics with botanical illustration — making the mundane act of note-taking feel considered."
+                bullets={[
+                  "Dark notebook-inspired UI contrasted with organic botanical elements.",
+                  "Yellow accent system for quick-capture actions and hierarchy.",
+                  "Balances personality with functional clarity.",
+                ]}
+                link={{ href: "https://www.behance.net/gallery/155834013/Notes-App", label: "behance.net/gallery/155834013" }}
+                thumbnail={
+                  <div className="h-40 overflow-hidden">
+                    <img src="/thumb-notes.png" alt="Notes App" className="w-full h-full object-cover object-center" />
+                  </div>
+                }
+              />
+
+            </div>
           </div>
         </div>
       </section>
