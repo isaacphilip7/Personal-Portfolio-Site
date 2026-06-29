@@ -869,7 +869,7 @@ export default function Home() {
               isOpen={openProjectIdx === 3} onToggle={() => toggleProject(3)} delay={0.14}
               badge="Mobile App" type="UI/UX Case Study"
               title="Goodweather"
-              desc="My first UI/UX project — a weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
+              desc="A weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
               bullets={[
                 "Warm pastel palette adapts to weather conditions for emotional resonance.",
                 "Pollen, wind, and UV data surfaced alongside temperature for fuller context.",
@@ -886,8 +886,8 @@ export default function Home() {
             {/* 4 — Personal Illustrations 2023 */}
             <PortfolioCard
               isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
-              badge="Illustration" type="Creative"
-              title="Concepts"
+              badge="Procreate" type="Creative"
+              title="Illustrations"
               desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
               bullets={[
                 "Conceptual series grounded in personal storytelling.",
