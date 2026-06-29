@@ -941,7 +941,7 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-[1fr_minmax(0,200px)] gap-10 items-center">
             {/* Left — experience content */}
-            <div className="space-y-0 divide-y divide-border">
+            <div className="space-y-0 divide-y divide-border lg:max-w-[90%]">
                 {companies.map((job, i) => (
               <motion.div
                 key={job.company}
