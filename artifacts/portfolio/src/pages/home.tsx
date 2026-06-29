@@ -1014,59 +1014,63 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="pt-24 px-6 border-t border-border">
-        <div className="max-w-6xl mx-auto">
+      <section id="skills" className="pt-24 border-t border-border">
+        <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
             Craft
           </h2>
+        </div>
 
-          <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border-t border-b border-border" style={{ borderColor: "hsl(var(--border) / 0.8)" }}>
-            {/* Design Tooling */}
-            <div className="px-6 py-10 md:py-12">
-              <div className="flex items-center gap-3 mb-8">
-                <Paintbrush className="text-primary shrink-0" />
-                <h3 className="text-lg font-bold">Design Tooling</h3>
+        <div className="relative left-1/2 w-screen -translate-x-1/2 border-y border-border" style={{ borderColor: "hsl(var(--border) / 0.8)" }}>
+          <div className="max-w-6xl mx-auto px-6">
+            <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x">
+              {/* Design Tooling */}
+              <div className="px-6 py-10 md:py-12">
+                <div className="flex items-center gap-3 mb-8">
+                  <Paintbrush className="text-primary shrink-0" />
+                  <h3 className="text-lg font-bold">Design Tooling</h3>
+                </div>
+                <ul className="space-y-3">
+                  {['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'Procreate', 'Affinity Designer'].map(skill => (
+                    <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-primary/50" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {['Figma', 'Adobe XD', 'Illustrator', 'Photoshop', 'Procreate', 'Affinity Designer'].map(skill => (
-                  <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <div className="w-1 h-1 rounded-full bg-primary/50" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* AI & Dev */}
-            <div className="px-6 py-10 md:py-12">
-              <div className="flex items-center gap-3 mb-8">
-                <Code2 className="text-accent shrink-0" />
-                <h3 className="text-lg font-bold">AI & Dev</h3>
+              {/* AI & Dev */}
+              <div className="px-6 py-10 md:py-12">
+                <div className="flex items-center gap-3 mb-8">
+                  <Code2 className="text-accent shrink-0" />
+                  <h3 className="text-lg font-bold">AI & Dev</h3>
+                </div>
+                <ul className="space-y-3">
+                  {['GitHub', 'Claude Code', 'Replit', 'Adobe Firefly', 'Lovable', 'Vercel', 'VS Code'].map(skill => (
+                    <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-accent/50" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {['GitHub', 'Claude Code', 'Replit', 'Adobe Firefly', 'Lovable', 'Vercel', 'VS Code'].map(skill => (
-                  <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <div className="w-1 h-1 rounded-full bg-accent/50" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </div>
 
-            {/* Core Craft */}
-            <div className="px-6 py-10 md:py-12">
-              <div className="flex items-center gap-3 mb-8">
-                <Layers className="text-foreground/40 shrink-0" />
-                <h3 className="text-lg font-bold">Core Craft</h3>
+              {/* Core Craft */}
+              <div className="px-6 py-10 md:py-12">
+                <div className="flex items-center gap-3 mb-8">
+                  <Layers className="text-foreground/40 shrink-0" />
+                  <h3 className="text-lg font-bold">Core Craft</h3>
+                </div>
+                <ul className="space-y-3">
+                  {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture', 'Visual Design', 'Wire Framing', 'Illustrations', 'Icon Design'].map(skill => (
+                    <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1 h-1 rounded-full bg-foreground/20" />
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="space-y-3">
-                {['UX Research', 'Accessibility (WCAG 2.2)', 'Interaction Design', 'Design Systems', 'Information Architecture', 'Visual Design', 'Wire Framing', 'Illustrations', 'Icon Design'].map(skill => (
-                  <li key={skill} className="flex items-center gap-3 text-sm text-muted-foreground">
-                    <div className="w-1 h-1 rounded-full bg-foreground/20" />
-                    {skill}
-                  </li>
-                ))}
-              </ul>
             </div>
           </div>
         </div>
