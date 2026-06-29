@@ -939,7 +939,8 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto lg:mx-0">
+          <div className="grid lg:grid-cols-[1fr_minmax(0,200px)] gap-10 items-center">
+            {/* Left — experience content */}
             <div className="space-y-0 divide-y divide-border">
                 {companies.map((job, i) => (
               <motion.div
@@ -992,18 +993,24 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </div>
 
-      {/* Bottom illustration overlapping section border */}
-        <div className="hidden lg:flex justify-center -mb-16 relative z-10">
-          <img
-            src="/experience-illustration.png"
-            alt=""
-            aria-hidden="true"
-            className="h-48 w-auto object-contain"
-            style={{ mixBlendMode: "screen" }}
-          />
+            {/* Right — illustration (hidden below lg) */}
+            <motion.div
+              className="hidden lg:flex flex-col items-center justify-center"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
+            >
+              <img
+                src="/experience-illustration.png"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
