@@ -82,10 +82,10 @@
   --border: 240 10% 14%;
   --card: 240 20% 6%;
   --card-foreground: 0 0% 92%;
-  --card-border: 240 10% 14%;
+  --card-border: 240 10% 30%;
   --sidebar: 240 20% 6%;
   --sidebar-foreground: 0 0% 92%;
-  --sidebar-border: 240 10% 14%;
+  --sidebar-border: 240 10% 50%;
   --sidebar-primary: 245 100% 71%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 240 10% 12%;
@@ -93,7 +93,7 @@
   --sidebar-ring: 245 100% 71%;
   --popover: 240 20% 6%;
   --popover-foreground: 0 0% 92%;
-  --popover-border: 240 10% 14%;
+  --popover-border: 240 10% 30%;
   --primary: 245 100% 71%;
   --primary-foreground: 0 0% 100%;
   --secondary: 240 10% 12%;
