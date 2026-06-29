@@ -228,7 +228,7 @@ function PortfolioCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col min-h-[28rem] hover:border-primary/40 transition-colors cursor-pointer"
+      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors cursor-pointer"
       onClick={onToggle}
     >
       <div className="shrink-0">{thumbnail}</div>
