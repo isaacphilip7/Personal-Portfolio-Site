@@ -1020,7 +1020,7 @@ export default function Home() {
             Craft
           </h2>
 
-          <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border-t border-b border-border">
+          <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border-t border-b border-border" style={{ borderColor: "hsl(var(--border) / 0.8)" }}>
             {/* Design Tooling */}
             <div className="px-6 py-10 md:py-12">
               <div className="flex items-center gap-3 mb-8">
