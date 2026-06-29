@@ -228,7 +228,7 @@ function PortfolioCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors cursor-pointer"
+      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col min-h-[28rem] hover:border-primary/40 transition-colors cursor-pointer"
       onClick={onToggle}
     >
       <div className="shrink-0">{thumbnail}</div>
@@ -1016,7 +1016,7 @@ export default function Home() {
       {/* Skills Section */}
       <section id="skills" className="pt-24 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
+          <h2 className="text-3xl font-bold mb-16 flex min-h-12 items-center gap-4">
             Craft
           </h2>
         </div>
