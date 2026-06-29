@@ -807,7 +807,7 @@ export default function Home() {
                 ]}
                 link={{ href: "https://github.com/isaacphilip7/Neuro-UI-Sky-Blue", label: "github.com/isaacphilip7/Neuro-UI-Sky-Blue" }}
                 thumbnail={
-                  <div className="h-40 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
+                  <div className="h-56 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
                     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
                     <svg viewBox="0 0 160 120" className="w-40 opacity-60" fill="none">
                       <circle cx="80" cy="60" r="14" stroke="hsl(var(--primary))" strokeWidth="1.5" />
