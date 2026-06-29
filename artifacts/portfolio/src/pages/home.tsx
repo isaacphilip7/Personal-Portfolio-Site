@@ -949,7 +949,7 @@ export default function Home() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
             >
               <img
-                src="/project-illustration.png"
+                src="/experience-illustration.png"
                 alt=""
                 aria-hidden="true"
                 className="w-full h-auto object-contain"
