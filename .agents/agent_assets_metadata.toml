@@ -1,0 +1,8 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "JoPvvh1htEAmCpbaXAwNY"
+uri = "file://artifacts/portfolio/public/experience-illustration.png"
+type = "image"
+title = "generated_image"
