@@ -1074,7 +1074,7 @@ export default function Home() {
       </section>
 
       {/* Awards & Certs */}
-      <section className="pt-0 pb-24 px-6 border-t border-border bg-muted/30">
+      <section className="pt-10 pb-24 px-6 border-t border-border bg-muted/30">
         <div className="max-w-6xl mx-auto space-y-20">
 
           {/* Achievements */}
