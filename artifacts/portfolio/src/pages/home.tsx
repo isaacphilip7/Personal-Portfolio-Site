@@ -1083,7 +1083,7 @@ export default function Home() {
           {/* Achievements */}
           <div>
             <h2 className="text-2xl font-bold mb-12 flex items-center gap-3">
-              <Trophy className="text-primary" /> Achievements & Awards
+              <Trophy className="text-primary" /> Awards
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
@@ -1100,16 +1100,17 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="p-6 md:p-7 border border-border bg-background/60 space-y-2 relative overflow-hidden group"
+                  className="p-6 md:p-7 border border-border bg-background/60 space-y-2 relative overflow-hidden group transition-all duration-300 hover:border-primary/40 hover:shadow-[0_16px_45px_-24px_hsl(var(--primary)/0.55)]"
                 >
-                  <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent" />
-                  <div className="pl-3">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary/90 opacity-0 transition-all duration-300 group-hover:opacity-100" />
+                  <div className="absolute top-0 left-0 h-full w-1 rounded-r-full bg-gradient-to-b from-primary to-accent transition-all duration-300 group-hover:w-full group-hover:bg-gradient-to-r" />
+                  <div className="relative z-10 pl-3 transition-colors duration-300 group-hover:text-white">
                     <div className="flex items-start gap-2 mb-1">
-                      <Star className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      <h4 className="font-bold text-sm leading-snug">{award.title}</h4>
+                      <Star className="w-4 h-4 text-accent shrink-0 mt-0.5 transition-colors duration-300 group-hover:text-white" />
+                      <h4 className="font-bold text-sm leading-snug transition-colors duration-300">{award.title}</h4>
                     </div>
-                    <p className="text-xs text-primary/80 font-medium mb-2">{award.meta}</p>
-                    <p className="text-xs text-muted-foreground leading-relaxed">{award.desc}</p>
+                    <p className="text-xs text-primary/80 font-medium mb-2 transition-colors duration-300 group-hover:text-white/90">{award.meta}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed transition-colors duration-300 group-hover:text-white/90">{award.desc}</p>
                   </div>
                 </motion.div>
               ))}
