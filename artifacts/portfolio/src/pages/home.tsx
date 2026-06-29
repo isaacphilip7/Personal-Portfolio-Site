@@ -1102,7 +1102,6 @@ export default function Home() {
                   transition={{ duration: 0.35, delay: i * 0.06 }}
                   className="p-6 md:p-7 border border-border bg-background/60 space-y-2 relative overflow-hidden group transition-all duration-450 hover:border-primary/40 hover:shadow-[0_16px_45px_-24px_hsl(var(--primary)/0.55)]"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary/90 opacity-0 transition-all duration-450 group-hover:opacity-100" />
                   <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-primary to-accent transition-all duration-450 group-hover:w-full group-hover:bg-gradient-to-r" />
                   <div className="relative z-10 pl-3 transition-colors duration-450 group-hover:text-white">
                     <div className="flex items-start gap-2 mb-1">
