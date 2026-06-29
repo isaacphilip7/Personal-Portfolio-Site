@@ -1018,7 +1018,7 @@ export default function Home() {
       <section id="skills" className="pt-24 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-16 flex items-center gap-4">
-            Toolkit & Craft
+            Craft
           </h2>
 
           <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border border-t border-b border-border">
@@ -1074,12 +1074,12 @@ export default function Home() {
       </section>
 
       {/* Awards & Certs */}
-      <section className="pt-10 pb-24 px-6 border-t border-border bg-muted/30">
-        <div className="max-w-6xl mx-auto space-y-20">
+      <section className="pt-16 pb-28 px-6 md:px-8 border-t border-border bg-muted/30">
+        <div className="max-w-6xl mx-auto space-y-24">
 
           {/* Achievements */}
           <div>
-            <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
+            <h2 className="text-2xl font-bold mb-12 flex items-center gap-3">
               <Trophy className="text-primary" /> Achievements & Awards
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1097,7 +1097,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: i * 0.06 }}
-                  className="p-5 border border-border bg-background/60 space-y-2 relative overflow-hidden group"
+                  className="p-6 md:p-7 border border-border bg-background/60 space-y-2 relative overflow-hidden group"
                 >
                   <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-accent" />
                   <div className="pl-3">
@@ -1115,7 +1115,7 @@ export default function Home() {
 
           {/* Certifications */}
           <div>
-            <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
+            <h2 className="text-2xl font-bold mb-12 flex items-center gap-3">
               <CheckCircle2 className="text-primary" /> Certifications
             </h2>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 justify-items-center">
