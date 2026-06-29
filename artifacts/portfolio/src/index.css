@@ -78,7 +78,7 @@
   --elevate-2: rgba(255,255,255, .09);
 
   --background: 240 20% 5%;
-  --foreground: 0 0% 92%;
+  --foreground: 0 0% 96%;
   --border: 240 10% 14%;
   --card: 240 20% 6%;
   --card-foreground: 0 0% 92%;
@@ -99,7 +99,7 @@
   --secondary: 240 10% 12%;
   --secondary-foreground: 0 0% 92%;
   --muted: 240 10% 15%;
-  --muted-foreground: 240 5% 65%;
+  --muted-foreground: 240 5% 85%;
   --accent: 270 80% 68%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
