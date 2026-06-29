@@ -269,15 +269,14 @@ function PortfolioCard({
             >
               <p className="text-sm text-muted-foreground leading-relaxed mt-4 mb-4">{desc}</p>
               <div className="pt-4 border-t border-border">
-                <a
+                <ShimmerButton
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  onClick={e => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-sm font-medium hover:bg-primary/10 hover:border-primary/50 transition-colors"
+                  className="border border-border text-sm"
                 >
-                  View Project <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                  View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
+                </ShimmerButton>
               </div>
             </motion.div>
           )}
@@ -761,11 +760,11 @@ export default function Home() {
                 <p>
                   I also bring a strong visual design foundation spanning branding, illustration, and motion design, extending into space and experience design — I led a full design overhaul of an experience center for a leading US bank.
                 </p>
-                <a
+                <ShimmerButton
                   href="https://docs.google.com/document/d/1vnLR_jnXasTEzbImIshQ_H-Z2T4FoWTt/edit?usp=sharing&ouid=110213304138732668530&rtpof=true&sd=true"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 border border-primary/50 text-primary text-sm font-medium hover:bg-primary/10 transition-colors"
+                  className="border border-primary/50 text-primary text-sm"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -773,7 +772,7 @@ export default function Home() {
                     <line x1="12" y1="15" x2="12" y2="3"/>
                   </svg>
                   Download my resume
-                </a>
+                </ShimmerButton>
               </div>
             </div>
           </motion.div>
