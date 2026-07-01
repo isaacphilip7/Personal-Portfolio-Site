@@ -996,7 +996,7 @@ export default function Home() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x">
               {/* Design Tooling */}
-              <div className="px-6 py-10 md:py-12">
+              <div className="px-6 py-10 md:py-12 md:border-l border-border/70">
                 <div className="flex items-center gap-3 mb-8">
                   <Paintbrush className="text-primary shrink-0" />
                   <h3 className="text-lg font-bold">Design Tooling</h3>
@@ -1028,7 +1028,7 @@ export default function Home() {
               </div>
 
               {/* Core Craft */}
-              <div className="px-6 py-10 md:py-12">
+              <div className="px-6 py-10 md:py-12 md:border-r border-border/70">
                 <div className="flex items-center gap-3 mb-8">
                   <Layers className="text-foreground/40 shrink-0" />
                   <h3 className="text-lg font-bold">Core Craft</h3>
