@@ -208,7 +208,7 @@ function ProjectGrid({ projects }: { projects: Project[] }) {
 
 function PortfolioCard({
   thumbnail, badge, type, title, desc, bullets, link, status,
-  isOpen, onToggle, delay = 0,
+  delay = 0,
 }: {
   thumbnail: React.ReactNode;
   badge: string;
@@ -218,8 +218,6 @@ function PortfolioCard({
   bullets: string[];
   link: { href: string; label: string };
   status?: string;
-  isOpen: boolean;
-  onToggle: () => void;
   delay?: number;
 }) {
   return (
@@ -228,59 +226,32 @@ function PortfolioCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay }}
-      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors cursor-pointer"
-      onClick={onToggle}
+      className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
     >
-      <div className="shrink-0">{thumbnail}</div>
-      <div className="px-5 pt-4 pb-5 flex flex-col">
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.25, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <div className="flex items-center gap-2 flex-wrap">
-                  <Badge variant="outline" className="text-xs">{badge}</Badge>
-                  {status
-                    ? <span className="text-xs text-primary font-medium">{status}</span>
-                    : <span className="text-xs text-muted-foreground font-medium">{type}</span>
-                  }
-                </div>
-                <ChevronDown className="w-4 h-4 text-primary rotate-180 shrink-0 transition-transform duration-300" />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="relative shrink-0 overflow-hidden">
+        <div className="shrink-0">{thumbnail}</div>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 px-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-[2px]">
+          <p className="text-sm text-white/90 leading-relaxed mb-4 max-w-xs">{desc}</p>
+          <ShimmerButton
+            href={link.href}
+            target="_blank"
+            rel="noreferrer"
+            className="border border-white/20 bg-white/10 text-white text-sm backdrop-blur-sm"
+          >
+            View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
+          </ShimmerButton>
+        </div>
+      </div>
 
+      <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
+        <div className="flex items-center gap-2 flex-wrap">
+          <Badge variant="outline" className="text-xs">{badge}</Badge>
+          {status
+            ? <span className="text-xs text-primary font-medium">{status}</span>
+            : <span className="text-xs text-muted-foreground font-medium">{type}</span>
+          }
+        </div>
         <h3 className="text-base font-bold leading-snug">{title}</h3>
-
-        <AnimatePresence initial={false}>
-          {isOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="overflow-hidden"
-            >
-              <p className="text-sm text-muted-foreground leading-relaxed mt-4 mb-4">{desc}</p>
-              <div className="pt-4 border-t border-border">
-                <ShimmerButton
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="border border-border text-sm"
-                >
-                  View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
-                </ShimmerButton>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </div>
     </motion.div>
   );
@@ -796,7 +767,7 @@ export default function Home() {
 
               {/* 0 — Neuro AI */}
               <PortfolioCard
-                isOpen={openProjectIdx === 0} onToggle={() => toggleProject(0)} delay={0}
+                delay={0}
                 badge="AI / UX" type="" status="Agent Design"
                 title="Neuro AI Multi-Agent Accelerator"
                 desc="Next-generation UI for an AI agent studio — making multi-agent orchestration intuitive for enterprise teams."
@@ -827,7 +798,7 @@ export default function Home() {
 
               {/* 1 — Logis */}
               <PortfolioCard
-                isOpen={openProjectIdx === 1} onToggle={() => toggleProject(1)} delay={0.06}
+                delay={0.06}
                 badge="Web Design" type="Concept"
                 title="Logis — Website Design"
                 desc='"Global operations made personal." A logistics platform designed around clarity, trust, and real-time shipment tracking.'
@@ -846,7 +817,7 @@ export default function Home() {
 
               {/* 2 — Homesense */}
               <PortfolioCard
-                isOpen={openProjectIdx === 2} onToggle={() => toggleProject(2)} delay={0.1}
+                delay={0.1}
                 badge="Mobile App" type="UI/UX"
                 title="Homesense App"
                 desc="A smart home app designed around calm, minimal aesthetics — making home automation feel effortless rather than technical."
@@ -865,7 +836,7 @@ export default function Home() {
 
               {/* 3 — Goodweather */}
               <PortfolioCard
-                isOpen={openProjectIdx === 3} onToggle={() => toggleProject(3)} delay={0.14}
+                delay={0.14}
                 badge="Mobile App" type="UI/UX Case Study"
                 title="Goodweather"
                 desc="A weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
@@ -884,7 +855,7 @@ export default function Home() {
 
               {/* 4 — Personal Illustrations 2023 */}
               <PortfolioCard
-                isOpen={openProjectIdx === 4} onToggle={() => toggleProject(4)} delay={0.18}
+                delay={0.18}
                 badge="Procreate" type="Creative"
                 title="Illustrations"
                 desc="A personal illustration series exploring conceptual themes. A reminder that design ability starts with the ability to draw."
@@ -902,7 +873,7 @@ export default function Home() {
 
               {/* 5 — Notes App */}
               <PortfolioCard
-                isOpen={openProjectIdx === 5} onToggle={() => toggleProject(5)} delay={0.22}
+                delay={0.22}
                 badge="Mobile App" type="UI/UX"
                 title="Notes App"
                 desc="A notes app UI/UX project that pairs dark, tactile aesthetics with botanical illustration — making the mundane act of note-taking feel considered."
