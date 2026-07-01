@@ -724,7 +724,7 @@ export default function Home() {
                   My core strength is end-to-end enterprise UX — research, information architecture, interaction design, design systems, and increasingly, AI-powered workflows.
                 </p>
                 <p>
-                  At Cognizant, I've led design for several contract lifecycle management applications, including Contract Signature, Commitment Management AI, Contracts Storage, and Contracts Authoring. <mark className="px-0.5 not-italic font-normal" style={{background: "hsl(var(--primary) / 0.25)", color: "inherit"}}>Most recently I was driving a greenfield project using Claude Code and Spec-Driven Development.</mark>
+                  At Cognizant, I've led design for several contract lifecycle management applications, including Contract Signature, Commitment Management AI, Contracts Storage, and Contracts Authoring. <mark className="px-0.5 not-italic font-normal" style={{background: "hsl(var(--primary) / 1)", color: "inherit"}}>Most recently I was driving a greenfield project using Claude Code and Spec-Driven Development.</mark>
                 </p>
               </div>
               <div className="space-y-6">
