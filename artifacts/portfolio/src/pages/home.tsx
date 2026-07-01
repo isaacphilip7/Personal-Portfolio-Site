@@ -230,7 +230,7 @@ function PortfolioCard({
     >
       <div className="relative shrink-0 overflow-hidden">
         <div className="shrink-0">{thumbnail}</div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/75 px-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-[2px]">
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 px-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-[2px]">
           <p className="text-sm text-white/90 leading-relaxed mb-4 max-w-xs">{desc}</p>
           <ShimmerButton
             href={link.href}
