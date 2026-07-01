@@ -552,11 +552,21 @@ export default function Home() {
   const [openProjectIdx, setOpenProjectIdx] = useState<number | null>(null);
   const toggleProject = (i: number) => setOpenProjectIdx(prev => prev === i ? null : i);
   const [scrolled, setScrolled] = useState(false);
+  const [activeCraftCursor, setActiveCraftCursor] = useState<"design" | "ai" | "craft" | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 72);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const onMouseMove = (event: MouseEvent) => {
+      setCursorPosition({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", onMouseMove);
+    return () => window.removeEventListener("mousemove", onMouseMove);
   }, []);
 
   return (
@@ -993,10 +1003,31 @@ export default function Home() {
         </div>
 
         <div className="relative left-1/2 w-screen -translate-x-1/2 border-y border-border" style={{ borderColor: "hsl(var(--border) / 0.8)" }}>
+          {activeCraftCursor && (
+            <div
+              className="pointer-events-none fixed left-0 top-0 z-[100]"
+              style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)` }}
+            >
+              <div className="flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border/70 bg-background/90 text-foreground shadow-lg backdrop-blur">
+                {activeCraftCursor === "design" ? (
+                  <Paintbrush className="h-4 w-4" />
+                ) : activeCraftCursor === "ai" ? (
+                  <Code2 className="h-4 w-4" />
+                ) : (
+                  <Layers className="h-4 w-4" />
+                )}
+              </div>
+            </div>
+          )}
           <div className="max-w-6xl mx-auto px-6">
             <div className="md:grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x">
               {/* Design Tooling */}
-              <div className="px-6 py-10 md:py-12 md:border-l border-border/70">
+              <div
+                className="px-6 py-10 md:py-12 md:border-l border-border/70"
+                style={{ cursor: "none" }}
+                onMouseEnter={() => setActiveCraftCursor("design")}
+                onMouseLeave={() => setActiveCraftCursor(null)}
+              >
                 <div className="flex items-center gap-3 mb-8">
                   <Paintbrush className="text-primary shrink-0" />
                   <h3 className="text-lg font-bold">Design Tooling</h3>
@@ -1012,7 +1043,12 @@ export default function Home() {
               </div>
 
               {/* AI & Dev */}
-              <div className="px-6 py-10 md:py-12">
+              <div
+                className="px-6 py-10 md:py-12"
+                style={{ cursor: "none" }}
+                onMouseEnter={() => setActiveCraftCursor("ai")}
+                onMouseLeave={() => setActiveCraftCursor(null)}
+              >
                 <div className="flex items-center gap-3 mb-8">
                   <Code2 className="text-accent shrink-0" />
                   <h3 className="text-lg font-bold">AI & Dev</h3>
@@ -1028,7 +1064,12 @@ export default function Home() {
               </div>
 
               {/* Core Craft */}
-              <div className="px-6 py-10 md:py-12 md:border-r border-border/70">
+              <div
+                className="px-6 py-10 md:py-12 md:border-r border-border/70"
+                style={{ cursor: "none" }}
+                onMouseEnter={() => setActiveCraftCursor("craft")}
+                onMouseLeave={() => setActiveCraftCursor(null)}
+              >
                 <div className="flex items-center gap-3 mb-8">
                   <Layers className="text-foreground/40 shrink-0" />
                   <h3 className="text-lg font-bold">Core Craft</h3>
