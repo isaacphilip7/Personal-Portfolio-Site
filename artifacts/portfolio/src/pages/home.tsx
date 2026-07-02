@@ -1169,9 +1169,8 @@ export default function Home() {
             </ShimmerButton>
           </div>
 
-          <div className="pt-12 border-t border-border flex flex-col md:flex-row items-start justify-between gap-4 text-sm text-muted-foreground">
-            <p className="self-center">Based in Chennai, India.</p>
-            <div className="flex flex-col items-end gap-2">
+          <div className="pt-12 flex flex-col items-center justify-center gap-4 text-sm text-muted-foreground">
+            <div className="flex flex-col items-center gap-2">
               <p>Designed with intention. Built for scale.</p>
               <div className="inline-flex items-center gap-2 px-3 py-1.5 border border-border bg-background/40 text-xs text-muted-foreground tracking-wide">
                 {[
