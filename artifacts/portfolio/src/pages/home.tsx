@@ -798,7 +798,7 @@ export default function Home() {
               {/* 1 — Logis */}
               <PortfolioCard
                 delay={0.06}
-                badge="Web Design" type="Concept"
+                badge="Web Design" type="UI/UX"
                 title="Logis — Website Design"
                 desc='"Global operations made personal." A logistics platform designed around clarity, trust, and real-time shipment tracking.'
                 bullets={[
@@ -836,7 +836,7 @@ export default function Home() {
               {/* 3 — Goodweather */}
               <PortfolioCard
                 delay={0.14}
-                badge="Mobile App" type="UI/UX Case Study"
+                badge="Mobile App" type="UI/UX"
                 title="Goodweather"
                 desc="A weather app that goes beyond temperature to offer contextual lifestyle recommendations based on conditions."
                 bullets={[
@@ -1118,6 +1118,16 @@ export default function Home() {
 
       {/* Footer */}
       <footer id="contact" className="py-24 px-6 border-t border-border relative overflow-hidden">
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: "radial-gradient(circle, hsl(var(--foreground) / 0.18) 1px, transparent 1px)",
+            backgroundSize: "28px 28px",
+            maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
+            WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
+          }}
+        />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-primary/10 rounded-t-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-4xl mx-auto text-center relative z-10">
