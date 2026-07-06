@@ -101,10 +101,21 @@ export default function ProjectDetail() {
   const [match, params] = useRoute("/projects/:slug");
   const activeSlug = params?.slug;
   const project = projects.find((item) => item.slug === activeSlug);
+  const [isScrolledPastTop, setIsScrolledPastTop] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [activeSlug]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolledPastTop(window.scrollY > 140);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (!match || !project) {
     return (
@@ -129,14 +140,18 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="border-b border-border/80">
+      <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <ActionLink href="/" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground">
+          <ActionLink href="/#projects" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground">
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </ActionLink>
-          <div className="text-sm text-muted-foreground">
-            {project.tags.join(" • ")}
+          <div className="text-sm text-muted-foreground transition-all duration-300">
+            {isScrolledPastTop ? (
+              <span className="font-medium text-foreground">{project.title}</span>
+            ) : (
+              project.tags.join(" • ")
+            )}
           </div>
         </div>
       </header>
