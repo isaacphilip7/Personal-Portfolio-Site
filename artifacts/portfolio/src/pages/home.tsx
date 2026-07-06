@@ -987,7 +987,7 @@ export default function Home() {
       <section id="skills" className="pt-24 border-t border-border">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold mb-16 flex min-h-12 items-center gap-4">
-            Craft
+            Skills
           </h2>
         </div>
 
