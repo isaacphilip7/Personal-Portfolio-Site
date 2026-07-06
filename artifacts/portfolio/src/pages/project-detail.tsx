@@ -140,7 +140,7 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-40 border-b border-border/80 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
           <ActionLink href="/#projects" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground">
             <ArrowLeft className="h-4 w-4" />
