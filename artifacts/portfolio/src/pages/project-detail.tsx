@@ -42,16 +42,13 @@ function ProjectGallery({ slug, title, fallbackImage }: { slug: string; title: s
   useEffect(() => {
     let cancelled = false;
     const loadGalleryImages = async () => {
-      const candidates: string[][] = [];
-      for (let index = 1; index <= 6; index += 1) {
-        const extensions = ["png", "jpg", "jpeg", "webp", "svg"];
-        candidates.push(extensions.map((extension) => `/project-images/${slug}/${index}.${extension}`));
-      }
-
       const resolved: string[] = [];
-      for (const group of candidates) {
+      const extensions = ["png", "jpg", "jpeg", "webp", "svg"];
+
+      for (let index = 1; index <= 24; index += 1) {
         let found = false;
-        for (const candidate of group) {
+        for (const extension of extensions) {
+          const candidate = `/project-images/${slug}/${index}.${extension}`;
           const image = new Image();
           image.src = candidate;
           const loaded = await new Promise<boolean>((resolve) => {
@@ -171,17 +168,6 @@ export default function ProjectDetail() {
               ))}
             </div>
             <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
-            <div className="rounded-2xl border border-border bg-muted/20 p-6">
-              <h2 className="text-lg font-semibold">What this project covers</h2>
-              <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-                {project.highlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </div>
         </section>
 
