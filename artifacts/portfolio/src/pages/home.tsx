@@ -233,7 +233,6 @@ function PortfolioCard({
       <Link href={link.href} className="group block relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2">
         <div className="shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">{thumbnail}</div>
         <div className="absolute inset-0 bg-primary/70 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
       </Link>
 
       <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
@@ -569,22 +568,25 @@ export default function Home() {
         <div
           style={{
             width: "100%",
-            maxWidth: "100%",
-            height: 64,
+            maxWidth: scrolled ? 1100 : "100%",
+            height: scrolled ? 56 : 64,
             borderRadius: 0,
-            paddingLeft: 24,
-            paddingRight: 24,
+            paddingLeft: scrolled ? 20 : 24,
+            paddingRight: scrolled ? 20 : 24,
             background: `linear-gradient(135deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 100%)`,
             backdropFilter: "blur(24px) saturate(180%)",
             WebkitBackdropFilter: "blur(24px) saturate(180%)",
             border: "1px solid transparent",
             borderColor: "hsla(0, 0%, 100%, 0.12)",
             borderBottomColor: "hsl(var(--border) / 0.7)",
-            boxShadow: "0 8px 24px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)",
+            boxShadow: scrolled
+              ? "0 6px 20px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)"
+              : "0 8px 24px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)",
             transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            margin: "0 auto",
           }}
         >
           <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
