@@ -14,10 +14,10 @@ export default function ProjectDetail() {
           <p className="text-sm font-medium text-primary mb-3">Project not found</p>
           <h1 className="text-3xl font-semibold mb-4">This project page is still being prepared.</h1>
           <p className="text-muted-foreground mb-8">Head back home to explore the available case studies.</p>
-          <Link href="/" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm hover:border-primary/50 hover:text-primary transition-colors">
+          <a href="/#projects" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm hover:border-primary/50 hover:text-primary transition-colors">
             <Home className="w-4 h-4" />
             Back to home
-          </Link>
+          </a>
         </div>
       </div>
     );
@@ -43,7 +43,7 @@ export default function ProjectDetail() {
       </header>
 
       <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 lg:px-8">
-        <section className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+        <section className="space-y-8">
           <div className="space-y-6">
             <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-primary">
               {project.badge}
@@ -71,14 +71,6 @@ export default function ProjectDetail() {
               </ul>
             </div>
           </div>
-
-          <div className="rounded-3xl border border-border bg-background/70 p-3 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)]">
-            <img
-              src={project.image}
-              alt={`${project.title} placeholder artwork`}
-              className="h-auto w-full rounded-[1.1rem] border border-border/70 object-cover"
-            />
-          </div>
         </section>
 
         <section className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
@@ -87,10 +79,10 @@ export default function ProjectDetail() {
             Previous project
           </Link>
 
-          <Link href="/" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary">
+          <a href="/#projects" className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary">
             <Home className="w-4 h-4" />
             Back to home
-          </Link>
+          </a>
 
           <Link href={`/projects/${nextProject.slug}`} className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-primary/50 hover:text-primary">
             Next project
