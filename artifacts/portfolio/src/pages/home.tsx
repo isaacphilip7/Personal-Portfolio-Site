@@ -232,7 +232,6 @@ function PortfolioCard({
     >
       <Link href={link.href} className="group block relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2">
         <div className="shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">{thumbnail}</div>
-        <div className="absolute inset-0 bg-primary transition-opacity duration-300 opacity-100 group-hover:opacity-0 mix-blend-multiply" />
       </Link>
 
       <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
@@ -558,7 +557,7 @@ export default function Home() {
       {/* Fixed Navigation */}
       <nav
         aria-label="Main navigation"
-        className="fixed z-50 left-0 right-0 flex justify-center"
+        className="fixed z-50 left-0 right-0"
         style={{
           top: 0,
           padding: 0,
@@ -567,12 +566,11 @@ export default function Home() {
       >
         <div
           style={{
-            width: "calc(100% - 32px)",
-            maxWidth: 1152,
+            width: "100%",
             height: scrolled ? 56 : 64,
             borderRadius: 0,
-            paddingLeft: scrolled ? 20 : 24,
-            paddingRight: scrolled ? 20 : 24,
+            paddingLeft: scrolled ? 24 : 24,
+            paddingRight: scrolled ? 24 : 24,
             background: `linear-gradient(135deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 100%)`,
             backdropFilter: "blur(24px) saturate(180%)",
             WebkitBackdropFilter: "blur(24px) saturate(180%)",
@@ -584,15 +582,25 @@ export default function Home() {
             transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
             margin: "0 auto",
           }}
         >
+          <div
+            style={{
+              width: "100%",
+              maxWidth: 1200,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              margin: "0 auto",
+            }}
+          >
           <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
             isaac<span className="text-primary">_</span>philip
           </a>
           <div className="flex items-center gap-8">
-            <div className="hidden md:flex items-center gap-8 text-sm">
+            <div className="hidden md:flex items-center gap-8 text-sm w-full justify-end">
               <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
               <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
               <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
