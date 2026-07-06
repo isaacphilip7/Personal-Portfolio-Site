@@ -596,15 +596,16 @@ export default function Home() {
               margin: "0 auto",
             }}
           >
-          <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
-            isaac<span className="text-primary">_</span>philip
-          </a>
-          <div className="flex items-center gap-8">
-            <div className="hidden md:flex items-center gap-8 text-sm w-full justify-end">
-              <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
-              <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
-              <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
-              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+            <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
+              isaac<span className="text-primary">_</span>philip
+            </a>
+            <div className="flex items-center gap-8">
+              <div className="hidden md:flex items-center gap-8 text-sm w-full justify-end">
+                <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
+                <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+                <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+                <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+              </div>
             </div>
           </div>
         </div>
