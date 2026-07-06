@@ -59,6 +59,14 @@ export default function ProjectDetail() {
                 </span>
               ))}
             </div>
+            <div className="group relative overflow-hidden rounded-[2rem] border border-border bg-muted/20">
+              <img
+                src={project.image}
+                alt={`${project.title} preview`}
+                className="h-[320px] w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-primary opacity-100 transition-opacity duration-300 group-hover:opacity-0 mix-blend-multiply" />
+            </div>
             <div className="rounded-2xl border border-border bg-muted/20 p-6">
               <h2 className="text-lg font-semibold">What this project covers</h2>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">

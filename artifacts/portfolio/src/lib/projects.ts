@@ -38,7 +38,7 @@ export const projects: ProjectItem[] = [
     tags: ["Web Design", "UI/UX", "Branding"],
     badge: "Web Design",
     type: "UI/UX",
-    image: "/project-images/logis.svg",
+    image: "/thumb-logis.png",
     highlights: [
       "Conversion-focused landing page with clear messaging and hierarchy.",
       "A warm visual language to make logistics feel human and reliable.",
@@ -54,7 +54,7 @@ export const projects: ProjectItem[] = [
     tags: ["Mobile App", "UI/UX", "Design Systems"],
     badge: "Mobile App",
     type: "UI/UX",
-    image: "/project-images/homesense.svg",
+    image: "/thumb-homesense.png",
     highlights: [
       "Simple control flows for non-technical users.",
       "Consistent structure across room, device, and scene views.",
@@ -70,7 +70,7 @@ export const projects: ProjectItem[] = [
     tags: ["Mobile App", "UI/UX", "Prototyping"],
     badge: "Mobile App",
     type: "UI/UX",
-    image: "/project-images/goodweather.svg",
+    image: "/thumb-goodweather.png",
     highlights: [
       "Context-rich weather surfaces including pollen, wind, and UV data.",
       "A warm palette that adapts to mood and conditions.",
@@ -86,7 +86,7 @@ export const projects: ProjectItem[] = [
     tags: ["Illustration", "Creative", "Storytelling"],
     badge: "Procreate",
     type: "Creative",
-    image: "/project-images/illustrations.svg",
+    image: "/thumb-illustrations.png",
     highlights: [
       "Conceptual illustrations grounded in personal themes.",
       "A visual language study that strengthens the core design practice.",
@@ -102,7 +102,7 @@ export const projects: ProjectItem[] = [
     tags: ["Mobile App", "UI/UX", "Visual Design"],
     badge: "Mobile App",
     type: "UI/UX",
-    image: "/project-images/notes-app.svg",
+    image: "/thumb-notes.png",
     highlights: [
       "A dark notebook-inspired interface with warm accents.",
       "Botanical visuals that bring softness to a utilitarian task.",

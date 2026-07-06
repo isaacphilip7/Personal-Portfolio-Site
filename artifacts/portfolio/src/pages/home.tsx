@@ -232,7 +232,7 @@ function PortfolioCard({
     >
       <Link href={link.href} className="group block relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2">
         <div className="shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">{thumbnail}</div>
-        <div className="absolute inset-0 bg-primary/70 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+        <div className="absolute inset-0 bg-primary transition-opacity duration-300 opacity-100 group-hover:opacity-0 mix-blend-multiply" />
       </Link>
 
       <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
@@ -567,8 +567,8 @@ export default function Home() {
       >
         <div
           style={{
-            width: "100%",
-            maxWidth: scrolled ? 1100 : "100%",
+            width: "calc(100% - 32px)",
+            maxWidth: 1152,
             height: scrolled ? 56 : 64,
             borderRadius: 0,
             paddingLeft: scrolled ? 20 : 24,
@@ -576,12 +576,11 @@ export default function Home() {
             background: `linear-gradient(135deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 100%)`,
             backdropFilter: "blur(24px) saturate(180%)",
             WebkitBackdropFilter: "blur(24px) saturate(180%)",
-            border: "1px solid transparent",
-            borderColor: "hsla(0, 0%, 100%, 0.12)",
-            borderBottomColor: "hsl(var(--border) / 0.7)",
+            border: "none",
+            borderBottom: "1px solid hsl(var(--border) / 0.8)",
             boxShadow: scrolled
-              ? "0 6px 20px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)"
-              : "0 8px 24px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)",
+              ? "0 10px 24px -18px hsl(0 0% 0% / 0.2)"
+              : "0 10px 24px -18px hsl(0 0% 0% / 0.18)",
             transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
             display: "flex",
             alignItems: "center",
