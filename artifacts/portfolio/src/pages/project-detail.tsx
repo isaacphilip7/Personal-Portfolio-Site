@@ -140,18 +140,23 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70 transition-all duration-300">
+        <div className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-all duration-300 ${isScrolledPastTop ? "py-3" : "py-5"}`}>
           <ActionLink href="/#projects" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground">
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </ActionLink>
-          <div className="text-sm text-muted-foreground transition-all duration-300">
-            {isScrolledPastTop ? (
+          <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground">
+            <span
+              className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
+            >
+              {project.tags.join(" • ")}
+            </span>
+            <span
+              className={`flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"}`}
+            >
               <span className="font-medium text-foreground">{project.title}</span>
-            ) : (
-              project.tags.join(" • ")
-            )}
+            </span>
           </div>
         </div>
       </header>
