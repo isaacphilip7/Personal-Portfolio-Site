@@ -188,11 +188,6 @@ export default function ProjectDetail() {
         <section className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
           <ProjectArrowLink href={`/projects/${previousProject.slug}`} direction="prev" label={`Previous project: ${previousProject.title}`} />
 
-          <ActionLink href="/#projects">
-            <Home className="h-4 w-4" />
-            Back to home
-          </ActionLink>
-
           <ProjectArrowLink href={`/projects/${nextProject.slug}`} direction="next" label={`Next project: ${nextProject.title}`} />
         </section>
       </main>
