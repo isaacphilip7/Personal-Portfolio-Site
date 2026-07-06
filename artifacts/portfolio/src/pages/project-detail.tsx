@@ -146,7 +146,7 @@ export default function ProjectDetail() {
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </ActionLink>
-          <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground">
+          <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground whitespace-nowrap">
             <span
               className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
             >
@@ -161,7 +161,7 @@ export default function ProjectDetail() {
         </div>
       </header>
 
-      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-16 lg:px-8">
+      <main className="mx-auto flex max-w-6xl flex-col gap-12 px-6 pt-24 pb-16 lg:px-8">
         <section className="space-y-8">
           <div className="space-y-6">
             <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.2em] text-primary">
