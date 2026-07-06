@@ -1,0 +1,8 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="40" fill="#2C1D1B"/>
+  <circle cx="800" cy="410" r="220" fill="#FFD68A" fill-opacity="0.95"/>
+  <path d="M560 620C560 550 620 490 690 490H840C910 490 970 550 970 620V700H560V620Z" fill="#F28C5D" fill-opacity="0.8"/>
+  <rect x="430" y="220" width="740" height="180" rx="28" fill="#FFF2E9" fill-opacity="0.9"/>
+  <text x="800" y="285" text-anchor="middle" fill="#2F1A17" font-size="54" font-family="Inter, Arial, sans-serif" font-weight="700">Goodweather</text>
+  <text x="800" y="335" text-anchor="middle" fill="#A64C2B" font-size="28" font-family="Inter, Arial, sans-serif">Forecast with feeling</text>
+</svg>

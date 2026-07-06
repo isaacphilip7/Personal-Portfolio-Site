@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Mail, ExternalLink, Trophy, Star, Sparkles, Code2, Paintbrush, Layers, CheckCircle2, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
+import { projects } from "@/lib/projects";
 
 
 function GlowWord({ children, autoPlayDelay = 0 }: { children: string; autoPlayDelay?: number }) {
@@ -231,14 +233,9 @@ function PortfolioCard({
       <div className="relative shrink-0 overflow-hidden">
         <div className="shrink-0">{thumbnail}</div>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 px-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-[2px]">
-          <ShimmerButton
-            href={link.href}
-            target="_blank"
-            rel="noreferrer"
-            className="border border-white/20 bg-white/10 text-white text-sm backdrop-blur-sm"
-          >
-            View Project <ExternalLink className="w-3.5 h-3.5 ml-1" />
-          </ShimmerButton>
+          <Link href={link.href} className="inline-flex items-center justify-center h-12 px-8 font-medium overflow-hidden border border-white/20 bg-white/10 text-white text-sm backdrop-blur-sm rounded-full">
+            View Project <ArrowRight className="w-3.5 h-3.5 ml-1" />
+          </Link>
         </div>
       </div>
 
@@ -775,7 +772,7 @@ export default function Home() {
                   "Leveraging Anima, GitHub Copilot & Microsoft Copilot to accelerate design-to-dev handoff.",
                   "Built using Claude Code and Spec-Driven Development.",
                 ]}
-                link={{ href: "https://github.com/isaacphilip7/Neuro-UI-Sky-Blue", label: "github.com/isaacphilip7/Neuro-UI-Sky-Blue" }}
+                link={{ href: `/projects/${projects[0].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 relative overflow-hidden bg-gradient-to-br from-primary/20 via-accent/10 to-background flex items-center justify-center">
                     <div className="absolute inset-0 opacity-20" style={{ backgroundImage: "radial-gradient(circle, hsl(var(--primary)) 1px, transparent 1px)", backgroundSize: "18px 18px" }} />
@@ -806,7 +803,7 @@ export default function Home() {
                   "Warm, human illustration style to offset the industrial logistics context.",
                   "Navigation structured around core user tasks: Send, Services, Pricing.",
                 ]}
-                link={{ href: "https://www.behance.net/gallery/247694847/Logis-Website-Design", label: "behance.net/gallery/247694847" }}
+                link={{ href: `/projects/${projects[1].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 overflow-hidden">
                     <img src="/thumb-logis.png" alt="Logis" className="w-full h-full object-cover object-top" />
@@ -825,7 +822,7 @@ export default function Home() {
                   "Focused on intuitive control flows for non-technical users.",
                   "Consistent design language across room, device, and scene views.",
                 ]}
-                link={{ href: "https://www.behance.net/gallery/141252151/Homesense-App", label: "behance.net/gallery/141252151" }}
+                link={{ href: `/projects/${projects[2].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 overflow-hidden">
                     <img src="/thumb-homesense.png" alt="Homesense" className="w-full h-full object-cover object-center" />
@@ -844,7 +841,7 @@ export default function Home() {
                   "Pollen, wind, and UV data surfaced alongside temperature for fuller context.",
                   "Full Figma prototype — from wireframes through polished UI.",
                 ]}
-                link={{ href: "https://www.behance.net/gallery/139904507/Goodweather-UIUX-case-study", label: "behance.net/gallery/139904507" }}
+                link={{ href: `/projects/${projects[3].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 overflow-hidden">
                     <img src="/thumb-goodweather.png" alt="Goodweather" className="w-full h-full object-cover object-top" />
@@ -862,7 +859,7 @@ export default function Home() {
                   "Conceptual series grounded in personal storytelling.",
                   "Demonstrates the visual communication foundation behind the UX work.",
                 ]}
-                link={{ href: "https://www.behance.net/gallery/187300823/Personal-Illustrations-2023", label: "behance.net/gallery/187300823" }}
+                link={{ href: `/projects/${projects[4].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 overflow-hidden">
                     <img src="/thumb-illustrations.png" alt="Personal Illustrations" className="w-full h-full object-cover object-center" />
@@ -881,7 +878,7 @@ export default function Home() {
                   "Yellow accent system for quick-capture actions and hierarchy.",
                   "Balances personality with functional clarity.",
                 ]}
-                link={{ href: "https://www.behance.net/gallery/155834013/Notes-App", label: "behance.net/gallery/155834013" }}
+                link={{ href: `/projects/${projects[5].slug}`, label: "View project" }}
                 thumbnail={
                   <div className="h-56 overflow-hidden">
                     <img src="/thumb-notes.png" alt="Notes App" className="w-full h-full object-cover object-center" />

@@ -1,0 +1,11 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1000" rx="40" fill="#13231D"/>
+  <rect x="300" y="170" width="1000" height="660" rx="34" fill="#20352F"/>
+  <rect x="420" y="300" width="760" height="430" rx="30" fill="#2D4C3D"/>
+  <rect x="480" y="360" width="180" height="88" rx="20" fill="#DDEEDC"/>
+  <rect x="690" y="360" width="180" height="88" rx="20" fill="#DDEEDC"/>
+  <rect x="900" y="360" width="180" height="88" rx="20" fill="#DDEEDC"/>
+  <rect x="560" y="520" width="480" height="150" rx="24" fill="#8FB89B" fill-opacity="0.4"/>
+  <text x="800" y="260" text-anchor="middle" fill="#F6FFF8" font-size="56" font-family="Inter, Arial, sans-serif" font-weight="700">Homesense</text>
+  <text x="800" y="320" text-anchor="middle" fill="#97C59F" font-size="26" font-family="Inter, Arial, sans-serif">Smart Home, Soft Interface</text>
+</svg>
