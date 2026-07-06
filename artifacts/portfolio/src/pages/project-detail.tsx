@@ -1,10 +1,9 @@
 import { Link, useRoute } from "wouter";
-import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, Home } from "lucide-react";
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { projects } from "@/lib/projects";
 
-function ShimmerLink({
+function ActionLink({
   href,
   children,
   className = "",
@@ -14,66 +13,26 @@ function ShimmerLink({
   className?: string;
 }) {
   return (
-    <motion.div whileHover="hovered" whileTap={{ scale: 0.97 }} initial="idle">
-      <Link
-        href={href}
-        className={`group relative inline-flex items-center justify-center overflow-hidden rounded-full border border-border px-4 py-2 text-sm transition-colors ${className}`}
-      >
-        <motion.span
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
-          variants={{
-            idle: { x: "-100%" },
-            hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } },
-          }}
-        />
-        <motion.span
-          className="absolute inset-0"
-          variants={{
-            idle: { boxShadow: "0 0 0px 0px rgba(255,255,255,0)" },
-            hovered: { boxShadow: "0 0 18px 2px hsl(var(--primary) / 0.6)", transition: { duration: 0.3 } },
-          }}
-        />
-        <span className="relative z-10 flex items-center gap-2">{children}</span>
-      </Link>
-    </motion.div>
+    <Link
+      href={href}
+      className={`inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm text-foreground ${className}`}
+    >
+      <span className="flex items-center gap-2">{children}</span>
+    </Link>
   );
 }
 
-function ProjectArrowLink({
-  href,
-  direction,
-  title,
-  label,
-}: {
-  href: string;
-  direction: "prev" | "next";
-  title: string;
-  label: string;
-}) {
+function ProjectArrowLink({ href, direction, label }: { href: string; direction: "prev" | "next"; label: string }) {
   const Icon = direction === "prev" ? ArrowLeft : ArrowRight;
 
   return (
-    <motion.div whileHover="hovered" whileTap={{ scale: 0.96 }} initial="idle" className="group relative inline-flex items-center">
-      <Link
-        href={href}
-        className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/80 text-foreground transition-colors hover:border-primary/50 hover:text-primary"
-        aria-label={label}
-      >
-        <motion.span
-          className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/25 to-transparent"
-          variants={{
-            idle: { x: "-100%" },
-            hovered: { x: "200%", transition: { duration: 0.5, ease: "easeInOut" } },
-          }}
-        />
-        <Icon className="relative z-10 h-4 w-4" />
-      </Link>
-      <span
-        className={`pointer-events-none absolute top-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-border/70 bg-background/95 px-3 py-1 text-xs text-muted-foreground shadow-sm opacity-0 transition-all duration-300 ${direction === "prev" ? "left-12 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100" : "right-12 translate-x-2 group-hover:translate-x-0 group-hover:opacity-100"}`}
-      >
-        {title}
-      </span>
-    </motion.div>
+    <Link
+      href={href}
+      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/80 text-foreground"
+      aria-label={label}
+    >
+      <Icon className="h-4 w-4" />
+    </Link>
   );
 }
 
@@ -82,6 +41,10 @@ export default function ProjectDetail() {
   const activeSlug = params?.slug;
   const project = projects.find((item) => item.slug === activeSlug);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [activeSlug]);
+
   if (!match || !project) {
     return (
       <div className="min-h-screen bg-background text-foreground flex items-center justify-center px-6">
@@ -89,10 +52,10 @@ export default function ProjectDetail() {
           <p className="text-sm font-medium text-primary mb-3">Project not found</p>
           <h1 className="text-3xl font-semibold mb-4">This project page is still being prepared.</h1>
           <p className="text-muted-foreground mb-8">Head back home to explore the available case studies.</p>
-          <ShimmerLink href="/#projects" className="hover:border-primary/50 hover:text-primary">
+          <ActionLink href="/#projects">
             <Home className="h-4 w-4" />
             Back to home
-          </ShimmerLink>
+          </ActionLink>
         </div>
       </div>
     );
@@ -107,10 +70,10 @@ export default function ProjectDetail() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="border-b border-border/80">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <ShimmerLink href="/" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground hover:text-primary">
+          <ActionLink href="/" className="border-none bg-transparent px-0 py-0 text-sm font-medium text-muted-foreground">
             <ArrowLeft className="h-4 w-4" />
             Back to home
-          </ShimmerLink>
+          </ActionLink>
           <div className="text-sm text-muted-foreground">
             {project.tags.join(" • ")}
           </div>
@@ -156,14 +119,14 @@ export default function ProjectDetail() {
         </section>
 
         <section className="flex flex-wrap items-center justify-between gap-4 border-t border-border pt-8">
-          <ProjectArrowLink href={`/projects/${previousProject.slug}`} direction="prev" title={previousProject.title} label={`Previous project: ${previousProject.title}`} />
+          <ProjectArrowLink href={`/projects/${previousProject.slug}`} direction="prev" label={`Previous project: ${previousProject.title}`} />
 
-          <ShimmerLink href="/#projects" className="hover:border-primary/50 hover:text-primary">
+          <ActionLink href="/#projects">
             <Home className="h-4 w-4" />
             Back to home
-          </ShimmerLink>
+          </ActionLink>
 
-          <ProjectArrowLink href={`/projects/${nextProject.slug}`} direction="next" title={nextProject.title} label={`Next project: ${nextProject.title}`} />
+          <ProjectArrowLink href={`/projects/${nextProject.slug}`} direction="next" label={`Next project: ${nextProject.title}`} />
         </section>
       </main>
     </div>
