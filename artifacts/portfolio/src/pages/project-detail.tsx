@@ -1,6 +1,6 @@
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Home } from "lucide-react";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { projects } from "@/lib/projects";
 
 function ActionLink({
@@ -15,7 +15,7 @@ function ActionLink({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center rounded-full border border-border px-4 py-2 text-sm text-foreground ${className}`}
+      className={`inline-flex items-center justify-center border border-border px-4 py-2 text-sm text-foreground ${className}`}
     >
       <span className="flex items-center gap-2">{children}</span>
     </Link>
@@ -28,11 +28,84 @@ function ProjectArrowLink({ href, direction, label }: { href: string; direction:
   return (
     <Link
       href={href}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-background/80 text-foreground"
+      className="inline-flex h-11 w-11 items-center justify-center border border-border bg-background/80 text-foreground"
       aria-label={label}
     >
       <Icon className="h-4 w-4" />
     </Link>
+  );
+}
+
+function ProjectGallery({ slug, title, fallbackImage }: { slug: string; title: string; fallbackImage: string }) {
+  const [galleryImages, setGalleryImages] = useState<string[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const loadGalleryImages = async () => {
+      const candidates: string[][] = [];
+      for (let index = 1; index <= 6; index += 1) {
+        const extensions = ["png", "jpg", "jpeg", "webp", "svg"];
+        candidates.push(extensions.map((extension) => `/project-images/${slug}/${index}.${extension}`));
+      }
+
+      const resolved: string[] = [];
+      for (const group of candidates) {
+        let found = false;
+        for (const candidate of group) {
+          const image = new Image();
+          image.src = candidate;
+          const loaded = await new Promise<boolean>((resolve) => {
+            image.onload = () => resolve(true);
+            image.onerror = () => resolve(false);
+          });
+          if (loaded) {
+            resolved.push(candidate);
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          break;
+        }
+      }
+
+      if (!cancelled) {
+        setGalleryImages(resolved);
+      }
+    };
+
+    void loadGalleryImages();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
+
+  if (galleryImages.length === 0) {
+    return (
+      <div className="overflow-hidden border border-border bg-muted/20">
+        <img
+          src={fallbackImage}
+          alt={`${title} preview`}
+          className="block h-[320px] w-full object-cover object-center"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="overflow-hidden border border-border bg-muted/20">
+      <div className="flex flex-col">
+        {galleryImages.map((imageSrc) => (
+          <img
+            key={imageSrc}
+            src={imageSrc}
+            alt={`${title} gallery image`}
+            className="block w-full object-cover object-center"
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -97,13 +170,7 @@ export default function ProjectDetail() {
                 </span>
               ))}
             </div>
-            <div className="overflow-hidden rounded-[2rem] border border-border bg-muted/20">
-              <img
-                src={project.image}
-                alt={`${project.title} preview`}
-                className="h-[320px] w-full object-cover object-center"
-              />
-            </div>
+            <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
             <div className="rounded-2xl border border-border bg-muted/20 p-6">
               <h2 className="text-lg font-semibold">What this project covers</h2>
               <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
