@@ -230,14 +230,11 @@ function PortfolioCard({
       transition={{ duration: 0.4, delay }}
       className="group relative border border-border bg-background/60 overflow-hidden flex flex-col hover:border-primary/40 transition-colors"
     >
-      <div className="relative shrink-0 overflow-hidden">
-        <div className="shrink-0">{thumbnail}</div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/90 px-6 text-center opacity-0 transition-all duration-300 group-hover:opacity-100 backdrop-blur-[2px]">
-          <Link href={link.href} className="inline-flex items-center justify-center h-12 px-8 font-medium overflow-hidden border border-white/20 bg-white/10 text-white text-sm backdrop-blur-sm rounded-full">
-            View Project <ArrowRight className="w-3.5 h-3.5 ml-1" />
-          </Link>
-        </div>
-      </div>
+      <Link href={link.href} className="group block relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2">
+        <div className="shrink-0 transition-transform duration-500 group-hover:scale-[1.03]">{thumbnail}</div>
+        <div className="absolute inset-0 bg-primary/70 opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0" />
+      </Link>
 
       <div className="px-5 pt-4 pb-5 flex flex-col gap-2">
         <div className="flex items-center gap-2 flex-wrap">
@@ -564,28 +561,26 @@ export default function Home() {
         aria-label="Main navigation"
         className="fixed z-50 left-0 right-0 flex justify-center"
         style={{
-          top: scrolled ? 10 : 0,
-          padding: scrolled ? "0 16px" : "0",
+          top: 0,
+          padding: 0,
           transition: "top 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
         <div
           style={{
             width: "100%",
-            maxWidth: scrolled ? 660 : "100vw",
-            height: scrolled ? 48 : 64,
-            borderRadius: scrolled ? 9999 : 0,
-            paddingLeft: scrolled ? 20 : 24,
-            paddingRight: scrolled ? 20 : 24,
-            background: `hsl(var(--background) / ${scrolled ? "0.72" : "0.82"})`,
-            backdropFilter: "blur(20px) saturate(160%)",
-            WebkitBackdropFilter: "blur(20px) saturate(160%)",
+            maxWidth: "100%",
+            height: 64,
+            borderRadius: 0,
+            paddingLeft: 24,
+            paddingRight: 24,
+            background: `linear-gradient(135deg, hsl(var(--background) / 0.96) 0%, hsl(var(--background) / 0.9) 100%)`,
+            backdropFilter: "blur(24px) saturate(180%)",
+            WebkitBackdropFilter: "blur(24px) saturate(180%)",
             border: "1px solid transparent",
-            borderColor: scrolled ? "hsl(var(--border) / 0.55)" : "transparent",
-            borderBottomColor: "hsl(var(--border))",
-            boxShadow: scrolled
-              ? "0 8px 32px hsl(0 0% 0% / 0.10), 0 2px 8px hsl(0 0% 0% / 0.06)"
-              : "none",
+            borderColor: "hsla(0, 0%, 100%, 0.12)",
+            borderBottomColor: "hsl(var(--border) / 0.7)",
+            boxShadow: "0 8px 24px hsl(0 0% 0% / 0.08), inset 0 1px 0 hsl(0 0% 100% / 0.10)",
             transition: "all 0.35s cubic-bezier(0.4,0,0.2,1)",
             display: "flex",
             alignItems: "center",
