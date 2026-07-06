@@ -3,6 +3,11 @@ import { ArrowLeft, ArrowRight, Home } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { projects } from "@/lib/projects";
 
+const projectImageEntries = import.meta.glob("/public/project-images/**/*.{png,jpg,jpeg,webp,svg}", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
+
 function ActionLink({
   href,
   children,
@@ -15,7 +20,7 @@ function ActionLink({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center border border-border px-4 py-2 text-sm text-foreground ${className}`}
+      className={`inline-flex items-center justify-center border border-border px-4 py-2 text-sm text-foreground transition-colors hover:border-primary/50 hover:text-primary ${className}`}
     >
       <span className="flex items-center gap-2">{children}</span>
     </Link>
@@ -28,7 +33,7 @@ function ProjectArrowLink({ href, direction, label }: { href: string; direction:
   return (
     <Link
       href={href}
-      className="inline-flex h-11 w-11 items-center justify-center border border-border bg-background/80 text-foreground"
+      className="inline-flex h-11 w-11 items-center justify-center border border-border bg-background/80 text-foreground transition-colors hover:border-primary/50 hover:text-primary"
       aria-label={label}
     >
       <Icon className="h-4 w-4" />
@@ -41,37 +46,23 @@ function ProjectGallery({ slug, title, fallbackImage }: { slug: string; title: s
 
   useEffect(() => {
     let cancelled = false;
-    const loadGalleryImages = async () => {
-      const resolved: string[] = [];
-      const extensions = ["png", "jpg", "jpeg", "webp", "svg"];
 
-      for (let index = 1; index <= 24; index += 1) {
-        let found = false;
-        for (const extension of extensions) {
-          const candidate = `/project-images/${slug}/${index}.${extension}`;
-          const image = new Image();
-          image.src = candidate;
-          const loaded = await new Promise<boolean>((resolve) => {
-            image.onload = () => resolve(true);
-            image.onerror = () => resolve(false);
-          });
-          if (loaded) {
-            resolved.push(candidate);
-            found = true;
-            break;
-          }
-        }
-        if (!found) {
-          break;
-        }
-      }
+    const loadGalleryImages = () => {
+      const resolved = Object.keys(projectImageEntries)
+        .filter((entry) => entry.startsWith(`/public/project-images/${slug}/`))
+        .map((entry) => entry.replace(/^\/public/, ""))
+        .sort((left, right) => {
+          const leftNumber = Number(left.match(/(\d+)\.[^.]+$/)?.[1] ?? 0);
+          const rightNumber = Number(right.match(/(\d+)\.[^.]+$/)?.[1] ?? 0);
+          return leftNumber - rightNumber;
+        });
 
       if (!cancelled) {
         setGalleryImages(resolved);
       }
     };
 
-    void loadGalleryImages();
+    loadGalleryImages();
 
     return () => {
       cancelled = true;
