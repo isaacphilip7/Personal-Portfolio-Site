@@ -550,6 +550,24 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const targetId = window.location.hash.replace(/^#/, "");
+    if (!targetId) return;
+
+    let frame = 0;
+    const scrollToTarget = () => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.scrollIntoView({ behavior: "auto", block: "start" });
+      } else {
+        frame = window.requestAnimationFrame(scrollToTarget);
+      }
+    };
+
+    frame = window.requestAnimationFrame(scrollToTarget);
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <div
       className="min-h-screen bg-background text-foreground selection:bg-primary selection:text-primary-foreground overflow-x-hidden"
