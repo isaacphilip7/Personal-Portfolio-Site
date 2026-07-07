@@ -610,29 +610,53 @@ export default function Home() {
               maxWidth: 1200,
               display: "flex",
               alignItems: "center",
-              justifyContent: scrolled ? "center" : "space-between",
-              gap: scrolled ? 48 : 0,
               margin: "0 auto",
-              transition: "gap 0.35s cubic-bezier(0.4,0,0.2,1)",
             }}
           >
-            <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
-              {scrolled ? (
-                <span className="text-white">ip</span>
-              ) : (
-                <>
-                  isaac<span className="text-primary">_</span>philip
-                </>
-              )}
+            <a
+              href="#"
+              className="relative inline-flex items-center font-bold text-xl tracking-tight hover:text-primary transition-colors"
+            >
+              {/* In-flow sizer keeps the brand box at "ip" width so the cluster
+                  centers cleanly; the full name overlays and overflows into the
+                  empty space to its right when at the top. Both crossfade. */}
+              <span
+                className="text-white"
+                style={{ opacity: scrolled ? 1 : 0, transition: "opacity 0.35s cubic-bezier(0.4,0,0.2,1)" }}
+              >
+                ip
+              </span>
+              <span
+                aria-hidden={scrolled}
+                className="absolute left-0 whitespace-nowrap"
+                style={{ opacity: scrolled ? 0 : 1, transition: "opacity 0.35s cubic-bezier(0.4,0,0.2,1)" }}
+              >
+                isaac<span className="text-primary">_</span>philip
+              </span>
             </a>
-            <div className="flex items-center gap-8">
-              <div className={`hidden md:flex items-center gap-8 text-sm ${scrolled ? "justify-center" : "w-full justify-end"}`}>
-                <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
-                <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
-                <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
-                <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
-              </div>
+            <div
+              aria-hidden
+              style={{ flexGrow: scrolled ? 1 : 0, transition: "flex-grow 0.35s cubic-bezier(0.4,0,0.2,1)" }}
+            />
+            <div
+              aria-hidden
+              style={{
+                flexGrow: scrolled ? 0 : 1,
+                minWidth: scrolled ? 48 : 0,
+                transition:
+                  "flex-grow 0.35s cubic-bezier(0.4,0,0.2,1), min-width 0.35s cubic-bezier(0.4,0,0.2,1)",
+              }}
+            />
+            <div className="hidden md:flex items-center gap-8 text-sm">
+              <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
+              <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
+              <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
+              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
             </div>
+            <div
+              aria-hidden
+              style={{ flexGrow: scrolled ? 1 : 0, transition: "flex-grow 0.35s cubic-bezier(0.4,0,0.2,1)" }}
+            />
           </div>
         </div>
       </nav>
