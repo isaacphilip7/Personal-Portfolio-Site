@@ -1,12 +1,41 @@
 import { Link, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, Home } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, Home } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { projects } from "@/lib/projects";
 
 const projectImageEntries = import.meta.glob("/public/project-images/**/*.{png,jpg,jpeg,webp,svg}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
+
+const projectReadmeEntries = import.meta.glob("/src/content/*.md", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+function ProjectReadme({ markdown }: { markdown: string }) {
+  return (
+    <div className="prose prose-invert max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-a:text-primary prose-hr:border-border prose-pre:border prose-pre:border-border prose-code:text-primary prose-th:text-foreground">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          img: ({ src, alt }) => {
+            const source = typeof src === "string" ? src : "";
+            if (source.includes("img.shields.io")) {
+              return <img src={source} alt={alt ?? ""} className="m-0 mr-1 inline-block align-middle" />;
+            }
+            return <img src={source} alt={alt ?? ""} loading="lazy" className="w-full border border-border" />;
+          },
+        }}
+      >
+        {markdown}
+      </ReactMarkdown>
+    </div>
+  );
+}
 
 function ActionLink({
   href,
@@ -133,6 +162,7 @@ export default function ProjectDetail() {
     );
   }
 
+  const readme = projectReadmeEntries[`/src/content/${project.slug}.md`];
   const index = projects.findIndex((item) => item.slug === project.slug);
   const total = projects.length;
   const previousProject = projects[(index - 1 + total) % total];
@@ -146,17 +176,31 @@ export default function ProjectDetail() {
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </ActionLink>
-          <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground whitespace-nowrap">
-            <span
-              className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
-            >
-              {project.tags.join(" • ")}
-            </span>
-            <span
-              className={`flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"}`}
-            >
-              <span className="font-medium text-foreground">{project.title}</span>
-            </span>
+          <div className="flex items-center gap-4">
+            <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground whitespace-nowrap">
+              <span
+                className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
+              >
+                {project.tags.join(" • ")}
+              </span>
+              <span
+                className={`flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"}`}
+              >
+                <span className="font-medium text-foreground">{project.title}</span>
+              </span>
+            </div>
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${project.title} source on GitHub`}
+                className="inline-flex items-center gap-2 border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+              >
+                <Github className="h-4 w-4" />
+                <span className="hidden sm:inline">GitHub</span>
+              </a>
+            )}
           </div>
         </div>
       </header>
@@ -178,7 +222,11 @@ export default function ProjectDetail() {
                 </span>
               ))}
             </div>
-            <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
+            {readme ? (
+              <ProjectReadme markdown={readme} />
+            ) : (
+              <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
+            )}
           </div>
         </section>
 
