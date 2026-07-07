@@ -610,15 +610,23 @@ export default function Home() {
               maxWidth: 1200,
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
+              justifyContent: scrolled ? "center" : "space-between",
+              gap: scrolled ? 48 : 0,
               margin: "0 auto",
+              transition: "gap 0.35s cubic-bezier(0.4,0,0.2,1)",
             }}
           >
             <a href="#" className="font-bold text-xl tracking-tight hover:text-primary transition-colors">
-              isaac<span className="text-primary">_</span>philip
+              {scrolled ? (
+                <span className="text-white">ip</span>
+              ) : (
+                <>
+                  isaac<span className="text-primary">_</span>philip
+                </>
+              )}
             </a>
             <div className="flex items-center gap-8">
-              <div className="hidden md:flex items-center gap-8 text-sm w-full justify-end">
+              <div className={`hidden md:flex items-center gap-8 text-sm ${scrolled ? "justify-center" : "w-full justify-end"}`}>
                 <a href="#projects" className="text-muted-foreground hover:text-foreground transition-colors">Projects</a>
                 <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors">Experience</a>
                 <a href="#skills" className="text-muted-foreground hover:text-foreground transition-colors">Skills</a>
