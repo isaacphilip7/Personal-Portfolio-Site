@@ -1,5 +1,5 @@
 import { Link, useRoute } from "wouter";
-import { ArrowLeft, ArrowRight, Home } from "lucide-react";
+import { ArrowLeft, ArrowRight, Github, Home } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -176,17 +176,31 @@ export default function ProjectDetail() {
             <ArrowLeft className="h-4 w-4" />
             Back to home
           </ActionLink>
-          <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground whitespace-nowrap">
-            <span
-              className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
-            >
-              {project.tags.join(" • ")}
-            </span>
-            <span
-              className={`flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"}`}
-            >
-              <span className="font-medium text-foreground">{project.title}</span>
-            </span>
+          <div className="flex items-center gap-4">
+            <div className="relative min-h-6 flex items-center justify-end text-sm text-muted-foreground whitespace-nowrap">
+              <span
+                className={`absolute inset-0 flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "pointer-events-none opacity-0 translate-y-1" : "opacity-100 translate-y-0"}`}
+              >
+                {project.tags.join(" • ")}
+              </span>
+              <span
+                className={`flex items-center justify-end transition-all duration-300 ${isScrolledPastTop ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-1"}`}
+              >
+                <span className="font-medium text-foreground">{project.title}</span>
+              </span>
+            </div>
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${project.title} source on GitHub`}
+                className="inline-flex items-center gap-2 border border-border px-3 py-1.5 text-sm text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+              >
+                <Github className="h-4 w-4" />
+                <span className="hidden sm:inline">GitHub</span>
+              </a>
+            )}
           </div>
         </div>
       </header>

@@ -9,6 +9,7 @@ export type ProjectItem = {
   status?: string;
   image: string;
   highlights: string[];
+  repoUrl?: string;
 };
 
 export const projects: ProjectItem[] = [
@@ -23,6 +24,7 @@ export const projects: ProjectItem[] = [
     type: "Product Design",
     status: "Agent Design",
     image: "/project-images/neuro-ai.svg",
+    repoUrl: "https://github.com/isaacphilip7/Neuro-UI-Sky-Blue",
     highlights: [
       "Designing a new AI studio experience from the ground up.",
       "Bringing structure to agent orchestration, flows, and handoff states.",
