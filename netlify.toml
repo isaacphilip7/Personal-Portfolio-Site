@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm --filter ./artifacts/portfolio run build"
+  publish = "artifacts/portfolio/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
