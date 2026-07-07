@@ -1,12 +1,41 @@
 import { Link, useRoute } from "wouter";
 import { ArrowLeft, ArrowRight, Home } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { projects } from "@/lib/projects";
 
 const projectImageEntries = import.meta.glob("/public/project-images/**/*.{png,jpg,jpeg,webp,svg}", {
   eager: true,
   import: "default",
 }) as Record<string, string>;
+
+const projectReadmeEntries = import.meta.glob("/src/content/*.md", {
+  eager: true,
+  query: "?raw",
+  import: "default",
+}) as Record<string, string>;
+
+function ProjectReadme({ markdown }: { markdown: string }) {
+  return (
+    <div className="prose prose-invert max-w-none prose-headings:font-heading prose-headings:tracking-tight prose-a:text-primary prose-hr:border-border prose-pre:border prose-pre:border-border prose-code:text-primary prose-th:text-foreground">
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          img: ({ src, alt }) => {
+            const source = typeof src === "string" ? src : "";
+            if (source.includes("img.shields.io")) {
+              return <img src={source} alt={alt ?? ""} className="m-0 mr-1 inline-block align-middle" />;
+            }
+            return <img src={source} alt={alt ?? ""} loading="lazy" className="w-full border border-border" />;
+          },
+        }}
+      >
+        {markdown}
+      </ReactMarkdown>
+    </div>
+  );
+}
 
 function ActionLink({
   href,
@@ -133,6 +162,7 @@ export default function ProjectDetail() {
     );
   }
 
+  const readme = projectReadmeEntries[`/src/content/${project.slug}.md`];
   const index = projects.findIndex((item) => item.slug === project.slug);
   const total = projects.length;
   const previousProject = projects[(index - 1 + total) % total];
@@ -178,7 +208,11 @@ export default function ProjectDetail() {
                 </span>
               ))}
             </div>
-            <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
+            {readme ? (
+              <ProjectReadme markdown={readme} />
+            ) : (
+              <ProjectGallery slug={project.slug} title={project.title} fallbackImage={project.image} />
+            )}
           </div>
         </section>
 
