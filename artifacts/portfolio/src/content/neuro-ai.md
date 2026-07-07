@@ -1,5 +1,3 @@
-# 🧠 Neuro AI — Multi-Agent Accelerator Client
-
 > A modern, responsive frontend for [NeuroSan](https://github.com/cognizant-ai-labs/neuro-san) — making it easy to design, connect, and orchestrate multi-agent AI networks through a clean, intuitive UI.
 
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)
