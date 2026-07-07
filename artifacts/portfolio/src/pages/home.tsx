@@ -607,7 +607,7 @@ export default function Home() {
           <div
             style={{
               width: "100%",
-              maxWidth: 1200,
+              maxWidth: 1152,
               display: "flex",
               alignItems: "center",
               margin: "0 auto",
@@ -617,14 +617,14 @@ export default function Home() {
               href="#"
               className="relative inline-flex items-center font-bold text-xl tracking-tight hover:text-primary transition-colors"
             >
-              {/* In-flow sizer keeps the brand box at "ip" width; the full name
+              {/* In-flow sizer keeps the brand box at "ip_" width; the full name
                   overlays it and overflows into the empty space to its right when
                   at the top. Both crossfade. */}
               <span
                 className="text-white"
                 style={{ opacity: scrolled ? 1 : 0, transition: "opacity 0.35s cubic-bezier(0.4,0,0.2,1)" }}
               >
-                ip
+                ip<span className="text-primary">_</span>
               </span>
               <span
                 aria-hidden={scrolled}
